@@ -1,0 +1,18 @@
+godot:
+  version: 4.4.1
+itch_io:
+  name: KenneyJam2025
+  game: vanny96/kenney-jam-2025
+  exports:
+    - name: Web
+      tag: web
+      exportDir: /tmp/web
+      exportRelease: /tmp/web/index.html
+    - name: Windows Desktop
+      tag: windows
+      exportDir: /tmp/windows
+      exportRelease: /tmp/windows/KenneyJam.exe
+    - name: macOS
+      tag: mac
+      exportDir: /tmp/mac
+      exportRelease: /tmp/mac/KenneyJam.app

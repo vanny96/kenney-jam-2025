@@ -1,0 +1,72 @@
+name: Deploy Game
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch: {}
+
+jobs:
+  setup:
+    name: Get Godot Version
+    runs-on: ubuntu-latest
+    outputs:
+      godot_version: ${{ steps.get-godot-version.outputs.godot_version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get Godot Version
+        id: get-godot-version
+        run: |
+          GODOT_VERSION=$(yq '.godot.version' deploy_metadata.yaml)
+          echo "Godot version: $GODOT_VERSION"
+          echo "godot_version=$GODOT_VERSION" >> $GITHUB_OUTPUT
+
+  deploy:
+    name: Deploy
+    needs: setup
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:${{ needs.setup.outputs.godot_version }}
+    steps:
+      - name: Setup Yq
+        run: |
+          wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          chmod +x /usr/local/bin/yq
+          yq --version
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup Godot
+        env:
+          GODOT_VERSION: ${{ needs.setup.outputs.godot_version }}
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mkdir -v -p ~/.config/
+          mv /root/.config/godot ~/.config/godot
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Create and push exports
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          game=$(yq '.itch_io.game' deploy_metadata.yaml)
+          yq -o=json -I0 '.itch_io.exports[]' deploy_metadata.yaml | while read -r export; do
+            name=$(echo "$export" | yq -r '.name')
+            tag=$(echo "$export" | yq -r '.tag')
+            exportDir=$(echo "$export" | yq -r '.exportDir')
+            exportRelease=$(echo "$export" | yq -r '.exportRelease')
+
+            echo "Getting ready to export $name at $exportDir"
+            mkdir $exportDir
+            godot -q --headless --export-release "${name}" "$exportRelease"
+            echo "Export completed"
+
+            echo "Pushing $name to Itch.io"
+            butler push $exportDir $game:$tag
+            echo "Push of $name to Itch.io Completed"
+          done
