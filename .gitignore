@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+.idea
+.DS_Store
+*.zip
+*.exe
+*.app
+*.command
+**/project_time.json
