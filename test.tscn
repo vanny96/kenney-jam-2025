@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://rpj6wtste4ls"]
+[gd_scene load_steps=4 format=3 uid="uid://rpj6wtste4ls"]
 
 [ext_resource type="Script" uid="uid://cgsfxgyu5pqtx" path="res://test.gd" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://b86wu44udlodn" path="res://icon.svg" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://dd1y7jx28eabp" path="res://Scenes/Utils/PauseMenu/PauseMenu.tscn" id="3_6uqi0"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_8uh7m")
@@ -9,3 +10,7 @@ script = ExtResource("1_8uh7m")
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(528, 241)
 texture = ExtResource("1_37kl0")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("3_6uqi0")]

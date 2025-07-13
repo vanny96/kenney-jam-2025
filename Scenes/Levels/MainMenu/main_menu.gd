@@ -6,6 +6,8 @@ extends Control
 @onready var settings_button: Button = $Buttons/Settings
 @onready var exit_button: Button = $Buttons/Exit
 
+@onready var settings_menu: Control = $Settings
+
 func _ready() -> void:
 	play_button.pressed.connect(play)
 	settings_button.pressed.connect(settings)
@@ -21,7 +23,7 @@ func play():
 		SceneManager.change_scene_to_packed(first_level)
 
 func settings():
-	pass
+	settings_menu.visible = true
 	
 func exit():
 	get_tree().quit()

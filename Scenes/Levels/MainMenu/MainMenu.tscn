@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://brk0arxtuiaim"]
+[gd_scene load_steps=7 format=3 uid="uid://brk0arxtuiaim"]
 
 [ext_resource type="Script" uid="uid://c5okungnv126k" path="res://Scenes/Levels/MainMenu/main_menu.gd" id="1_5kab6"]
 [ext_resource type="PackedScene" uid="uid://rpj6wtste4ls" path="res://test.tscn" id="2_n6m84"]
+[ext_resource type="PackedScene" uid="uid://c1cdsdrd3n0xo" path="res://Scenes/Utils/Settings/Settings.tscn" id="3_iyg2c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3q22e"]
 
@@ -27,7 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.4104, 0.199682, 0.101058, 1)
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -63,3 +64,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_3q22e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3q22e")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n6m84")
 text = "Exit"
+
+[node name="Settings" parent="." instance=ExtResource("3_iyg2c")]
+visible = false
+layout_mode = 1
