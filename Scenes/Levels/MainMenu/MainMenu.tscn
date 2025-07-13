@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://brk0arxtuiaim"]
+
+[ext_resource type="Script" uid="uid://c5okungnv126k" path="res://Scenes/Levels/MainMenu/main_menu.gd" id="1_5kab6"]
+[ext_resource type="PackedScene" uid="uid://rpj6wtste4ls" path="res://test.tscn" id="2_n6m84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3q22e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3q22e"]
+bg_color = Color(0.698039, 0.698039, 0.698039, 0.376471)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6m84"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5kab6")
+first_level = ExtResource("2_n6m84")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.15
+anchor_bottom = 0.5
+offset_top = -50.5
+offset_right = 70.0
+offset_bottom = 50.5
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3q22e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3q22e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n6m84")
+text = "Play"
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3q22e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3q22e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n6m84")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3q22e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3q22e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n6m84")
+text = "Exit"

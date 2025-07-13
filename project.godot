@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="KenneyJam2025"
-run/main_scene="uid://rpj6wtste4ls"
+run/main_scene="uid://brk0arxtuiaim"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://Scenes/Utils/SceneManager/SceneManager.tscn"
+Debugger="*res://Scenes/Utils/Debugger/Debugger.tscn"
 
 [display]
 
