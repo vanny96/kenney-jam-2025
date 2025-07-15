@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1cdsdrd3n0xo" path="res://Scenes/Utils/Settings/Settings.tscn" id="3_iyg2c"]
 [ext_resource type="Texture2D" uid="uid://n06sljcayh67" path="res://Scenes/Levels/MainMenu/Sample.png" id="4_oa4lq"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("play_button", "settings_button", "exit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,9 @@ grow_vertical = 2
 theme = ExtResource("1_m6b4a")
 script = ExtResource("1_5kab6")
 first_level = ExtResource("2_n6m84")
+play_button = NodePath("Buttons/Play")
+settings_button = NodePath("Buttons/Settings")
+exit_button = NodePath("Buttons/Exit")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

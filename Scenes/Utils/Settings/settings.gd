@@ -1,8 +1,8 @@
 extends Control
 
-@onready var master_audio_slider: Slider = $PanelContainer/VBoxContainer/GridContainer/MasterAudio/MasterAudio
-@onready var sensibility_slider: Slider = $PanelContainer/VBoxContainer/GridContainer/Sensibility/Sensibility
-@onready var close_button: Button = $PanelContainer/VBoxContainer/CloseButton
+@export var master_audio_slider: Slider
+@export var sensibility_slider: Slider
+@export var close_button: Button
 
 @onready var master_bus_idx: int = AudioServer.get_bus_index("Master")
 

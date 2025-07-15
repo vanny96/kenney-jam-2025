@@ -1,33 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1cdsdrd3n0xo"]
+[gd_scene load_steps=5 format=3 uid="uid://c1cdsdrd3n0xo"]
 
+[ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Art/Menus/menus.tres" id="1_js8by"]
 [ext_resource type="Script" uid="uid://bokgd1lxah1fs" path="res://Scenes/Utils/Settings/settings.gd" id="1_uer2j"]
+[ext_resource type="Texture2D" uid="uid://c03o1k80l7do5" path="res://Art/Menus/Art/panel/button_square_border.svg" id="2_8vv5p"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju6ba"]
-bg_color = Color(0.188969, 0.188969, 0.188969, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 30.0
-expand_margin_top = 30.0
-expand_margin_right = 30.0
-expand_margin_bottom = 30.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_js8by"]
+texture = ExtResource("2_8vv5p")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+modulate_color = Color(0, 0, 0, 0.196078)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uer2j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vv5p"]
-bg_color = Color(0.698039, 0.698039, 0.698039, 0.376471)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_js8by"]
-
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" node_paths=PackedStringArray("master_audio_slider", "sensibility_slider", "close_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_js8by")
 script = ExtResource("1_uer2j")
+master_audio_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/MasterAudio/MasterAudio")
+sensibility_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/Sensibility/Sensibility")
+close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/CloseButton")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_js8by")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -36,69 +45,66 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = -92.0
-offset_right = 201.0
-offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
 pivot_offset = Vector2(200, 33)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ju6ba")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Settings"
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 70
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Master Audio"
 
-[node name="MasterAudio" type="CenterContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="MasterAudio" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[node name="MasterAudio" type="HSlider" parent="PanelContainer/VBoxContainer/GridContainer/MasterAudio"]
+[node name="MasterAudio" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/MasterAudio"]
 custom_minimum_size = Vector2(200, 10)
 layout_mode = 2
 step = 10.0
 rounded = true
-tick_count = 10
 ticks_on_borders = true
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Sensibility"
 
-[node name="Sensibility" type="CenterContainer" parent="PanelContainer/VBoxContainer/GridContainer"]
+[node name="Sensibility" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Sensibility" type="HSlider" parent="PanelContainer/VBoxContainer/GridContainer/Sensibility"]
+[node name="Sensibility" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Sensibility"]
 custom_minimum_size = Vector2(200, 10)
 layout_mode = 2
 min_value = 50.0
 max_value = 150.0
 step = 5.0
 value = 50.0
-tick_count = 10
 ticks_on_borders = true
 
-[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="CloseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_uer2j")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8vv5p")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_js8by")
+theme_type_variation = &"Accent"
+theme_override_font_sizes/font_size = 35
 text = "Close"

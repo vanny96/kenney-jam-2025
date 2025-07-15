@@ -2,9 +2,11 @@ extends Control
 
 @export var first_level: PackedScene
 
-@onready var play_button: Button = $Buttons/Play
-@onready var settings_button: Button = $Buttons/Settings
-@onready var exit_button: Button = $Buttons/Exit
+@export var play_button: Button 
+@export var settings_button: Button 
+@export var exit_button: Button 
+
+@onready var buttons: Array[Button] = [play_button, settings_button, exit_button]
 
 @onready var settings_menu: Control = $Settings
 
@@ -12,6 +14,8 @@ func _ready() -> void:
 	play_button.pressed.connect(play)
 	settings_button.pressed.connect(settings)
 	exit_button.pressed.connect(exit)
+	
+	play_button.grab_focus()
 	
 	if OS.has_feature("web"):
 		exit_button.visible = false
