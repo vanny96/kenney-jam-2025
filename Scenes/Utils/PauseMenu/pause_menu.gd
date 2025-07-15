@@ -1,9 +1,9 @@
 extends Control
 class_name PauseMenu
 
-@onready var resume_button: Button = $PanelContainer/Buttons/Resume
-@onready var settings_button: Button = $PanelContainer/Buttons/Settings
-@onready var exit_button: Button = $PanelContainer/Buttons/Exit
+@export var resume_button: Button
+@export var settings_button: Button
+@export var exit_button: Button
 
 @onready var settings_menu: Control = $Settings
 
@@ -15,6 +15,9 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		exit_button.visible = false
 		
+	if not owner:
+		enter_pause()
+		
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if visible:
@@ -24,6 +27,7 @@ func _process(delta: float) -> void:
 		
 func enter_pause():
 	visible = true
+	resume_button.grab_focus()
 	get_tree().paused = true
 
 func resume():
