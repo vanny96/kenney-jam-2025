@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c82d8pyc7ecud"]
+
+[ext_resource type="Texture2D" uid="uid://8n43yrywdgy5" path="res://Scenes/Menus/EndScreen/Art/Sample.png" id="1_6msgf"]
+[ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="2_2i84g"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6msgf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -571.5
+offset_right = 571.5
+offset_bottom = 164.0
+grow_horizontal = 2
+theme = ExtResource("2_2i84g")
+theme_override_font_sizes/normal_font_size = 100
+text = "Thanks for Playing!"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1

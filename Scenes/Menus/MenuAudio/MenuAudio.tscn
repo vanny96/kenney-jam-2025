@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://co8fioadq1313"]
+
+[ext_resource type="Script" uid="uid://b0ddd0fhod8tu" path="res://Scenes/Menus/MenuAudio/menu_audio.gd" id="1_aqslu"]
+[ext_resource type="AudioStream" uid="uid://b1i6ag0kaf7iw" path="res://Scenes/Menus/MenuAudio/click5.ogg" id="2_lslll"]
+[ext_resource type="AudioStream" uid="uid://crfg0r4b8v4my" path="res://Scenes/Menus/MenuAudio/o6d7a-fz7hh.ogg" id="3_nobas"]
+
+[node name="ButtonAudio" type="Node"]
+script = ExtResource("1_aqslu")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lslll")
+bus = &"SFX"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lslll")
+pitch_scale = 2.0
+bus = &"SFX"
+
+[node name="SliderSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nobas")
+bus = &"SFX"

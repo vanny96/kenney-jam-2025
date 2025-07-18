@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://Scenes/Utils/Globals/Globals.tscn"
-SceneManager="*res://Scenes/Utils/SceneManager/SceneManager.tscn"
-Debugger="*res://Scenes/Utils/Debugger/Debugger.tscn"
+Globals="*res://Utils/Globals/Globals.tscn"
+SceneManager="*res://Utils/SceneManager/SceneManager.tscn"
+Debugger="*res://Utils/Debugger/Debugger.tscn"
+MenuAudio="*res://Scenes/Menus/MenuAudio/MenuAudio.tscn"
 
 [display]
 

@@ -1,0 +1,145 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1cdsdrd3n0xo"]
+
+[ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="1_js8by"]
+[ext_resource type="Script" uid="uid://bokgd1lxah1fs" path="res://Scenes/Menus/Settings/settings.gd" id="1_uer2j"]
+[ext_resource type="Texture2D" uid="uid://c03o1k80l7do5" path="res://Scenes/Menus/Art/Sprites/panel/button_square_border.svg" id="2_8vv5p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_js8by"]
+texture = ExtResource("2_8vv5p")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+modulate_color = Color(0, 0, 0, 0.196078)
+
+[node name="Settings" type="Control" node_paths=PackedStringArray("master_audio_slider", "music_audio_slider", "sfx_audio_slider", "sensibility_slider", "close_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_js8by")
+script = ExtResource("1_uer2j")
+master_audio_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/MasterAudio/MasterAudio")
+music_audio_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/MusicAudio/MusicAudio")
+sfx_audio_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/SFXAudio/SFXAudio")
+sensibility_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/Sensibility/Sensibility")
+close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/CloseButton")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_js8by")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 33)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="MasterAudioLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Master Audio"
+
+[node name="MasterAudio" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MasterAudio" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/MasterAudio"]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+max_value = 200.0
+step = 10.0
+rounded = true
+ticks_on_borders = true
+
+[node name="MusicAudioLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Music Audio"
+
+[node name="MusicAudio" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MusicAudio" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/MusicAudio"]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+max_value = 200.0
+step = 10.0
+rounded = true
+ticks_on_borders = true
+
+[node name="SFXAudioLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SFX Audio"
+
+[node name="SFXAudio" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="SFXAudio" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/SFXAudio"]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+max_value = 200.0
+step = 10.0
+rounded = true
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sensibility"
+
+[node name="Sensibility" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Sensibility" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Sensibility"]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+min_value = 50.0
+max_value = 150.0
+step = 5.0
+value = 50.0
+ticks_on_borders = true
+
+[node name="CloseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Accent"
+theme_override_font_sizes/font_size = 35
+text = "Close"

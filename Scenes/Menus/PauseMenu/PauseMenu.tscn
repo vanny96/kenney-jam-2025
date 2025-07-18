@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://dd1y7jx28eabp"]
+
+[ext_resource type="Script" uid="uid://bls2dj1s4mvoi" path="res://Scenes/Menus/PauseMenu/pause_menu.gd" id="1_r23i5"]
+[ext_resource type="Texture2D" uid="uid://c03o1k80l7do5" path="res://Scenes/Menus/Art/Sprites/panel/button_square_border.svg" id="2_77m1y"]
+[ext_resource type="PackedScene" uid="uid://c1cdsdrd3n0xo" path="res://Scenes/Menus/Settings/Settings.tscn" id="2_lc7sy"]
+[ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="3_j6tqm"]
+[ext_resource type="Texture2D" uid="uid://brw0d1jsmryul" path="res://Scenes/Menus/Art/Sprites/accent_button_red/button_square_depth_flat.svg" id="4_28gdf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28gdf"]
+texture = ExtResource("2_77m1y")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+modulate_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oj0j6"]
+texture = ExtResource("4_28gdf")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_bottom = 50.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4f0a"]
+texture = ExtResource("2_77m1y")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("resume_button", "settings_button", "exit_button")]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_j6tqm")
+script = ExtResource("1_r23i5")
+resume_button = NodePath("VBoxContainer/PausePanel/Margin/Buttons/Resume")
+settings_button = NodePath("VBoxContainer/PausePanel/Margin/Buttons/Settings")
+exit_button = NodePath("VBoxContainer/PausePanel/Margin/Buttons/Exit")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_28gdf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -202.5
+offset_right = 175.0
+offset_bottom = 202.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oj0j6")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Options"
+horizontal_alignment = 1
+
+[node name="PausePanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4f0a")
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/PausePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/PausePanel/Margin"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Resume" type="Button" parent="VBoxContainer/PausePanel/Margin/Buttons"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="VBoxContainer/PausePanel/Margin/Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="VBoxContainer/PausePanel/Margin/Buttons"]
+layout_mode = 2
+theme_type_variation = &"Accent"
+text = "Exit"
+
+[node name="Settings" parent="." instance=ExtResource("2_lc7sy")]
+visible = false
+layout_mode = 1
