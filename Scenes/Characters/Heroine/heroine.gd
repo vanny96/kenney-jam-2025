@@ -7,6 +7,7 @@ signal attacked_signal
 @export var sprint_speed: float = 0
 @export var walk_speed: float = 0
 @export var sleep_time: float = 5
+@export var spawn_point: Node3D
 
 @export var max_punches: int = 5
 @onready var curr_punches: int = max_punches
@@ -26,7 +27,7 @@ func attacked():
 	state_machine.dispatch(PlayerHSM.wake_up_event)
 	attacked_signal.emit()
 	if not curr_health:
-		queue_free()
+		global_position = spawn_point.global_position
 		GlobalSignals.player_died.emit()
 
 func drink_coffee():

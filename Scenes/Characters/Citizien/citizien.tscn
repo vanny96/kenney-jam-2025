@@ -94,5 +94,6 @@ max_health_field = "max_health"
 
 [node name="MultiSoundEmitter" parent="." instance=ExtResource("6_xinf8")]
 audios = Array[AudioStream]([ExtResource("7_li6bj"), ExtResource("8_tq811"), ExtResource("9_qrut6")])
+randomize = true
 
 [editable path="characterSmall"]

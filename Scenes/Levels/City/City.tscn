@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dde8ocp2xccu"]
+[gd_scene load_steps=28 format=3 uid="uid://dde8ocp2xccu"]
 
 [ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="1_5x6sf"]
 [ext_resource type="Script" uid="uid://dextliqgr422" path="res://Scenes/Levels/Sandbox/camera_3d.gd" id="1_gttvd"]
@@ -22,6 +22,7 @@
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="19_5cv8k"]
 [ext_resource type="Texture2D" uid="uid://bantbtahvw1cq" path="res://Scenes/UI/shipGreen_manned.png" id="20_24yh5"]
 [ext_resource type="Texture2D" uid="uid://76fu7rtmucbg" path="res://Scenes/UI/player_fall.png" id="21_fhrle"]
+[ext_resource type="Script" uid="uid://omt4ws4ignv7" path="res://Scenes/Levels/City/game_manager.gd" id="23_u8i71"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwrgy"]
 sky_top_color = Color(0.0352941, 0, 0.25098, 1)
@@ -850,8 +851,12 @@ distance = 25.0
 
 [node name="Characters" type="Node3D" parent="."]
 
-[node name="Heroine" parent="Characters" instance=ExtResource("1_5x6sf")]
+[node name="SpawnPoint" type="Node3D" parent="Characters"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3719, 0, -1.53418)
+
+[node name="Heroine" parent="Characters" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_5x6sf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3719, 0, -1.53418)
+spawn_point = NodePath("../SpawnPoint")
 
 [node name="Citizien" parent="Characters" instance=ExtResource("3_yoe87")]
 transform = Transform3D(4.88762e-07, 0, -1, 0, 1, 0, 1, 0, 4.88762e-07, -50.554, 0, 28.8601)
@@ -965,6 +970,9 @@ theme = ExtResource("19_5cv8k")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 100
 text = "2"
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("23_u8i71")
 
 [editable path="Models/_Node3D_196179"]
 [editable path="ActivationAreas/Areas/ActivationArea"]
