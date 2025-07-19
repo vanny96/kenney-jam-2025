@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Alien
 
+signal died
+
 @export var speed: float
 @export var player_distance_bias: float
 
@@ -10,6 +12,7 @@ func _ready() -> void:
 	GlobalSignals.player_died.connect(disable)
 
 func attacked():
+	died.emit()
 	queue_free()
 	
 func activate():

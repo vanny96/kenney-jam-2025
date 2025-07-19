@@ -26,3 +26,10 @@ func attacked():
 	if not curr_health:
 		queue_free()
 		GlobalSignals.player_died.emit()
+
+func drink_coffee():
+	max_punches += 2
+	curr_punches += 2
+	speed *= 1.2
+	sprint_speed *= 1.2
+	state_machine.dispatch(PlayerHSM.transition_energetic)

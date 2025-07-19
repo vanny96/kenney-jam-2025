@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=4 format=4 uid="uid://bfre2evsavfjn"]
+[gd_resource type="Resource" load_steps=5 format=4 uid="uid://bfre2evsavfjn"]
 
 [ext_resource type="Script" uid="uid://cu407vwey8c0a" path="res://addons/scene_tools/collection.gd" id="1_xsabx"]
 
@@ -8,6 +8,10 @@ size_override = Vector2(128, 128)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_pwobv"]
 _data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAABcAQAAUklGRlQBAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSD0AAAABDzD/ERGCbSRJcfjJPyNCuRAwf9wBJEslI6L/E6D+GkWTYsmIZL3esEgjRUUfsyRfJ0zflhQVlFE69mEEAFZQOCDwAAAA0AsAnQEqgACAAD5tNplJJCMioSIYCGiADYlpbuF0ZgjgH2A/QCR9XoZ7xwHsfDW4bLle5A8PdDsktzAPAjTD3Q6oG5yQ8ucfM6T1fTDSW0PilJVdZEZE/cr9HvmAcZ8JDJLcwDvIAAD+/5isjZKYsA+hQxYB5j/bV8TFp7aIWvjdIsMFj1cyuHu3Hn//e+4Nf+q3ysD+Yv8szvx/mJNFnKn/ixeNDPt+dD/49nI8FHtP9/P/Pk7srWn5pKDHPKEyT2uegT1bwpQnQ0SxOI5AqIQ5LaDJl8tLG2qp6gf0LSgXl3LBeL6/Jb9tOYmMAWAA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_k2w8a"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAAWAQAAUklGRg4BAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSEoAAAABDzD/ERGCTWzbUX7CVn4JSIk0kBYpkYACXvfvkIqtiOj/BNhNWpkjJeRIbEEFKdYkDShdZuHaw9bXLpWYnVpBkwPTQo6BWEa/2VZQOCCeAAAAEAwAnQEqgACAAD5tNplIpCMioSQIKIANiWlu4XRmCOAfYD9AJH1BksXIf5jZL4GLFDUnGOi8KlS58UxqwzSEV5ASBk5/xfIHpsb/P+vyXnrrFwaJ0lLqekG1eaKPyyDavNq80UflkGEAAP7/hBi/lKJS8dkiwoCt7//Dyb2ass2IwBOaWOpBrG+yg0qmGotCPoADdxb/8VQOwFAgAAA=")
 size_override = Vector2(128, 128)
 
 [resource]
@@ -21,4 +25,8 @@ assets = Array[Dictionary]([{
 &"name": &"Alien",
 &"thumbnail": SubResource("PortableCompressedTexture2D_pwobv"),
 &"uid": "uid://gx2ujg10c2cq"
+}, {
+&"name": &"Coffe",
+&"thumbnail": SubResource("PortableCompressedTexture2D_k2w8a"),
+&"uid": "uid://dihaly8e4qqja"
 }])
