@@ -32,7 +32,7 @@ emission = Color(0.639216, 0.407843, 0.254902, 1)
 emission_energy_multiplier = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dyn5h"]
-size = Vector3(1.5, 2, 1.5)
+size = Vector3(2.2, 2, 1.8)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wa6h7"]
 radius = 1.0
@@ -176,7 +176,7 @@ bones/56/rotation = Quaternion(0.0282603, 0.953941, -0.297574, -0.0254478)
 surface_material_override/0 = SubResource("StandardMaterial3D_l1h34")
 
 [node name="HeadAttachment" type="BoneAttachment3D" parent="characterSmall/Root/Skeleton3D" index="1"]
-transform = Transform3D(1, 1.30385e-07, -1.71363e-07, -1.41561e-07, -0.156778, -0.987634, -1.60187e-07, 0.987634, -0.156778, -8.74363e-05, -0.00429954, 0.0369504)
+transform = Transform3D(1, 1.50874e-07, -1.49012e-07, -1.19209e-07, -0.156778, -0.987634, -1.71363e-07, 0.987634, -0.156778, -8.7436e-05, -0.00429954, 0.0369504)
 bone_name = "Head_end"
 bone_idx = 25
 
@@ -184,7 +184,7 @@ bone_idx = 25
 transform = Transform3D(0.01, 4.72492e-10, -8.13041e-10, -3.51991e-10, 0.00999932, 0.000117164, 8.15934e-10, -0.000117165, 0.00999931, 8.73115e-11, -0.00126076, -0.00556413)
 
 [node name="TailAttachment" type="BoneAttachment3D" parent="characterSmall/Root/Skeleton3D" index="2"]
-transform = Transform3D(1, 1.19501e-07, 8.28004e-09, 1.42609e-09, 0.0555232, -0.998457, -1.21327e-07, 0.998458, 0.0555231, 4.14704e-06, -0.00104, 0.0116011)
+transform = Transform3D(1, 1.19734e-07, 8.25094e-09, 1.39698e-09, 0.0555232, -0.998457, -1.2156e-07, 0.998458, 0.0555231, 4.14704e-06, -0.00104, 0.0116011)
 bone_name = "Hips"
 bone_idx = 19
 
@@ -198,6 +198,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tpmtx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26084, 1.42994)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="characterSmall/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0341437)
 shape = SubResource("BoxShape3D_dyn5h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

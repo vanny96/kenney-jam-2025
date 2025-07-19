@@ -2,6 +2,7 @@ extends Control
 class_name PauseMenu
 
 @export var resume_button: Button
+@export var restart_button: Button
 @export var settings_button: Button
 @export var exit_button: Button
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 	MenuAudio.configure_buttons([resume_button, settings_button, exit_button])
 	
 	resume_button.pressed.connect(resume)
+	restart_button.pressed.connect(restart)
 	settings_button.pressed.connect(settings)
 	exit_button.pressed.connect(exit)
 	
@@ -32,6 +34,10 @@ func enter_pause():
 	visible = true
 	resume_button.grab_focus()
 	get_tree().paused = true
+
+func restart():
+	resume()
+	SceneManager.reload_current_scene()
 
 func resume():
 	visible = false
