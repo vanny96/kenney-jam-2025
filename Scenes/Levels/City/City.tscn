@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dde8ocp2xccu"]
+[gd_scene load_steps=30 format=3 uid="uid://dde8ocp2xccu"]
 
 [ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="1_5x6sf"]
 [ext_resource type="Script" uid="uid://dextliqgr422" path="res://Scenes/Levels/Sandbox/camera_3d.gd" id="1_gttvd"]
@@ -44,6 +44,9 @@ tonemap_mode = 2
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iajwf"]
 resource_local_to_scene = true
 radius = 20.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d3if1"]
+load_path = "res://.godot/imported/burst.png-95a620d14d88df980d5ee998612bdb48.ctex"
 
 [node name="City" type="Node3D"]
 
@@ -908,36 +911,57 @@ citiziens = NodePath("Entities/Entities/Humans/CenterContainer/Label")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -175.0
-offset_right = 171.0
+offset_left = 1.0
+offset_top = -190.0
+offset_right = 324.0
+offset_bottom = -15.0
 grow_vertical = 0
 scale = Vector2(0.6, 0.6)
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_bottom = 15
+pivot_offset = Vector2(0, 100)
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_bottom = 0
 
 [node name="HBox" type="HBoxContainer" parent="UI/Punch"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="UI/Punch/HBox"]
+[node name="CenterContainer2" type="CenterContainer" parent="UI/Punch/HBox"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Punch/HBox/CenterContainer2"]
+self_modulate = Color(1, 0.780392, 0, 1)
 layout_mode = 2
 texture = ExtResource("18_5cv8k")
+
+[node name="Outline" type="TextureRect" parent="UI/Punch/HBox/CenterContainer2/TextureRect"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 0
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 141.0
+offset_bottom = 145.0
+scale = Vector2(1.4, 1.4)
+texture = SubResource("CompressedTexture2D_d3if1")
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/Punch/HBox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Punch/HBox/CenterContainer"]
+[node name="Label" type="RichTextLabel" parent="UI/Punch/HBox/CenterContainer"]
+clip_contents = false
 layout_mode = 2
 theme = ExtResource("19_5cv8k")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 100
 text = "2"
+fit_content = true
+autowrap_mode = 0
 
 [node name="Entities" type="MarginContainer" parent="UI"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.6, 0.6)
-theme_override_constants/margin_left = 15
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 15
 
 [node name="Entities" type="VBoxContainer" parent="UI/Entities"]
@@ -955,12 +979,15 @@ expand_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="UI/Entities/Entities/Aliens"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Entities/Entities/Aliens/CenterContainer"]
+[node name="Label" type="RichTextLabel" parent="UI/Entities/Entities/Aliens/CenterContainer"]
+clip_contents = false
 layout_mode = 2
 theme = ExtResource("19_5cv8k")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 100
 text = "2"
+fit_content = true
+autowrap_mode = 0
 
 [node name="Humans" type="HBoxContainer" parent="UI/Entities/Entities"]
 layout_mode = 2
@@ -974,12 +1001,15 @@ expand_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="UI/Entities/Entities/Humans"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Entities/Entities/Humans/CenterContainer"]
+[node name="Label" type="RichTextLabel" parent="UI/Entities/Entities/Humans/CenterContainer"]
+clip_contents = false
 layout_mode = 2
 theme = ExtResource("19_5cv8k")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 100
 text = "2"
+fit_content = true
+autowrap_mode = 0
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("23_u8i71")

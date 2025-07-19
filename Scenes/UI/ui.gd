@@ -2,9 +2,9 @@ extends CanvasLayer
 
 @export var player: Heroine
 
-@export var punches: Label
-@export var enemies: Label
-@export var citiziens: Label
+@export var punches: RichTextLabel
+@export var enemies: RichTextLabel
+@export var citiziens: RichTextLabel
 
 func _process(delta: float) -> void:
 	update_labels()

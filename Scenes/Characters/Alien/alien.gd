@@ -11,9 +11,6 @@ signal died
 @onready var death_particles: CPUParticles3D = $DeathParticles
 @onready var model: Node3D = $characterSmall
 
-func _ready() -> void:
-	GlobalSignals.player_died.connect(disable)
-
 func attacked():
 	died.emit()
 	model.visible = false
