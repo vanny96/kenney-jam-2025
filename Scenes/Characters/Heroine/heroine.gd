@@ -25,4 +25,4 @@ func attacked():
 	print("Heroine health %s" % curr_health)
 	if not curr_health:
 		queue_free()
-		get_tree().create_timer(5).timeout.connect(SceneManager.reload_current_scene)
+		GlobalSignals.player_died.emit()

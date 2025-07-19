@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc1k767ptichb"]
+
+[ext_resource type="Script" uid="uid://bws1xiyullel6" path="res://Scenes/Levels/City/ActivationArea/activation_area.gd" id="1_6w4tn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6w4tn"]
+resource_local_to_scene = true
+radius = 0.0
+
+[node name="ActivationArea" type="Node3D"]
+script = ExtResource("1_6w4tn")
+
+[node name="DebugView" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_6w4tn")
+debug_color = Color(1, 0, 1, 1)

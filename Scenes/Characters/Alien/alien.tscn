@@ -87,6 +87,10 @@ shape = SubResource("CapsuleShape3D_xbba8")
 [node name="LimboHSM" type="LimboHSM" parent="."]
 script = ExtResource("5_ef5dm")
 
+[node name="Idle" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("6_xe4iv")
+animation_player = NodePath("../../AnimationPlayer")
+
 [node name="Run" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "alien", "attack_area")]
 script = ExtResource("7_qokp6")
 animation_player = NodePath("../../AnimationPlayer")
@@ -99,10 +103,6 @@ animation_player = NodePath("../../AnimationPlayer")
 attack_area = NodePath("../../AttackArea")
 
 [node name="Disabled" type="LimboState" parent="LimboHSM"]
-
-[node name="Idle" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("6_xe4iv")
-animation_player = NodePath("../../AnimationPlayer")
 
 [node name="AttackArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26084, 1.42994)

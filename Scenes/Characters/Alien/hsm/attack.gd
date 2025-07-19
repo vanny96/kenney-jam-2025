@@ -6,7 +6,7 @@ extends LimboState
 func _enter() -> void:
 	animation_player.play("alien/attack")
 	animation_player.animation_finished.connect(_go_run.unbind(1))
-	attack()
+	get_tree().create_timer(0.5).timeout.connect(attack)
 
 func attack():
 	for body in attack_area.get_overlapping_bodies():

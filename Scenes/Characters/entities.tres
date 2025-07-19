@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=4 format=4 uid="uid://bfre2evsavfjn"]
+
+[ext_resource type="Script" uid="uid://cu407vwey8c0a" path="res://addons/scene_tools/collection.gd" id="1_xsabx"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_xsabx"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAABgAQAAUklGRlgBAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSEQAAAABDzD/ERGCTWxbcdgpkYAUrCABB0HaF5JNQhxQ3vkpMyki+j8B5qdzIsnkLlpPJXfTEjQ3tIhZluyeiFp/3XDEeLXvKFZQOCDuAAAAsAsAnQEqgACAAD5tNphJpCMiISEYCICADYlnbuF0ZgjgH2A/QCR9XoAbxsRBzswG0Fc0eOCg6bCyqy0KmGd/ZB5LQE86V0n+Z5IYqg8koJwectzdVjHr4bsK3MdX/r5YI8loVMLQAP7/mKyNkpiwD6FDFgH3v6THNt6XhPvpaaFzdhOW+Nd/9+LA6twvt6HJRbADAqBE6qrja3/YFjnunpFdmzLVHvFLe+xR9FfgysgF8Q3cR9XzSPrSHoJXIDkU9tTpzWOx/19/2FQI5p5+JzS9p7Rt+8tSDwjAFXRSQDHJLd0uiK1Zg8u3poKAAA==")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_pwobv"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAABcAQAAUklGRlQBAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSD0AAAABDzD/ERGCbSRJcfjJPyNCuRAwf9wBJEslI6L/E6D+GkWTYsmIZL3esEgjRUUfsyRfJ0zflhQVlFE69mEEAFZQOCDwAAAA0AsAnQEqgACAAD5tNplJJCMioSIYCGiADYlpbuF0ZgjgH2A/QCR9XoZ7xwHsfDW4bLle5A8PdDsktzAPAjTD3Q6oG5yQ8ucfM6T1fTDSW0PilJVdZEZE/cr9HvmAcZ8JDJLcwDvIAAD+/5isjZKYsA+hQxYB5j/bV8TFp7aIWvjdIsMFj1cyuHu3Hn//e+4Nf+q3ysD+Yv8szvx/mJNFnKn/ixeNDPt+dD/49nI8FHtP9/P/Pk7srWn5pKDHPKEyT2uegT1bwpQnQ0SxOI5AqIQ5LaDJl8tLG2qp6gf0LSgXl3LBeL6/Jb9tOYmMAWAA")
+size_override = Vector2(128, 128)
+
+[resource]
+script = ExtResource("1_xsabx")
+name = "entities"
+assets = Array[Dictionary]([{
+&"name": &"Citizien",
+&"thumbnail": SubResource("PortableCompressedTexture2D_xsabx"),
+&"uid": "uid://bhdlahlvxtg2a"
+}, {
+&"name": &"Alien",
+&"thumbnail": SubResource("PortableCompressedTexture2D_pwobv"),
+&"uid": "uid://gx2ujg10c2cq"
+}])
