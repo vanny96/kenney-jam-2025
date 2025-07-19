@@ -612,6 +612,7 @@ transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 75, 0
 [node name="SpotLight3D" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.78912, 13.8325, 0)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -623,6 +624,7 @@ spot_angle = 60.0
 [node name="SpotLight3D6" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.78912, 13.8325, 58.0121)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -634,6 +636,7 @@ spot_angle = 60.0
 [node name="SpotLight3D7" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.78912, 13.8325, -56.7957)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -645,6 +648,7 @@ spot_angle = 60.0
 [node name="SpotLight3D8" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 51.611, 13.8325, -49.638)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -656,6 +660,7 @@ spot_angle = 60.0
 [node name="SpotLight3D9" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -50.0379, 13.8325, -49.638)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -667,6 +672,7 @@ spot_angle = 60.0
 [node name="SpotLight3D2" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 58.5219, 13.8325, 0)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -678,6 +684,7 @@ spot_angle = 60.0
 [node name="SpotLight3D4" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -55.9556, 13.8325, 0)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -689,6 +696,7 @@ spot_angle = 60.0
 [node name="SpotLight3D5" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -51.8871, 13.8325, 54.8229)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
@@ -700,6 +708,7 @@ spot_angle = 60.0
 [node name="SpotLight3D3" type="SpotLight3D" parent="ActivationAreas/Lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 49.5311, 11.5633, 47.8877)
 light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 60.0
