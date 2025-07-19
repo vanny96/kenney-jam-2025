@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhdlahlvxtg2a"]
+[gd_scene load_steps=12 format=3 uid="uid://bhdlahlvxtg2a"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_8pkuo"]
 [ext_resource type="Script" uid="uid://dxq7gkb7sx41j" path="res://Scenes/Characters/Citizien/citizien.gd" id="1_vsaji"]
 [ext_resource type="Texture2D" uid="uid://dub6057rprjgh" path="res://Scenes/Characters/Citizien/Art/businessMaleA.png" id="2_57pgm"]
 [ext_resource type="AnimationLibrary" uid="uid://vl74u0nxrga1" path="res://Scenes/Characters/Citizien/Art/citizien.res" id="3_5h8d3"]
 [ext_resource type="PackedScene" uid="uid://dltkdiauyux4s" path="res://Scenes/UI/health/health_bar.tscn" id="5_ieafq"]
+[ext_resource type="PackedScene" uid="uid://dteyvla2c1i6n" path="res://Utils/MultiAudioEmitter/MultiAudioEmitter.tscn" id="6_xinf8"]
+[ext_resource type="AudioStream" uid="uid://cie3jm81iyt31" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_1.mp3" id="7_li6bj"]
+[ext_resource type="AudioStream" uid="uid://dsy1rqy1hx5xw" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_2.mp3" id="8_tq811"]
+[ext_resource type="AudioStream" uid="uid://1koi47i1f0vf" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_3.mp3" id="9_qrut6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5h8d3"]
 albedo_texture = ExtResource("2_57pgm")
@@ -16,6 +20,7 @@ height = 4.0
 [node name="Citizien" type="StaticBody3D" groups=["citizien"]]
 script = ExtResource("1_vsaji")
 max_health = 8
+help_scream_frequency = 6.0
 
 [node name="characterSmall" parent="." instance=ExtResource("1_8pkuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.741619, 0)
@@ -86,5 +91,8 @@ target = NodePath("..")
 signal_name = "attacked_signal"
 health_field = "curr_health"
 max_health_field = "max_health"
+
+[node name="MultiSoundEmitter" parent="." instance=ExtResource("6_xinf8")]
+audios = Array[AudioStream]([ExtResource("7_li6bj"), ExtResource("8_tq811"), ExtResource("9_qrut6")])
 
 [editable path="characterSmall"]

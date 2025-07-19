@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gx2ujg10c2cq"]
+[gd_scene load_steps=16 format=3 uid="uid://gx2ujg10c2cq"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_ol8ta"]
 [ext_resource type="Script" uid="uid://bkduanwhfbhb8" path="res://Scenes/Characters/Alien/alien.gd" id="1_xbba8"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://by1huyxadhc0y" path="res://Scenes/Characters/Alien/hsm/idle.gd" id="6_xe4iv"]
 [ext_resource type="Script" uid="uid://cda2h5v2roodq" path="res://Scenes/Characters/Alien/hsm/run.gd" id="7_qokp6"]
 [ext_resource type="Script" uid="uid://bekoax5fq0gra" path="res://Scenes/Characters/Alien/hsm/attack.gd" id="8_6vpkv"]
+[ext_resource type="AudioStream" uid="uid://d1c78u0adr4m7" path="res://Scenes/Characters/Alien/Audio/death/alien_death.mp3" id="9_qokp6"]
+[ext_resource type="PackedScene" uid="uid://dteyvla2c1i6n" path="res://Utils/MultiAudioEmitter/MultiAudioEmitter.tscn" id="10_f1xly"]
+[ext_resource type="AudioStream" uid="uid://8llpyvj2xsu" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_1.mp3" id="11_r2xtd"]
+[ext_resource type="AudioStream" uid="uid://i35kmf8677tp" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_2.mp3" id="12_2bqdl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbba8"]
 albedo_texture = ExtResource("2_68vnx")
@@ -97,9 +101,10 @@ animation_player = NodePath("../../AnimationPlayer")
 alien = NodePath("../..")
 attack_area = NodePath("../../AttackArea")
 
-[node name="Attack" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "attack_area")]
+[node name="Attack" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "audio_emitter", "attack_area")]
 script = ExtResource("8_6vpkv")
 animation_player = NodePath("../../AnimationPlayer")
+audio_emitter = NodePath("../../HitSoundEmitter")
 attack_area = NodePath("../../AttackArea")
 
 [node name="Disabled" type="LimboState" parent="LimboHSM"]
@@ -109,5 +114,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26084, 1.42994)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
 shape = SubResource("BoxShape3D_xe4iv")
+
+[node name="DeathPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+stream = ExtResource("9_qokp6")
+volume_db = -20.0
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="HitSoundEmitter" parent="." instance=ExtResource("10_f1xly")]
+volume_db = -10.0
+audios = Array[AudioStream]([ExtResource("11_r2xtd"), ExtResource("12_2bqdl")])
 
 [editable path="characterSmall"]

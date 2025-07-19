@@ -1,10 +1,12 @@
 extends LimboState
 
 @export var animation_player: AnimationPlayer
+@export var audio_emitter: MultiAudioEmitter
 @export var attack_area: Area3D
 
 func _enter() -> void:
 	animation_player.play("alien/attack")
+	audio_emitter.play_next()
 	animation_player.animation_finished.connect(_go_run.unbind(1))
 	get_tree().create_timer(0.5).timeout.connect(attack)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddaal4qsp2hq6"]
+[gd_scene load_steps=21 format=3 uid="uid://ddaal4qsp2hq6"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_gakjb"]
 [ext_resource type="Script" uid="uid://dgle1hnxyrfw0" path="res://Scenes/Characters/Heroine/heroine.gd" id="1_sosi2"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://dblqiemhgys3q" path="res://Scenes/Characters/Heroine/StateMachine/sleepy_state.gd" id="10_0v53g"]
 [ext_resource type="Script" uid="uid://bbhbd6jx3487t" path="res://Scenes/Characters/Heroine/StateMachine/walk.gd" id="10_rnhsi"]
 [ext_resource type="PackedScene" uid="uid://dltkdiauyux4s" path="res://Scenes/UI/health/health_bar.tscn" id="13_3qvek"]
+[ext_resource type="PackedScene" uid="uid://dteyvla2c1i6n" path="res://Utils/MultiAudioEmitter/MultiAudioEmitter.tscn" id="14_yo34s"]
+[ext_resource type="AudioStream" uid="uid://xwvnq5sipvqp" path="res://Scenes/Characters/Heroine/Audio/hits/hit_1.mp3" id="15_2yix8"]
+[ext_resource type="AudioStream" uid="uid://dwsifnna76136" path="res://Scenes/Characters/Heroine/Audio/hits/hit_2.mp3" id="16_s5cfr"]
+[ext_resource type="AudioStream" uid="uid://cthvhlrfravad" path="res://Scenes/Characters/Heroine/Audio/hits/hit_3.mp3" id="17_tpmtx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1h34"]
 albedo_texture = ExtResource("3_dyn5h")
@@ -29,7 +33,7 @@ script = ExtResource("1_sosi2")
 speed = 9.0
 sprint_speed = 15.0
 walk_speed = 4.0
-sleep_time = 4.0
+sleep_time = 3.5
 max_punches = 2
 max_health = 10
 
@@ -193,10 +197,11 @@ script = ExtResource("7_xcws6")
 animation_player = NodePath("../../../AnimationPlayer")
 heroine = NodePath("../../..")
 
-[node name="Attack" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player", "collision_area")]
+[node name="Attack" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player", "audio_emitter", "collision_area")]
 script = ExtResource("8_hh8c5")
 heroine = NodePath("../../..")
 animation_player = NodePath("../../../AnimationPlayer")
+audio_emitter = NodePath("../../../HitSoundEmitter")
 collision_area = NodePath("../../../characterSmall/AttackArea")
 
 [node name="Sleep" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player")]
@@ -235,7 +240,7 @@ signal_name = "attacked_signal"
 health_field = "curr_health"
 max_health_field = "max_health"
 
-[node name="SoundEmitter" type="AudioStreamPlayer3D" parent="."]
-bus = &"SFX"
+[node name="HitSoundEmitter" parent="." instance=ExtResource("14_yo34s")]
+audios = Array[AudioStream]([ExtResource("15_2yix8"), ExtResource("16_s5cfr"), ExtResource("17_tpmtx")])
 
 [editable path="characterSmall"]

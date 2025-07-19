@@ -1,12 +1,36 @@
 extends StaticBody3D
+class_name Citizien
 
 signal attacked_signal
 
 @export var max_health: int = 20
+@export var help_scream_frequency: float = 12
+@export var help_scream_max_initial_wait: float = 6
+
 @onready var curr_health: int = max_health
+@onready var help_sound_emitter: MultiAudioEmitter = $MultiSoundEmitter
+
+var help_scream_tween: Tween
 
 func attacked():
 	curr_health -= 1
 	attacked_signal.emit()
 	if not curr_health:
 		queue_free()
+		
+func activate():
+	start_screaming()
+	
+func disable():
+	if help_scream_tween:
+		help_scream_tween.kill()
+
+func start_screaming():
+	var sub_tween = create_tween().set_loops(-1)
+	sub_tween.tween_callback(help_sound_emitter.play_next)
+	sub_tween.tween_interval(help_scream_frequency)
+	
+	var initial_wait = randf() * help_scream_max_initial_wait
+	help_scream_tween = create_tween()
+	help_scream_tween.tween_interval(initial_wait)
+	help_scream_tween.tween_subtween(sub_tween)

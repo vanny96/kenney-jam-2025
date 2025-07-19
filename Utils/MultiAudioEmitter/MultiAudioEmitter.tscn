@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dteyvla2c1i6n"]
+
+[ext_resource type="Script" uid="uid://d2nolacxjyeru" path="res://Utils/MultiAudioEmitter/hit_sound_emitter.gd" id="2_qvewh"]
+
+[node name="MultiSoundEmitter" type="AudioStreamPlayer3D"]
+pitch_scale = 1.8
+bus = &"SFX"
+script = ExtResource("2_qvewh")

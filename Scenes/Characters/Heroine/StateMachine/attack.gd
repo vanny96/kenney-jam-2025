@@ -2,9 +2,11 @@ extends LimboState
 
 @export var heroine: Heroine
 @export var animation_player: AnimationPlayer
+@export var audio_emitter: MultiAudioEmitter
 @export var collision_area: Area3D
 
 func _enter() -> void:
+	audio_emitter.play_next()
 	animation_player.play("heroine/punch")
 	animation_player.speed_scale = 2
 	animation_player.animation_finished.connect(_go_idle.unbind(1))

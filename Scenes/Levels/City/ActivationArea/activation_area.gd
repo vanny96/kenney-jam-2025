@@ -5,6 +5,7 @@ extends Node3D
 @export var enabled: bool = true
 
 @onready var aliens: Array[Alien] = _get_aliens()
+@onready var citiziens: Array[Citizien] = _get_citiziens()
 @onready var coffee: Coffee = _get_coffee()
 @onready var collision_shape: CollisionShape3D = $DebugView
 
@@ -26,7 +27,7 @@ func _process(delta: float) -> void:
 	elif target:
 		var curr_distance = (target.position - position).length()
 		if curr_distance < distance:
-			activate_aliens()
+			activate()
 		
 func _get_aliens():
 	var loc_aliens: Array[Alien] = []
@@ -35,6 +36,13 @@ func _get_aliens():
 			child.died.connect(aliend_died)
 			loc_aliens.append(child)
 	return loc_aliens
+	
+func _get_citiziens():
+	var loc_citiziens: Array[Citizien] = []
+	for child in get_children():
+		if child is Citizien:
+			loc_citiziens.append(child)
+	return loc_citiziens
 	
 func _get_coffee() -> Coffee:
 	for child in get_children():
@@ -45,9 +53,17 @@ func _get_coffee() -> Coffee:
 func aliend_died():
 	aliens_killed += 1
 	if aliens_killed >= aliens_count and coffee:
-		coffee.activate()
+		completed()
 	
-func activate_aliens():
+func activate():
 	for alien in aliens:
 		alien.activate()
+	for citizien in citiziens:
+		citizien.activate()
 	enabled = false
+
+func completed():
+	coffee.activate()
+	for citizien in citiziens:
+		if citizien:
+			citizien.disable()
