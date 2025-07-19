@@ -126,6 +126,7 @@ text = "Settings"
 
 [node name="Exit" type="Button" parent="CanvasLayer/Menu/Buttons"]
 layout_mode = 2
+theme_type_variation = &"Accent"
 text = "Exit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Menu"]
