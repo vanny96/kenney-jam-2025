@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddaal4qsp2hq6"]
+[gd_scene load_steps=16 format=3 uid="uid://ddaal4qsp2hq6"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_gakjb"]
 [ext_resource type="Script" uid="uid://dgle1hnxyrfw0" path="res://Scenes/Characters/Heroine/heroine.gd" id="1_sosi2"]
@@ -16,6 +16,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1h34"]
 albedo_texture = ExtResource("3_dyn5h")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyn5h"]
+size = Vector3(1.5, 2, 1.5)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wa6h7"]
 radius = 1.0
 height = 4.0
@@ -24,6 +27,7 @@ height = 4.0
 script = ExtResource("1_sosi2")
 speed = 9.0
 walk_speed = 4.0
+max_health = 10
 
 [node name="characterSmall" parent="." instance=ExtResource("1_gakjb")]
 
@@ -153,6 +157,12 @@ bones/56/rotation = Quaternion(0.0282603, 0.953941, -0.297574, -0.0254478)
 [node name="characterSmall" parent="characterSmall/Root/Skeleton3D" index="0" groups=["citizien"]]
 surface_material_override/0 = SubResource("StandardMaterial3D_l1h34")
 
+[node name="AttackArea" type="Area3D" parent="characterSmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26084, 1.42994)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="characterSmall/AttackArea"]
+shape = SubResource("BoxShape3D_dyn5h")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"heroine": ExtResource("2_wa6h7")
@@ -179,10 +189,11 @@ script = ExtResource("7_xcws6")
 animation_player = NodePath("../../../AnimationPlayer")
 heroine = NodePath("../../..")
 
-[node name="Attack" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player")]
+[node name="Attack" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player", "collision_area")]
 script = ExtResource("8_hh8c5")
 heroine = NodePath("../../..")
 animation_player = NodePath("../../../AnimationPlayer")
+collision_area = NodePath("../../../characterSmall/AttackArea")
 
 [node name="Sleep" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player")]
 script = ExtResource("9_fy0xi")

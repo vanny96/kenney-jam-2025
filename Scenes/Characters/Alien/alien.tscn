@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://gx2ujg10c2cq"]
+[gd_scene load_steps=12 format=3 uid="uid://gx2ujg10c2cq"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_ol8ta"]
 [ext_resource type="Script" uid="uid://bkduanwhfbhb8" path="res://Scenes/Characters/Alien/alien.gd" id="1_xbba8"]
@@ -16,10 +16,13 @@ albedo_texture = ExtResource("2_68vnx")
 radius = 1.0
 height = 4.0
 
-[node name="Alien" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xe4iv"]
+size = Vector3(1.5, 2, 1.5)
+
+[node name="Alien" type="CharacterBody3D" groups=["alien"]]
 script = ExtResource("1_xbba8")
 speed = 3.0
-attack_distance = 3.0
+player_distance_bias = 1.5
 
 [node name="characterSmall" parent="." instance=ExtResource("1_ol8ta")]
 
@@ -84,19 +87,27 @@ shape = SubResource("CapsuleShape3D_xbba8")
 [node name="LimboHSM" type="LimboHSM" parent="."]
 script = ExtResource("5_ef5dm")
 
-[node name="Run" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "alien")]
+[node name="Run" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "alien", "attack_area")]
 script = ExtResource("7_qokp6")
 animation_player = NodePath("../../AnimationPlayer")
 alien = NodePath("../..")
+attack_area = NodePath("../../AttackArea")
 
-[node name="Attack" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
+[node name="Attack" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "attack_area")]
 script = ExtResource("8_6vpkv")
 animation_player = NodePath("../../AnimationPlayer")
+attack_area = NodePath("../../AttackArea")
 
 [node name="Disabled" type="LimboState" parent="LimboHSM"]
 
 [node name="Idle" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("6_xe4iv")
 animation_player = NodePath("../../AnimationPlayer")
+
+[node name="AttackArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26084, 1.42994)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("BoxShape3D_xe4iv")
 
 [editable path="characterSmall"]

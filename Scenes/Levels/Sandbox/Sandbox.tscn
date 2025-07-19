@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt33d3qitkfs6"]
+[gd_scene load_steps=9 format=3 uid="uid://dt33d3qitkfs6"]
 
 [ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="1_u5xbn"]
 [ext_resource type="PackedScene" uid="uid://gx2ujg10c2cq" path="res://Scenes/Characters/Alien/alien.tscn" id="2_rpyqp"]
 [ext_resource type="PackedScene" uid="uid://bhdlahlvxtg2a" path="res://Scenes/Characters/Citizien/citizien.tscn" id="3_de6xr"]
+[ext_resource type="Script" uid="uid://dextliqgr422" path="res://Scenes/Levels/Sandbox/camera_3d.gd" id="4_ekim6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rpyqp"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -20,7 +21,9 @@ tonemap_mode = 2
 
 [node name="Sandbox" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.693706, -0.623763, 0.360128, 0, 0.499998, 0.866027, -0.720258, -0.600768, 0.346852, 5.64783, 5.81681, -6.09951)
 shadow_enabled = true
 shadow_bias = 2.0
@@ -31,24 +34,41 @@ directional_shadow_split_2 = 1.0
 directional_shadow_split_3 = 1.0
 directional_shadow_max_distance = 20.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_ekim6")
 
-[node name="Ground" type="CSGBox3D" parent="."]
+[node name="Ground" type="CSGBox3D" parent="Environment"]
 use_collision = true
 size = Vector3(20, 1, 20)
 material = SubResource("StandardMaterial3D_u5xbn")
 
-[node name="InvisibleWalls" type="CSGBox3D" parent="."]
+[node name="InvisibleWalls" type="CSGBox3D" parent="Environment"]
 visible = false
 use_collision = true
 flip_faces = true
 size = Vector3(20, 15, 20)
 
-[node name="Heroine" parent="." instance=ExtResource("1_u5xbn")]
+[node name="Characters" type="Node3D" parent="."]
 
-[node name="Alien" parent="." instance=ExtResource("2_rpyqp")]
+[node name="Heroine" parent="Characters" instance=ExtResource("1_u5xbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.12972, 0, 2.23439)
+
+[node name="Alien" parent="Characters" instance=ExtResource("2_rpyqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45059, 0, 0)
 
-[node name="Citizien" parent="." instance=ExtResource("3_de6xr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06662, 0, 3.93922)
+[node name="Alien2" parent="Characters" instance=ExtResource("2_rpyqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45059, 0, 7.18873)
+
+[node name="Alien3" parent="Characters" instance=ExtResource("2_rpyqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45059, 0, 4.04015)
+
+[node name="Citizien" parent="Characters" instance=ExtResource("3_de6xr")]
+transform = Transform3D(-0.0991808, 0, 0.995069, 0, 1, 0, -0.995069, 0, -0.0991808, 0.501501, 0, 2.7736)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.850343, 0.526229, 0, -0.526229, 0.850343, -6.61516, 8.90031, 9.64163)
+projection = 1
+size = 12.0
+far = 300.0
+script = ExtResource("4_ekim6")
+target = NodePath("../Characters/Heroine")

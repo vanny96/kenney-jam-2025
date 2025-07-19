@@ -8,6 +8,7 @@ static var transition_idle = &"transition_idle"
 static var transition_run = &"transition_run"
 static var transition_attack = &"transition_attack"  
 static var transition_sleep = &"transition_sleep"  
+static var wake_up_event = &"wake_up"  
 
 static var transition_energetic = &"transition_energetic"
 static var transition_sleepy = &"transition_sleepy"

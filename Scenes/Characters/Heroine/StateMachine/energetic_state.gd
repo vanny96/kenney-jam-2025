@@ -12,3 +12,4 @@ func _ready() -> void:
 	add_transition(ANYSTATE, run, PlayerHSM.transition_run) 
 	add_transition(ANYSTATE, attack, PlayerHSM.transition_attack) 
 	add_transition(ANYSTATE, sleep, PlayerHSM.transition_sleep)
+	add_transition(sleep, idle, PlayerHSM.wake_up_event)
