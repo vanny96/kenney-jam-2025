@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://biidh3aqh1ktv" path="res://Scenes/Menus/MainMenu/ships.gd" id="3_g6ism"]
 [ext_resource type="PackedScene" uid="uid://c1cdsdrd3n0xo" path="res://Scenes/Menus/Settings/Settings.tscn" id="3_iyg2c"]
 [ext_resource type="PackedScene" uid="uid://dde8ocp2xccu" path="res://Scenes/Levels/City/City.tscn" id="3_mggrh"]
-[ext_resource type="Texture2D" uid="uid://cp62fvh7uoy0v" path="res://AllAssets/Alien UFO Pack/PNG/shipBlue_manned.png" id="5_lt8cq"]
-[ext_resource type="Texture2D" uid="uid://d4bmcllm7ml7p" path="res://AllAssets/Alien UFO Pack/PNG/shipGreen_manned.png" id="6_g6ism"]
-[ext_resource type="Texture2D" uid="uid://cnaotbnjnskf" path="res://AllAssets/Alien UFO Pack/PNG/shipPink_manned.png" id="7_0056r"]
-[ext_resource type="Texture2D" uid="uid://4hg1qva50ehr" path="res://AllAssets/Alien UFO Pack/PNG/shipYellow_manned.png" id="8_gu2j1"]
+[ext_resource type="Texture2D" uid="uid://ctd5wehoj24db" path="res://Scenes/Menus/Art/Sprites/ships/shipBlue_manned.png" id="4_g6ism"]
+[ext_resource type="Texture2D" uid="uid://p3ise53njl1i" path="res://Scenes/Menus/Art/Sprites/ships/shipGreen_manned.png" id="5_0056r"]
+[ext_resource type="Texture2D" uid="uid://1c0awl3enmvx" path="res://Scenes/Menus/Art/Sprites/ships/shipPink_manned.png" id="6_gu2j1"]
+[ext_resource type="Texture2D" uid="uid://b6yh5hfk5coai" path="res://Scenes/Menus/Art/Sprites/ships/shipYellow_manned.png" id="7_dji1l"]
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("play_button", "settings_button", "exit_button")]
 script = ExtResource("1_5kab6")
@@ -23,47 +23,47 @@ move_speed = 200
 
 [node name="ShipBlueManned" type="Sprite2D" parent="Ships"]
 position = Vector2(1141, 265)
-texture = ExtResource("5_lt8cq")
+texture = ExtResource("4_g6ism")
 
 [node name="ShipBlueManned2" type="Sprite2D" parent="Ships"]
 position = Vector2(575, 400)
-texture = ExtResource("5_lt8cq")
+texture = ExtResource("4_g6ism")
 
 [node name="ShipBlueManned3" type="Sprite2D" parent="Ships"]
 position = Vector2(1859, 754)
-texture = ExtResource("5_lt8cq")
+texture = ExtResource("4_g6ism")
 
 [node name="ShipGreenManned" type="Sprite2D" parent="Ships"]
 position = Vector2(754, 644)
-texture = ExtResource("6_g6ism")
+texture = ExtResource("5_0056r")
 
 [node name="ShipGreenManned3" type="Sprite2D" parent="Ships"]
 position = Vector2(114, 508)
-texture = ExtResource("6_g6ism")
+texture = ExtResource("5_0056r")
 
 [node name="ShipGreenManned2" type="Sprite2D" parent="Ships"]
 position = Vector2(1087, 803)
-texture = ExtResource("6_g6ism")
+texture = ExtResource("5_0056r")
 
 [node name="ShipPinkManned" type="Sprite2D" parent="Ships"]
 position = Vector2(1553, 390)
-texture = ExtResource("7_0056r")
+texture = ExtResource("6_gu2j1")
 
 [node name="ShipPinkManned2" type="Sprite2D" parent="Ships"]
 position = Vector2(418, 916)
-texture = ExtResource("7_0056r")
+texture = ExtResource("6_gu2j1")
 
 [node name="ShipYellowManned" type="Sprite2D" parent="Ships"]
 position = Vector2(1516, 948)
-texture = ExtResource("8_gu2j1")
+texture = ExtResource("7_dji1l")
 
 [node name="ShipYellowManned2" type="Sprite2D" parent="Ships"]
 position = Vector2(353, 189)
-texture = ExtResource("8_gu2j1")
+texture = ExtResource("7_dji1l")
 
 [node name="ShipYellowManned3" type="Sprite2D" parent="Ships"]
 position = Vector2(1852, 70)
-texture = ExtResource("8_gu2j1")
+texture = ExtResource("7_dji1l")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
