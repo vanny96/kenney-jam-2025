@@ -5,10 +5,10 @@ extends Node2D
 @export var play_button: Button 
 @export var settings_button: Button 
 @export var exit_button: Button 
+@export var settings_menu: Control
 
 @onready var buttons: Array[Button] = [play_button, settings_button, exit_button]
 
-@onready var settings_menu: Control = $Settings
 
 func _ready() -> void:
 	MenuAudio.configure_buttons([play_button, settings_button, exit_button])

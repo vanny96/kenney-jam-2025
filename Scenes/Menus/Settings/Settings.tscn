@@ -16,7 +16,7 @@ expand_margin_right = 40.0
 expand_margin_bottom = 40.0
 modulate_color = Color(0, 0, 0, 0.196078)
 
-[node name="Settings" type="Control" node_paths=PackedStringArray("master_audio_slider", "music_audio_slider", "sfx_audio_slider", "sensibility_slider", "close_button")]
+[node name="Settings" type="Control" node_paths=PackedStringArray("master_audio_slider", "music_audio_slider", "sfx_audio_slider", "close_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,6 @@ script = ExtResource("1_uer2j")
 master_audio_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/MasterAudio/MasterAudio")
 music_audio_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/MusicAudio/MusicAudio")
 sfx_audio_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/SFXAudio/SFXAudio")
-sensibility_slider = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer/Sensibility/Sensibility")
 close_button = NodePath("PanelContainer/MarginContainer/VBoxContainer/CloseButton")
 
 [node name="Panel" type="Panel" parent="."]
@@ -119,23 +118,6 @@ layout_mode = 2
 max_value = 200.0
 step = 10.0
 rounded = true
-ticks_on_borders = true
-
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Sensibility"
-
-[node name="Sensibility" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="Sensibility" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer/Sensibility"]
-custom_minimum_size = Vector2(200, 10)
-layout_mode = 2
-min_value = 50.0
-max_value = 150.0
-step = 5.0
-value = 50.0
 ticks_on_borders = true
 
 [node name="CloseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
