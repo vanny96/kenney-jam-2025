@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_gakjb"]
 [ext_resource type="Script" uid="uid://dgle1hnxyrfw0" path="res://Scenes/Characters/Heroine/heroine.gd" id="1_sosi2"]
-[ext_resource type="Texture2D" uid="uid://bhcmp5oal62do" path="res://AllAssets/Animated Characters Bundle/Skins/fantasyFemaleB.png" id="2_sosi2"]
 [ext_resource type="AnimationLibrary" uid="uid://bkiaogv6wjt7h" path="res://Scenes/Characters/Heroine/Art/heroine_animations.tres" id="2_wa6h7"]
+[ext_resource type="Texture2D" uid="uid://ctnwa76p3xkjg" path="res://Scenes/Characters/Heroine/Art/fantasyFemaleB.png" id="3_dyn5h"]
 [ext_resource type="Script" uid="uid://bpu7ck8uwlhy2" path="res://Scenes/Characters/Heroine/StateMachine/limbo_hsm.gd" id="5_l1h34"]
 [ext_resource type="Script" uid="uid://c3qit4844vgsw" path="res://Scenes/Characters/Heroine/StateMachine/idle.gd" id="6_0rg73"]
 [ext_resource type="Script" uid="uid://u4t2cy63wb1" path="res://Scenes/Characters/Heroine/StateMachine/energetic_state.gd" id="6_dyn5h"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://bbhbd6jx3487t" path="res://Scenes/Characters/Heroine/StateMachine/walk.gd" id="10_rnhsi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1h34"]
-albedo_texture = ExtResource("2_sosi2")
+albedo_texture = ExtResource("3_dyn5h")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wa6h7"]
 radius = 1.0
