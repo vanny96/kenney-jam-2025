@@ -16,3 +16,7 @@ itch_io:
       tag: mac
       exportDir: /tmp/mac
       exportRelease: /tmp/mac/PowerNap.app
+    - name: Linux
+      tag: linux
+      exportDir: /tmp/linux
+      exportRelease: /tmp/linux/PowerNap.zip
