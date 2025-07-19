@@ -851,7 +851,7 @@ distance = 25.0
 [node name="Characters" type="Node3D" parent="."]
 
 [node name="Heroine" parent="Characters" instance=ExtResource("1_5x6sf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3719, 0, -31.8862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3719, 0, -1.53418)
 
 [node name="Citizien" parent="Characters" instance=ExtResource("3_yoe87")]
 transform = Transform3D(4.88762e-07, 0, -1, 0, 1, 0, 1, 0, 4.88762e-07, -50.554, 0, 28.8601)

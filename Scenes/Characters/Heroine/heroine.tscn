@@ -235,4 +235,7 @@ signal_name = "attacked_signal"
 health_field = "curr_health"
 max_health_field = "max_health"
 
+[node name="SoundEmitter" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+
 [editable path="characterSmall"]
