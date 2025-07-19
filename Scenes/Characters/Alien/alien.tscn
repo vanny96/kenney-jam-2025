@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://gx2ujg10c2cq"]
+[gd_scene load_steps=20 format=3 uid="uid://gx2ujg10c2cq"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_ol8ta"]
 [ext_resource type="Script" uid="uid://bkduanwhfbhb8" path="res://Scenes/Characters/Alien/alien.gd" id="1_xbba8"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dteyvla2c1i6n" path="res://Utils/MultiAudioEmitter/MultiAudioEmitter.tscn" id="10_f1xly"]
 [ext_resource type="AudioStream" uid="uid://8llpyvj2xsu" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_1.mp3" id="11_r2xtd"]
 [ext_resource type="AudioStream" uid="uid://i35kmf8677tp" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_2.mp3" id="12_2bqdl"]
+[ext_resource type="Texture2D" uid="uid://c8lu1tspbcaol" path="res://Scenes/Characters/Alien/Art/simpleExplosion02.png" id="13_r2xtd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbba8"]
 albedo_texture = ExtResource("2_68vnx")
@@ -22,6 +23,20 @@ height = 4.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xe4iv"]
 size = Vector3(1.5, 2, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bqdl"]
+transparency = 1
+albedo_texture = ExtResource("13_r2xtd")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_m17k8"]
+material = SubResource("StandardMaterial3D_2bqdl")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_r2xtd"]
+_data = [Vector2(0.00218341, 0.00684428), 0.0, 0.0, 0, 0, Vector2(0.504367, 0.971143), 0.0, 0.0, 0, 0, Vector2(0.99345, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Alien" type="CharacterBody3D" groups=["alien"]]
 script = ExtResource("1_xbba8")
@@ -121,6 +136,20 @@ stream = ExtResource("9_qokp6")
 volume_db = -20.0
 pitch_scale = 0.8
 bus = &"SFX"
+
+[node name="DeathParticles" type="CPUParticles3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.822762, 1.32659, 1.05061)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_m17k8")
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 5.0
+initial_velocity_max = 6.0
+scale_amount_curve = SubResource("Curve_r2xtd")
 
 [node name="HitSoundEmitter" parent="." instance=ExtResource("10_f1xly")]
 volume_db = -10.0

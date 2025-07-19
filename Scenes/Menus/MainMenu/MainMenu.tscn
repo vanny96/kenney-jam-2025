@@ -1,12 +1,84 @@
-[gd_scene load_steps=6 format=3 uid="uid://brk0arxtuiaim"]
+[gd_scene load_steps=10 format=3 uid="uid://brk0arxtuiaim"]
 
 [ext_resource type="Script" uid="uid://c5okungnv126k" path="res://Scenes/Menus/MainMenu/main_menu.gd" id="1_5kab6"]
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="1_m6b4a"]
+[ext_resource type="Script" uid="uid://biidh3aqh1ktv" path="res://Scenes/Menus/MainMenu/ships.gd" id="3_g6ism"]
 [ext_resource type="PackedScene" uid="uid://c1cdsdrd3n0xo" path="res://Scenes/Menus/Settings/Settings.tscn" id="3_iyg2c"]
 [ext_resource type="PackedScene" uid="uid://dde8ocp2xccu" path="res://Scenes/Levels/City/City.tscn" id="3_mggrh"]
-[ext_resource type="Texture2D" uid="uid://n06sljcayh67" path="res://Scenes/Menus/MainMenu/Sample.png" id="4_oa4lq"]
+[ext_resource type="Texture2D" uid="uid://cp62fvh7uoy0v" path="res://AllAssets/Alien UFO Pack/PNG/shipBlue_manned.png" id="5_lt8cq"]
+[ext_resource type="Texture2D" uid="uid://d4bmcllm7ml7p" path="res://AllAssets/Alien UFO Pack/PNG/shipGreen_manned.png" id="6_g6ism"]
+[ext_resource type="Texture2D" uid="uid://cnaotbnjnskf" path="res://AllAssets/Alien UFO Pack/PNG/shipPink_manned.png" id="7_0056r"]
+[ext_resource type="Texture2D" uid="uid://4hg1qva50ehr" path="res://AllAssets/Alien UFO Pack/PNG/shipYellow_manned.png" id="8_gu2j1"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("play_button", "settings_button", "exit_button")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("play_button", "settings_button", "exit_button")]
+script = ExtResource("1_5kab6")
+first_level = ExtResource("3_mggrh")
+play_button = NodePath("CanvasLayer/Menu/Buttons/Play")
+settings_button = NodePath("CanvasLayer/Menu/Buttons/Settings")
+exit_button = NodePath("CanvasLayer/Menu/Buttons/Exit")
+
+[node name="Ships" type="Node2D" parent="."]
+script = ExtResource("3_g6ism")
+move_speed = 200
+
+[node name="ShipBlueManned" type="Sprite2D" parent="Ships"]
+position = Vector2(1141, 265)
+texture = ExtResource("5_lt8cq")
+
+[node name="ShipBlueManned2" type="Sprite2D" parent="Ships"]
+position = Vector2(575, 400)
+texture = ExtResource("5_lt8cq")
+
+[node name="ShipBlueManned3" type="Sprite2D" parent="Ships"]
+position = Vector2(1859, 754)
+texture = ExtResource("5_lt8cq")
+
+[node name="ShipGreenManned" type="Sprite2D" parent="Ships"]
+position = Vector2(754, 644)
+texture = ExtResource("6_g6ism")
+
+[node name="ShipGreenManned3" type="Sprite2D" parent="Ships"]
+position = Vector2(114, 508)
+texture = ExtResource("6_g6ism")
+
+[node name="ShipGreenManned2" type="Sprite2D" parent="Ships"]
+position = Vector2(1087, 803)
+texture = ExtResource("6_g6ism")
+
+[node name="ShipPinkManned" type="Sprite2D" parent="Ships"]
+position = Vector2(1553, 390)
+texture = ExtResource("7_0056r")
+
+[node name="ShipPinkManned2" type="Sprite2D" parent="Ships"]
+position = Vector2(418, 916)
+texture = ExtResource("7_0056r")
+
+[node name="ShipYellowManned" type="Sprite2D" parent="Ships"]
+position = Vector2(1516, 948)
+texture = ExtResource("8_gu2j1")
+
+[node name="ShipYellowManned2" type="Sprite2D" parent="Ships"]
+position = Vector2(353, 189)
+texture = ExtResource("8_gu2j1")
+
+[node name="ShipYellowManned3" type="Sprite2D" parent="Ships"]
+position = Vector2(1852, 70)
+texture = ExtResource("8_gu2j1")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0352941, 0, 0.25098, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,47 +86,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_m6b4a")
-script = ExtResource("1_5kab6")
-first_level = ExtResource("3_mggrh")
-play_button = NodePath("Buttons/Play")
-settings_button = NodePath("Buttons/Settings")
-exit_button = NodePath("Buttons/Exit")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_oa4lq")
-
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.01
 anchor_top = 0.5
 anchor_right = 0.2
 anchor_bottom = 0.5
-offset_top = -50.5
-offset_right = 70.0
-offset_bottom = 50.5
+offset_left = -0.4
+offset_top = -76.5
+offset_right = 69.6
+offset_bottom = 36.5
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Play" type="Button" parent="Buttons"]
+[node name="Play" type="Button" parent="CanvasLayer/Menu/Buttons"]
 layout_mode = 2
 theme_type_variation = &"AccentGreen"
 text = "Play"
 
-[node name="Settings" type="Button" parent="Buttons"]
+[node name="Settings" type="Button" parent="CanvasLayer/Menu/Buttons"]
 layout_mode = 2
 text = "Settings"
 
-[node name="Exit" type="Button" parent="Buttons"]
+[node name="Exit" type="Button" parent="CanvasLayer/Menu/Buttons"]
 layout_mode = 2
 text = "Exit"
 
-[node name="Settings" parent="." instance=ExtResource("3_iyg2c")]
+[node name="Settings" parent="CanvasLayer/Menu" instance=ExtResource("3_iyg2c")]
 visible = false
 layout_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Menu"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -892.0
+offset_top = -102.0
+offset_right = -236.0
+offset_bottom = 62.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_m6b4a")
+theme_override_colors/font_outline_color = Color(0.0941176, 0.733333, 0.466667, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 100
+text = "Power Nap!"
+fit_content = true
+autowrap_mode = 0

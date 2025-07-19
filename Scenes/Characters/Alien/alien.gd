@@ -8,16 +8,19 @@ signal died
 
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var death_sound_player: AudioStreamPlayer3D = $DeathPlayer
+@onready var death_particles: CPUParticles3D = $DeathParticles
+@onready var model: Node3D = $characterSmall
 
 func _ready() -> void:
 	GlobalSignals.player_died.connect(disable)
 
 func attacked():
 	died.emit()
-	visible = false
+	model.visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
+	death_particles.emitting = true
 	death_sound_player.play()
-	death_sound_player.finished.connect(queue_free)
+	death_particles.finished.connect(queue_free)
 	#queue_free()
 	
 func activate():
