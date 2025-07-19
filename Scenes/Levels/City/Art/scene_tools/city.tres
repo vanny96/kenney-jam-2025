@@ -1,0 +1,144 @@
+[gd_resource type="Resource" load_steps=19 format=4 uid="uid://bn11xikcc6vwu"]
+
+[ext_resource type="Script" uid="uid://cu407vwey8c0a" path="res://addons/scene_tools/collection.gd" id="1_bs4c0"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_bs4c0"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAABqBAAAUklGRmIEAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSLUAAAABDzD/ERHCbWw7sSPGCyElUAql8UtTKZRA6IXhBZIejh1F9H8C5F9Wbycjn7zqyeonQOIUuHEDKNwLaNwGwAFAYtRkZprKLNOZbUBccG/R8Er08lq0vB4hTJ5G2ZtR9V5R83YER0HezGSKeTH1N5MpRpmbEUbcFTXvFVVvRNm7ouTJ9rqEy2vR9Eqk3i0ST8htOvMylRkmM5dJjBihF9C4CRROgRt3AYmT3eXwVU9GPtHbyR8rAFZQOCCGAwAAUBkAnQEqgACAAD5tNpZIJCMiISMVWniADYlpBnBmgXgD9AJH3yZpR2A28nP/3mH6sb65dAdh8sWJUyWf12flyQDVPGbqB9I39ivZqs8tRej5JJKxCEIQhCEGKOzxYQRT2S6S+oW0unK1T0MZA7gga9jhv5fLcxWUSqzMY/lGfREjkztzbI76VtvNMWnbeuOjcxXqm6eo94wUM8p/ujfp2B/xXqjsfac6cw/UEyfbeHwGDfBOs+ApkTWy/lbxaYO4Zf4lkt9QeY0IMqTNznOc5znOAAD+/K8VRD6jql/RHhxjj9v//LRk/7RP/a+PIcypDvTrCP42Ra7ZhNsSr2mWhrLc3MSWGtKoXLvjMSNhMKPlZcUH7mbwdT0z7QEqf//8tNkBu1ROLBf8HzXh+vfmlhVp56Hf19rq8Nb/ptxEuRzd1KSGeQXmTjtqMa6ULrnApM+KTRttKh6YjK3mc5o2YoPNfa4ZqQXFxih+nfYQFq6cMcqpTgPY5LnyJ2dHUWWvDFBh4pr1/CSY6OHlf7ULrazieWtPSoSfnebYAF/+F9UX8n09PrOedAHAmOpHkYMYHq/45y0GIO+yfsbXGieOopeZJzKfQwn1C4okekuD9JJvMZMuPJl6PNPhcAIIBNny0x/sri84CkiLHrSqogjjmqnMaS+OnDm2kQvMW3Gh1PUH7EMdB9vpbNKi0gZMlGmdOGsZMg0A15rWvZ0Mjy7qZVi4WXzHudutFpmQQyeOnIAZH7yUTjck+mD6agtY43YEX3378hF7n1gwObTSV+xvGLaQGYWYHmFe7kGo+DWreOdHKrQ9Q1vT6XGnq4tRLWJCWV4vEyURsKGfHB96GUyt72RLvcGjgWN6ovJUHyd+An6B4Kaxvn3j5Xo/jmGFE61q4up1YKIjLuD4aMDFVU8K4it/k9p7BG6tyfYzgDt9RhLndBVlR50PkpGNBWkYg56Z0vrfB2kE8drnCACQJWhJWImmXc3jrjKzvoBY0MdsI4fwqZ06bh6JA4xBf6eiFIFSJnVT/CiTaf/SZdZpCJAwOYt8wMNhrlYjhRWwmcENnTsRu+FNwiPt2O993vJSCub+gzE/u9yVDutJ1xOfAXiOO8IwAruPpiA+8qCADsTB/gCXTJPz6K620Y+pq5wqrgtdos4JPzLP2filjwulBO//IAq8lz9l/mP/8cSF/FBpsbm2b7XogAA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_nsosj"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAAkAwAAUklGRhwDAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSLUAAAABDzD/ERHCbW09eSMfO6FkBEZhNDyaRmEEyvxw+ApJH6lTRfR/AuRfVs+dnnZeZWfWHWBDgZPrQOJeQOEW0DgAoNSczDCZmaYyyzTihntE3UvRyyvR9GqEMNDo9EaUvVdUvBU1R0GeZjDZvJjym8Fko8xphBF3RtV7RcXrUfLu6PBkeU3C6dVoeDlS74zEE3KZxrxMYbpJzG0ORozQE6jcADKnwMndwMHJarL5Kjs97ei588cKAFZQOCBAAgAAcBQAnQEqgACAAD5tNJVHJCMiISqZKJCADYlnbuNGyqE8A+wH6ASPvnTrTdAYX+XfuufnQOhmsXC6dHgr5KR0aYCyuRZembJz3GDbdqr4f9MJuCukMPuOam7JTr0N2t8qXN2C6qDj0f45QOO/qiZN0sNG/JB3xXQ4Pd28IfYBoJz7bmc3kFyZuUrme8zmNbQ3/gEgROK19h+eUAtVEB09soW4Ds1i9q03RpgEAAD+/AF8RTeGEcmvah49pC//8E+2/cJDZqUu4OdEC9t501rCjG7at1M6iqXpc42HGvHdALOVzNzpBSIlgoOhAebnAabE//+JtpVEmHfKZhXpTUX5M83KRBdeVbubaP5UusgRaeokILPHfIAF5q5TrjE54fVhmwS39sFu+NYI3abAFupqLF8+/b2RE5lut//lHB+txOwPAf/4Qf8LWcRxCglZ2WeF6MXp7OdmuyWg9GFqlg1O+MxvJqe3OaStdXpzci7v8BS3AVoAIiJlzABzzxCJ3vplTYW4Sz35934gH/k1QvTbj4p+tUFPujFQPvuiboAJT06deR/8ERI3O/m09HBAO7s+jayNsW2UavW45Ssk2GN5D3yNczmzoQprzXYPYfAKwR8vqMXFI+6710DihX97VQ0HZe+AA07zCaCUPkpAcQamEsn/U9yxretMbkzXnCHyxY/0Y/OMpeXa7qsqbPiwKo4GpcEQAeuACIsyXk285h5jhm1fhVuJ9YhDEmvaBLcoYyu386qONyuEP9JQrvWud1AA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_4vo0o"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAADOAwAAUklGRsYDAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSLUAAAABDzD/ERHCbWw7sSPGCyElUAql8UtTKZRA6IXhBZIejh1F9H8C5F9Wbycjn7zqyeonQOIUuHEDKNwLaNwGwAFAYtRkZprKLNOZbUBccG/R8Er08lq0vB4hTJ5G2ZtR9V5R83YER0HezGSKeTH1N5MpRpmbEUbcFTXvFVVvRNm7ouTJ9rqEy2vR9Eqk3i0ST8htOvMylRkmM5dJjBihF9C4CRROgRt3AYmT3eXwVU9GPtHbyR8rAFZQOCDqAgAA8BcAnQEqgACAAD5tNJdIJCMiIScSScCADYlpBnBmgXgD9AJH3ymJ17/3mP6sWAX9+PWmSz3YrKqCJMnf9i21tQDpQ/rN7QFrfqddddddlqORuSep0ihDDCwWJWMQ0Z/oZWWmXPUMqGJbOHWSj5HZDzSf25I3fdMhlIvi2+5fwIoAw8lqDNfLY8FYaRjtYQBCMcIKDYOGd0vDpbRGPqA1t9JXPls5Mu7P4IFX/EZFQgKs+mdM+Zd6rnawYD2EccYm6CsnqdKOR7AA/vyvJUS+rzSYYWJgpbUv/+JpXe7eOVVUWA+GRfs50tWD5YrjHXgIRTWkxrKspM5rs4L5RE6ch1cAGywuklm3BQD04CAS/jps//y01Ulb9k4BRruv3pi07vDc2OdE815mUZMn+o1rSld0pQLBxe4L8MC8QLHEGyyRZyz0pm5+YaR4pawSZnCRoiKBT8d2zpdXnKRqWXHxZgIBjrNSaML/P3ijv4gGteFWXDIUlUpc0Yc2rnvLT8/XpFqE7h0swavTMjzrf8l6AaAfH8B1ZDmvAUCY5UcqatEKz6HYl18PQ3oWMAL0F8DpoyMggAiUGE4ty7E+IfXZs4gDYMUwKCWavRv/9wFRwNScC8cUnaQIGrpW9w1vmHOPxpVLSHCooR+ea53R5FtzNn0QPzHw/9dgRwXX2ZNR8ZTpcEWJaKcefbsOb4QlVXk+ST1GpnbgSwAxSSoVNtsQU18GaRhvfIP9ZZNfFVttNBvwypMxjE0TOvUqPh2MRMrMLTcHxUw4HB2AkeKvZuF6WKB3BfSA3nEvZF/zgIgLkQ16auP2/zttCB+zwPrgQXT3o+7fLlgEFZjb6v+FGJ8+LPWIARMh9zyERWFqCURMV92OiYzUo0o14lCxDiRN5KRY7/FvR+TG+gA9ejhdLe04yMhHbxbStwBmt153ZfvMy6gdqO69qP6UAnEIh7a3AWVtlYFADyf/IJMSPkQ0t/tgSWtPalfvlLIgAAA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_wpylg"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAD2AAAAUklGRu4AAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSGsAAAABDzD/ERHCbWxbcfORvISU4FIoDZVGKZRA6P1qfd/jSHYU0f8JsN3+4BmS50pwQNQqJO0JBGUAiEpbZOW9oN8qrF626lreat+SPlf/bsruYM+VKNSVINgimfoGeqlBNh2i40pwlGTes+t3CABWUDggXAAAAFAIAJ0BKoAAgAA+bTaZSaQjIqEgiACADYlpbuF0ZgjgH2A/QCR9QWrAbxM3Pwb3fuFYVr8gKqLtmQisK1+QFVF2zIRWFa/ICqiqAAD+/4QXdWaqK0ozSV8EwgAA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_qapey"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAAEAQAAUklGRvwAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSHoAAAABDzD/ERHCcW3bTvKMf0gJdOIvDUqjlF8CQ8NfHsML5jiJ6P8EyMd6FRmIrEkByL4C+CqQPD1A9pQzPFVJVo/aWqOGtTeSNmC22toiNlPqHU1uZPyfyBJJWrFE743WkKrNrFHpxHvWuCowcQl04q80gTWTQMkSTaHPOVZQOCBcAAAAUAgAnQEqgACAAD5tNplJpCMioSCIAIANiWlu4XRmCOAfYD9AJH1BasBvEzc/Bvd+4VhWvyAqou2ZCKwrX5AVUXbMhFYVr8gKqKoAAP7/hBd1ZqorSjNJXwTCAAA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_x6tkk"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAD0AAAAUklGRuwAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSGkAAAABDzD/ERHCbSNJjrMn/AvhQ9nQ7kP7UFQCbyqSTblLvEXhRPR/AuRjnz2tehaCA4qtB7WdgGBpAYplfqiWywPpVcfT5lX/rL6aj6Lv6/+B6gTFVNKF8EogpEXFeFJJfbKISBLv8aLrewgAVlA4IFwAAABQCACdASqAAIAAPm02mUmkIyKhIIgAgA2JaW7hdGYI4B9gP0AkfUFqwG8TNz8G937hWFa/ICqi7ZkIrCtfkBVRdsyEVhWvyAqoqgAA/v+EF3VmqitKM0lfBMIAAA==")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_wkew1"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAAIAQAAUklGRgABAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSH0AAAABDzD/ERHCdW1bjfLGnC2BUqYVO4FCLIZCDJTAp4E1x8A8c/yK6P8EyNd+dImzl0SaF4DRBbC6BDQ1DsBo4hmaKtOt82RNXcjZ+/F/N/GizUXpoupm6aLF2ze/qJcy0zrxmUIhZ6VoE9BUBbCidjDVSaS4IJRy4ax7kfwMAQBWUDggXAAAAFAIAJ0BKoAAgAA+bTaZSaQjIqEgiACADYlpbuF0ZgjgH2A/QCR9QWrAbxM3Pwb3fuFYVr8gKqLtmQisK1+QFVF2zIRWFa/ICqiqAAD+/4QXdWaqK0ozSV8EwgAA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_iwalk"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAAWAQAAUklGRg4BAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSIsAAAABDzD/ERHCbWzbjfKxIlNKplLUGbtlUA5DJSphIzxc7H94F0X0fwLsT3DSUpqgbJJCJRRo+RYQfDtIrhqoXA1Ay7M5CR5Ok5Rvlm6xe4/QOlKUsoTWkaKUJbSOFN6GhVQkm0lTyTbS4mZjabA7aTlsAVTmLUBy1UBw2Q7MvyALhSjUdAQbmTqU/hYBAFZQOCBcAAAAUAgAnQEqgACAAD5tNplJpCMioSCIAIANiWlu4XRmCOAfYD9AJH1BasBvEzc/Bvd+4VhWvyAqou2ZCKwrX5AVUXbMhFYVr8gKqKoAAP7/hBd1ZqorSjNJXwTCAAA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_tmo3n"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAACOAQAAUklGRoYBAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSMYAAAABDzD/ERHCbSRJkrL8IiacKZh2mIYpmID4M8FudzXySRH9Z+S2bST3NIBm4zPaUnYum7TrIe0+pX3nsHPVKpRVIbxVHXnvqhOvqiqVPUSFsQMqjE2oMDZzOUJSGOsSoDDWJUBhrEtgKSEriAQqiAQqiASUFpKCSpCCSYCCSVgJYV6+yEl8UHbITtnxD2c9X93cmoVYigQqiAQqiAQoeAilSYCCSYCCSZgChF6ChCmAhCmAhChgqCVKiAJKiAJKdIUQ/sqF7DRWUDggmgAAALAOAJ0BKoAAgAA+bS6URyQiIiEqnzgAgA2JaW7f8C9AvAH6ASPqnNLwB/APwA/QD9AP/97/I/8LCegvlYagAV6HHxYH3ahPOei52dZ+auW0jjaoMksBHE5sVctc8SX6dUlpDjarOMjKzQNkij8ZSYl6XxgRfRgbSUB22s5FAAD++6NsNtYCj7vx3IcZpOWszyfqZbW4MKH8AAA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_gulbs"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAABcAwAAUklGRlQDAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSLUAAAABDzD/ERHCbWw7sSPGCyElUAql8UtTKZRA6IXhBZIejh1F9H8C5F9Wbycjn7zqyeonQOIUuHEDKNwLaNwGwAFAYtRkZprKLNOZbUBccG/R8Er08lq0vB4hTJ5G2ZtR9V5R83YER0HezGSKeTH1N5MpRpmbEUbcFTXvFVVvRNm7ouTJ9rqEy2vR9Eqk3i0ST8htOvMylRkmM5dJjBihF9C4CRROgRt3AYmT3eXwVU9GPtHbyR8rAFZQOCB4AgAA8BUAnQEqgACAAD5tNJdIJCKiIScRKXCADYlpBnBmgXgD9AJH4tBfgGKcMBhdV5m2yB+AEkf7F1Rk496AHMAezXa3wiu9oSi3Ns5znOc5wOQJgS3jh1tbAvxY9IXJTmtZd+utCdAjrcGGmfeqyLlPVNYziIZ0UbVDNlpNXcyVwoO8fRhNmKECBIVEOP9gTJ/MjnmiFnuthEkZtDf+ASQPhRVOxFVDswJGa9scGGbDRE7T+IQhCEH8AAD+/K8lRL6vNJhhYmCltS/+JpXSB3FXJ/Hj+YbZjQbjsfaNR5uHjCLUtJDvwVeOTvXAYIhT7WgIvMMWF0k/2UnQKcQFUkTs4X/xNsUcJdoa5fv1a788K9iybnzMx1XCfYiiXHj4rY1eBGNUdZ5wT/DU1yriDnZ2kuvuBpociI9u1T78eR24OXUheRTEjXmyrE/9a8qHmPregbxkYJ/Esxs1rS0T68Y70J9uaOAcramwABSZF0AnH8DH/cQnbAI2x6K8r6DebEo0PXKA5KTIZOuXIgKCyGHqTh/RnrR3X9LJ/yiPPWS9b/LPN2dDibC90X4AWvG6uEYB1STcrO7z2Zh4YE5apPn7o1oj0VZ4ZSQ/XKbh9Kl2Q2Ibe+kpmPrw/3N1okcH94pp2lQh+5HhN2pwrndzNZ1WeCJKFjFH0gZ8sZ6Wjp8lN2j/HlJ1ZrB3DZ63E6LuloJh0lVgE0MvT8/wPqVL218gB0r+zAc6xpTJeHf3KF9tfweMK9yQxMo3x2NyHm5rW95fbPsQgh8PMnuCURGm6BHlKFkDrWJqsktPkmxsMHGxiS3cQekFtbNLJdw/ZaFLmQ/kr1Iuv2Ic4AA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_xxr78"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAAD6AwAAUklGRvIDAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSMcAAAABDzD/ERHCTW3bchLmEgmRgrSPNKQgISXzzXDfudSpIvrvyI0koek9IQpI/IxuLTvXTdr9lDb0aZ+WJoXdpF0opTPvIV14P6mxgiRtsFx2wjvLelSYNoeoYCfdmSVQwUIsLQSFZbMEK5gElCEcfDMtKpgEKbhELSEEhSIBCkUiL1/kJL4oO2Sn7PiHs5+fr3XzTAIVTAIUSoilSZBCkSgKEJYSQiiLBChUCVPAEMpCW1BBoiiAhClwaCVKmAJKmAJKTAor2ekAAFZQOCAEAwAAsBgAnQEqgACAAD5tNJZIJCMiISYUCiiADYlpBnBmgXgD9AJH3z4NLv9uy2atBHVrgJUx+a/3rn3M0/1T7Av8o6af7Zexf+uVucEde+RmyYqb3zM1Nf6iUm0b0eum30m77/06R4EagGH8sDdIGvagkxIOXTSpPuGLFAh9lpznQN//jkCWxtXO7Fex6EJbyQcRMJvD49ZaPgZBbZEnox1/AeN+9+pj5F4silsfx0D+LB3nk+N/FxVa3OJZKlXAyKbIlfgaHWUTNjF/M1NiBAAA/vyvqaG5FICnA1vj0QeHi6xvwRRm8FBy6SzMedHN8EKSSGktYeYmVCv/7r4dDZWxxTEA9E3QpzENVCVNWVD+x5u4asjn7E6DzxumzYoFyvOJoE6JX/y0T7/8tNJozzUOJxs8DAjbe8XMdYWlgwFgOyTLgt/08vBrRqDObMRNEhzcP4+qOlQC7P1T3u2w0sQ8viYCsl1HtGoFZaW78RNGUisX+djpEk8kkPb3aV345hlXIdBmm8HjjDClhN2yzO+Q5QO2AgDunX4dO7gVYctZelGz8dkKrKvrID45jpewPnEoNBOwT0xtLgx6mx3WnxFg14aZaF1LZbN3s0c0z7WSf+wFitZ0osL/RQQ5n8JuQC6Mekkux2xtou6S2KhTxQ9rc28XpPQ8ElHUFMadngRvPCofADMNlHgBFTUxsOX4zXhWBevffSTLGFyNI/NnMYSbud0znPXCN1Fj4RbIRLF4Y+777l+t5VBci5c/xloow/MgU6A7QdIcPMb0fwVU3cqk8r6/b5K1rV2es+0T/iwDRMuihWbM+QaI8HE7av0a3DZjzOBKMQaxl5TZApj3VH8LPEz+bYBiCAACo/LIGCu/AiogLFbr1Qk8ZGJ0zKn+HYl20O6ORXzVVHd4VNfgzGt6oHiKYCuJIUftRmFpCefnI5RSn5Xv+mCieFrardjPWmokjOaQnAYUOAPfY1mvuPaB2txd7+k7n9dkEMk2hBlSznWXY5S3FPWO/MQcfkcrS6ZrRAAAAA==")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_helk4"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAADUAAAAUklGRswAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSEoAAAABDzD/ERGCUWxbbT6pSyQhjUhDypcQAQw39f9lyiqi/xMgX7HOnpocCwTbCtHWIJsKQP/n09P8JMqpt0iDLHaIjkrwJHHq7PlwAVZQOCBcAAAAUAgAnQEqgACAAD5tNplJpCMioSCIAIANiWlu4XRmCOAfYD9AJH1BasBvEzc/Bvd+4VhWvyAqou2ZCKwrX5AVUXbMhFYVr8gKqKoAAP7/hBd1ZqorSjNJXwTCAAA=")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_w6nky"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAADMAAAAUklGRsQAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSEIAAAABDzD/ERGCUWxbbegskYAUrEVapHwJXwAzd5fes4no/wSYt1zynN5mDGCnKZR1BPK/QqGcm0CeZjpmptY5o5/zYgNWUDggXAAAAFAIAJ0BKoAAgAA+bTaZSaQjIqEgiACADYlpbuF0ZgjgH2A/QCR9QWrAbxM3Pwb3fuFYVr8gKqLtmQisK1+QFVF2zIRWFa/ICqiqAAD+/4QXdWaqK0ozSV8EwgAA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_1makc"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAADKAAAAUklGRsIAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSD8AAAABDzD/ERGCSW3bUv78JRGI8qv9aC8SMyiu42jARPR/AtxnsEcyjWQl/SSTyE1M5JLav8ak4Zm75MHUHLRKXmwAVlA4IFwAAABQCACdASqAAIAAPm02mUmkIyKhIIgAgA2JaW7hdGYI4B9gP0AkfUFqwG8TNz8G937hWFa/ICqi7ZkIrCtfkBVRdsyEVhWvyAqoqgAA/v+EF3VmqitKM0lfBMIAAA==")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_l4elt"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAADAAAAAUklGRrgAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSDUAAAABDzD/ERFCbWTblL+yXmtKeyUJRU7mxkgi+j8B4RnMindlmQLxzKGfDch/UdhEYVoQvSsXHQBWUDggXAAAAFAIAJ0BKoAAgAA+bTaZSaQjIqEgiACADYlpbuF0ZgjgH2A/QCR9QWrAbxM3Pwb3fuFYVr8gKqLtmQisK1+QFVF2zIRWFa/ICqiqAAD+/4QXdWaqK0ozSV8EwgAA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_vr255"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAADeAAAAUklGRtYAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSFQAAAABDzD/ERGCbW27TSRi6REYxaOh0TQKI7gkf6J0KHEV0f8JoFxV2KPlVyl41ugBHAqUtgFobSsQTQIAbNFbaZEb52x0I/MIdDYFShvtPTlT8Ah7flxWUDggXAAAAFAIAJ0BKoAAgAA+bTaZSaQjIqEgiACADYlpbuF0ZgjgH2A/QCR9QWrAbxM3Pwb3fuFYVr8gKqLtmQisK1+QFVF2zIRWFa/ICqiqAAD+/4QXdWaqK0ozSV8EwgAA")
+size_override = Vector2(128, 128)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5re82"]
+_data = PackedByteArray("AQADAAUAAAABAAAAgAAAAIAAAADSAAAAUklGRsoAAABXRUJQVlA4WAoAAAAQAAAAfwAAfwAAQUxQSEgAAAABDzD/ERGCbWxbUR7gElKCpVCalGYplkDofrP/Y8Ykov8KkzZg7DhGvZoaPC17vtWxQbIdsNgeKP79qxpkW4UgO0+RY5/VyRFWUDggXAAAAFAIAJ0BKoAAgAA+bTaZSaQjIqEgiACADYlpbuF0ZgjgH2A/QCR9QWrAbxM3Pwb3fuFYVr8gKqLtmQisK1+QFVF2zIRWFa/ICqiqAAD+/4QXdWaqK0ozSV8EwgAA")
+size_override = Vector2(128, 128)
+
+[resource]
+script = ExtResource("1_bs4c0")
+name = "city"
+assets = Array[Dictionary]([{
+&"name": &"road-crossing2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_bs4c0"),
+&"uid": "uid://byc5c8keo26ym"
+}, {
+&"name": &"road-crossroad2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_nsosj"),
+&"uid": "uid://ybowu7jvgubj"
+}, {
+&"name": &"road-straight2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_4vo0o"),
+&"uid": "uid://drndpovrhsxfi"
+}, {
+&"name": &"small_buildingA2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_wpylg"),
+&"uid": "uid://cfliqordjl23h"
+}, {
+&"name": &"small_buildingB2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_qapey"),
+&"uid": "uid://dv3v1hf20uodo"
+}, {
+&"name": &"small_buildingC2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_x6tkk"),
+&"uid": "uid://d1wl7qbnktijo"
+}, {
+&"name": &"small_buildingD2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_wkew1"),
+&"uid": "uid://bdiqbejscgok3"
+}, {
+&"name": &"small_buildingE2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_iwalk"),
+&"uid": "uid://yvmwm478vjyc"
+}, {
+&"name": &"tile-low2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_tmo3n"),
+&"uid": "uid://uxdv5ytix2or"
+}, {
+&"name": &"road-intersection2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_gulbs"),
+&"uid": "uid://dkofewcxelav1"
+}, {
+&"name": &"road-curve-pavement2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_xxr78"),
+&"uid": "uid://0q5a7s1jixae"
+}, {
+&"name": &"skyscraperA2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_helk4"),
+&"uid": "uid://dmovn7nrqeimn"
+}, {
+&"name": &"skyscraperB2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_w6nky"),
+&"uid": "uid://bjpwx770sba6w"
+}, {
+&"name": &"skyscraperC2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_1makc"),
+&"uid": "uid://dulypcl3m00en"
+}, {
+&"name": &"skyscraperD2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_l4elt"),
+&"uid": "uid://brc8m34rs7oqs"
+}, {
+&"name": &"skyscraperE2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_vr255"),
+&"uid": "uid://8efxpocs5nfw"
+}, {
+&"name": &"skyscraperF2",
+&"thumbnail": SubResource("PortableCompressedTexture2D_5re82"),
+&"uid": "uid://c7gtqbhe7y2rh"
+}])

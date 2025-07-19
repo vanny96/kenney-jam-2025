@@ -1,8 +1,8 @@
 godot:
   version: 4.4.1
 itch_io:
-  name: KenneyJam2025
-  game: vanny96/kenney-jam-2025
+  name: PowerNap
+  game: vanny96/power-nap
   exports:
     - name: Web
       tag: web
@@ -11,8 +11,8 @@ itch_io:
     - name: Windows Desktop
       tag: windows
       exportDir: /tmp/windows
-      exportRelease: /tmp/windows/KenneyJam.exe
+      exportRelease: /tmp/windows/PowerNap.exe
     - name: macOS
       tag: mac
       exportDir: /tmp/mac
-      exportRelease: /tmp/mac/KenneyJam.app
+      exportRelease: /tmp/mac/PowerNap.app

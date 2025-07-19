@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c5okungnv126k" path="res://Scenes/Menus/MainMenu/main_menu.gd" id="1_5kab6"]
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="1_m6b4a"]
 [ext_resource type="PackedScene" uid="uid://c1cdsdrd3n0xo" path="res://Scenes/Menus/Settings/Settings.tscn" id="3_iyg2c"]
-[ext_resource type="PackedScene" uid="uid://dt33d3qitkfs6" path="res://Scenes/Levels/Sandbox/Sandbox.tscn" id="3_mggrh"]
+[ext_resource type="PackedScene" uid="uid://dde8ocp2xccu" path="res://Scenes/Levels/City/City.tscn" id="3_mggrh"]
 [ext_resource type="Texture2D" uid="uid://n06sljcayh67" path="res://Scenes/Menus/MainMenu/Sample.png" id="4_oa4lq"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("play_button", "settings_button", "exit_button")]

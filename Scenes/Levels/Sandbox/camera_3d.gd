@@ -2,7 +2,11 @@ extends Camera3D
 
 @export var target: Node3D
 
-@onready var offset := target.position - position
+var offset: Vector3
+
+func _ready():
+	if target:
+		offset = target.position - position
 
 func _process(delta: float) -> void:
 	if target:

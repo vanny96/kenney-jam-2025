@@ -20,7 +20,8 @@ func _update(delta: float) -> void:
 
 func move_horizontally(direction: Vector2):
 	var camera_aligned_direction := direction.rotated(-camera.rotation.y)
-	var movement = camera_aligned_direction.normalized() * heroine.speed
+	var speed = heroine.sprint_speed if Input.is_action_pressed("sprint") else heroine.speed
+	var movement = camera_aligned_direction.normalized() * speed
 	heroine.velocity.x = movement.x
 	heroine.velocity.z = movement.y
 	if movement != Vector2.ZERO:

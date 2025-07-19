@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Heroine
 
 @export var speed: float = 0
+@export var sprint_speed: float = 0
 @export var walk_speed: float = 0
 @export var sleep_time: float = 5
 

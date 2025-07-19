@@ -15,6 +15,7 @@ func _update(delta: float) -> void:
 	if passed_time > heroine.sleep_time:
 		heroine.curr_punches = heroine.max_punches
 		dispatch(PlayerHSM.transition_energetic)
+		dispatch(PlayerHSM.transition_idle)
 
 func _exit() -> void:
 	heroine.model.position.y = 0

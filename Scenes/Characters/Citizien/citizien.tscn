@@ -14,7 +14,7 @@ height = 4.0
 
 [node name="Citizien" type="StaticBody3D" groups=["citizien"]]
 script = ExtResource("1_vsaji")
-max_health = 10
+max_health = 8
 
 [node name="characterSmall" parent="." instance=ExtResource("1_8pkuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.741619, 0)
