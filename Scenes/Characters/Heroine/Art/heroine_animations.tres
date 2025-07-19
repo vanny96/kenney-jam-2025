@@ -1,0 +1,16 @@
+[gd_resource type="AnimationLibrary" load_steps=6 format=3 uid="uid://bkiaogv6wjt7h"]
+
+[ext_resource type="Animation" uid="uid://dxn78qyun7e3k" path="res://Art/Model/Characters/idle.tres" id="1_hitnw"]
+[ext_resource type="Animation" uid="uid://bby03vdh17ysx" path="res://Scenes/Characters/Heroine/Art/punch.tres" id="1_x2wyj"]
+[ext_resource type="Animation" uid="uid://bai1t62euktre" path="res://Art/Model/Characters/run.tres" id="3_8t4k1"]
+[ext_resource type="Animation" uid="uid://b0l72l2ilxri" path="res://Scenes/Characters/Heroine/Art/sleeping.tres" id="4_jivw3"]
+[ext_resource type="Animation" uid="uid://dksoqgvqq0rre" path="res://Scenes/Characters/Heroine/Art/walk.tres" id="5_p8jwg"]
+
+[resource]
+_data = {
+&"idle": ExtResource("1_hitnw"),
+&"punch": ExtResource("1_x2wyj"),
+&"run": ExtResource("3_8t4k1"),
+&"sleep": ExtResource("4_jivw3"),
+&"walk": ExtResource("5_p8jwg")
+}

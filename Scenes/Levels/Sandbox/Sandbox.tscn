@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt33d3qitkfs6"]
+
+[ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="1_u5xbn"]
+[ext_resource type="PackedScene" uid="uid://gx2ujg10c2cq" path="res://Scenes/Characters/Alien/alien.tscn" id="2_rpyqp"]
+[ext_resource type="PackedScene" uid="uid://bhdlahlvxtg2a" path="res://Scenes/Characters/Citizien/citizien.tscn" id="3_de6xr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rpyqp"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_de6xr"]
+sky_material = SubResource("ProceduralSkyMaterial_rpyqp")
+
+[sub_resource type="Environment" id="Environment_ekim6"]
+background_mode = 2
+sky = SubResource("Sky_de6xr")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5xbn"]
+
+[node name="Sandbox" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.693706, -0.623763, 0.360128, 0, 0.499998, 0.866027, -0.720258, -0.600768, 0.346852, 5.64783, 5.81681, -6.09951)
+shadow_enabled = true
+shadow_bias = 2.0
+shadow_normal_bias = 4.0
+shadow_blur = 7.8
+directional_shadow_mode = 1
+directional_shadow_split_2 = 1.0
+directional_shadow_split_3 = 1.0
+directional_shadow_max_distance = 20.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ekim6")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_u5xbn")
+
+[node name="InvisibleWalls" type="CSGBox3D" parent="."]
+visible = false
+use_collision = true
+flip_faces = true
+size = Vector3(20, 15, 20)
+
+[node name="Heroine" parent="." instance=ExtResource("1_u5xbn")]
+
+[node name="Alien" parent="." instance=ExtResource("2_rpyqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45059, 0, 0)
+
+[node name="Citizien" parent="." instance=ExtResource("3_de6xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06662, 0, 3.93922)

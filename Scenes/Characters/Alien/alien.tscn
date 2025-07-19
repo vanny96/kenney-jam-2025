@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://gx2ujg10c2cq"]
+
+[ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_ol8ta"]
+[ext_resource type="Script" uid="uid://bkduanwhfbhb8" path="res://Scenes/Characters/Alien/alien.gd" id="1_xbba8"]
+[ext_resource type="Texture2D" uid="uid://daohf1ceocdqx" path="res://Scenes/Characters/Alien/Art/alienA.png" id="2_68vnx"]
+[ext_resource type="AnimationLibrary" uid="uid://p0jhsf65vir5" path="res://Scenes/Characters/Alien/Art/alien.res" id="3_68vnx"]
+[ext_resource type="Script" uid="uid://vunjgoj0gpyl" path="res://Scenes/Characters/Alien/hsm/limbo_hsm.gd" id="5_ef5dm"]
+[ext_resource type="Script" uid="uid://by1huyxadhc0y" path="res://Scenes/Characters/Alien/hsm/idle.gd" id="6_xe4iv"]
+[ext_resource type="Script" uid="uid://cda2h5v2roodq" path="res://Scenes/Characters/Alien/hsm/run.gd" id="7_qokp6"]
+[ext_resource type="Script" uid="uid://bekoax5fq0gra" path="res://Scenes/Characters/Alien/hsm/attack.gd" id="8_6vpkv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbba8"]
+albedo_texture = ExtResource("2_68vnx")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xbba8"]
+radius = 1.0
+height = 4.0
+
+[node name="Alien" type="CharacterBody3D"]
+script = ExtResource("1_xbba8")
+speed = 3.0
+attack_distance = 3.0
+
+[node name="characterSmall" parent="." instance=ExtResource("1_ol8ta")]
+
+[node name="Skeleton3D" parent="characterSmall/Root" index="0"]
+bones/0/position = Vector3(0.00204209, -0.00318668, 0.00193205)
+bones/0/rotation = Quaternion(-0.428388, -0.562568, 0.562569, 0.428388)
+bones/1/rotation = Quaternion(-0.507512, 0.508228, -0.491907, -0.492101)
+bones/2/rotation = Quaternion(0.0157359, -0.00207876, 0.994625, -0.102322)
+bones/3/rotation = Quaternion(0.946129, -0.0218708, 0.0755026, -0.314104)
+bones/7/position = Vector3(-0.00617958, -0.00586701, 0.0017015)
+bones/7/rotation = Quaternion(-0.707107, 9.41569e-08, 0.707107, 9.4157e-08)
+bones/9/position = Vector3(-0.0020752, 0.00290251, 0.00193205)
+bones/9/rotation = Quaternion(-0.606062, -0.364264, 0.364264, 0.606062)
+bones/10/rotation = Quaternion(-0.507686, 0.507902, -0.491728, -0.492437)
+bones/12/rotation = Quaternion(0.948112, 0.0114449, -0.0440931, -0.314656)
+bones/16/position = Vector3(-0.00617958, -0.005867, -0.000291983)
+bones/16/rotation = Quaternion(-0.707107, 9.41569e-08, 0.707107, 9.4157e-08)
+bones/18/position = Vector3(-4.99155e-07, -0.00104, 0.0148206)
+bones/19/rotation = Quaternion(5.28985e-05, -0.0277724, 0.999613, 0.00144519)
+bones/20/rotation = Quaternion(-0.00430834, -0.162356, -0.00973981, 0.986675)
+bones/21/rotation = Quaternion(0.0623484, -0.0448529, -0.00280481, 0.997042)
+bones/22/rotation = Quaternion(0.0940942, 6.48254e-09, -1.16934e-09, 0.995563)
+bones/23/rotation = Quaternion(0.0766157, 1.04791e-08, 5.72117e-09, 0.997061)
+bones/24/rotation = Quaternion(-0.107027, 0.198692, -0.0572031, 0.97252)
+bones/26/rotation = Quaternion(0.597656, 0.395508, 0.565647, -0.407952)
+bones/27/rotation = Quaternion(-0.430053, 0.58381, -0.114559, 0.679041)
+bones/28/rotation = Quaternion(0.352829, -0.0668637, -0.171465, 0.91741)
+bones/29/rotation = Quaternion(-0.0150854, 0.724359, -0.0315801, 0.688534)
+bones/31/rotation = Quaternion(0.771667, 0.0466405, 0.00196557, 0.634311)
+bones/32/rotation = Quaternion(0.410935, -0.0278593, 0.0125054, 0.911153)
+bones/34/rotation = Quaternion(-0.213061, 0.695039, 0.358431, 0.585707)
+bones/35/rotation = Quaternion(0.660648, -0.0754557, 0.119352, 0.737296)
+bones/37/rotation = Quaternion(0.678186, -0.48571, 0.463529, 0.298814)
+bones/38/rotation = Quaternion(0.143467, 0.937657, 0.315263, -0.0287429)
+bones/39/rotation = Quaternion(-0.0678256, -0.0210801, 0.351795, 0.933379)
+bones/40/rotation = Quaternion(-0.0108135, 0.109294, -0.0332856, 0.993393)
+bones/42/rotation = Quaternion(-0.862729, 0.0398914, 0.01577, 0.503845)
+bones/43/rotation = Quaternion(-0.410937, -0.0278582, -0.0125049, 0.911152)
+bones/45/rotation = Quaternion(-0.23102, 0.802493, -0.347127, -0.426776)
+bones/46/rotation = Quaternion(-0.595143, 0.0459218, 0.310654, 0.739723)
+bones/48/rotation = Quaternion(0.958125, 0.0627951, 0.0365861, 0.276975)
+bones/49/rotation = Quaternion(0.360246, 0.0302956, 0.134493, 0.922614)
+bones/50/rotation = Quaternion(-0.478976, -0.200865, -0.206275, 0.829268)
+bones/53/rotation = Quaternion(0.979992, -0.109964, 0.139739, -0.089422)
+bones/54/rotation = Quaternion(0.235678, 0.0112551, -0.100367, 0.966569)
+bones/55/rotation = Quaternion(-0.664654, 0.133975, 0.0408083, 0.733908)
+bones/56/rotation = Quaternion(0.0282604, 0.953941, -0.297574, -0.0254478)
+
+[node name="characterSmall" parent="characterSmall/Root/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xbba8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"alien": ExtResource("3_68vnx")
+}
+autoplay = "alien/idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22932, 0)
+shape = SubResource("CapsuleShape3D_xbba8")
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+script = ExtResource("5_ef5dm")
+
+[node name="Run" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player", "alien")]
+script = ExtResource("7_qokp6")
+animation_player = NodePath("../../AnimationPlayer")
+alien = NodePath("../..")
+
+[node name="Attack" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("8_6vpkv")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="Disabled" type="LimboState" parent="LimboHSM"]
+
+[node name="Idle" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("6_xe4iv")
+animation_player = NodePath("../../AnimationPlayer")
+
+[editable path="characterSmall"]
