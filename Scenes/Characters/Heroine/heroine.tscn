@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddaal4qsp2hq6"]
+[gd_scene load_steps=17 format=3 uid="uid://ddaal4qsp2hq6"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_gakjb"]
 [ext_resource type="Script" uid="uid://dgle1hnxyrfw0" path="res://Scenes/Characters/Heroine/heroine.gd" id="1_sosi2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bkywnhkdo43w5" path="res://Scenes/Characters/Heroine/StateMachine/sleep.gd" id="9_fy0xi"]
 [ext_resource type="Script" uid="uid://dblqiemhgys3q" path="res://Scenes/Characters/Heroine/StateMachine/sleepy_state.gd" id="10_0v53g"]
 [ext_resource type="Script" uid="uid://bbhbd6jx3487t" path="res://Scenes/Characters/Heroine/StateMachine/walk.gd" id="10_rnhsi"]
+[ext_resource type="PackedScene" uid="uid://dltkdiauyux4s" path="res://Scenes/UI/health/health_bar.tscn" id="13_3qvek"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l1h34"]
 albedo_texture = ExtResource("3_dyn5h")
@@ -226,5 +227,11 @@ light_bake_mode = 0
 spot_range = 15.0
 spot_attenuation = 0.0
 spot_angle = 35.0
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_3qvek")]
+target = NodePath("..")
+signal_name = "attacked_signal"
+health_field = "curr_health"
+max_health_field = "max_health"
 
 [editable path="characterSmall"]

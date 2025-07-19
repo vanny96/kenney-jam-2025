@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhdlahlvxtg2a"]
+[gd_scene load_steps=8 format=3 uid="uid://bhdlahlvxtg2a"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_8pkuo"]
 [ext_resource type="Script" uid="uid://dxq7gkb7sx41j" path="res://Scenes/Characters/Citizien/citizien.gd" id="1_vsaji"]
 [ext_resource type="Texture2D" uid="uid://dub6057rprjgh" path="res://Scenes/Characters/Citizien/Art/businessMaleA.png" id="2_57pgm"]
 [ext_resource type="AnimationLibrary" uid="uid://vl74u0nxrga1" path="res://Scenes/Characters/Citizien/Art/citizien.res" id="3_5h8d3"]
+[ext_resource type="PackedScene" uid="uid://dltkdiauyux4s" path="res://Scenes/UI/health/health_bar.tscn" id="5_ieafq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5h8d3"]
 albedo_texture = ExtResource("2_57pgm")
@@ -78,5 +79,12 @@ autoplay = "citizien/terrified"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22932, 0)
 shape = SubResource("CapsuleShape3D_8pkuo")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_ieafq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.578859, 0, 0)
+target = NodePath("..")
+signal_name = "attacked_signal"
+health_field = "curr_health"
+max_health_field = "max_health"
 
 [editable path="characterSmall"]

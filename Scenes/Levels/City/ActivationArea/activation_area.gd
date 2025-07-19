@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		var shape: CylinderShape3D = collision_shape.shape as CylinderShape3D
 		shape.radius = distance
-	else:
+	elif target:
 		var curr_distance = (target.position - position).length()
 		if curr_distance < distance:
 			activate_aliens()

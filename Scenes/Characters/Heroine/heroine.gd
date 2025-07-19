@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Heroine
 
+signal attacked_signal
+
 @export var speed: float = 0
 @export var sprint_speed: float = 0
 @export var walk_speed: float = 0
@@ -22,14 +24,14 @@ func _physics_process(delta: float) -> void:
 func attacked():
 	curr_health -= 1
 	state_machine.dispatch(PlayerHSM.wake_up_event)
-	print("Heroine health %s" % curr_health)
+	attacked_signal.emit()
 	if not curr_health:
 		queue_free()
 		GlobalSignals.player_died.emit()
 
 func drink_coffee():
-	max_punches += 2
-	curr_punches += 2
+	max_punches += 1
+	curr_punches += 1
 	speed *= 1.2
 	sprint_speed *= 1.2
 	state_machine.dispatch(PlayerHSM.transition_energetic)
