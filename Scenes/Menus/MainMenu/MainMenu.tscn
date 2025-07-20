@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brk0arxtuiaim"]
+[gd_scene load_steps=10 format=3 uid="uid://brk0arxtuiaim"]
 
 [ext_resource type="Script" uid="uid://c5okungnv126k" path="res://Scenes/Menus/MainMenu/main_menu.gd" id="1_5kab6"]
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="1_m6b4a"]
@@ -9,19 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://p3ise53njl1i" path="res://Scenes/Menus/Art/Sprites/ships/shipGreen_manned.png" id="5_0056r"]
 [ext_resource type="Texture2D" uid="uid://1c0awl3enmvx" path="res://Scenes/Menus/Art/Sprites/ships/shipPink_manned.png" id="6_gu2j1"]
 [ext_resource type="Texture2D" uid="uid://b6yh5hfk5coai" path="res://Scenes/Menus/Art/Sprites/ships/shipYellow_manned.png" id="7_dji1l"]
-[ext_resource type="Texture2D" uid="uid://dsasgkbv05p3g" path="res://Scenes/Menus/MainMenu/tilemap_white_packed.png" id="10_0056r"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0056r"]
-atlas = ExtResource("10_0056r")
-region = Rect2(288, 160, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gu2j1"]
-atlas = ExtResource("10_0056r")
-region = Rect2(288, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dji1l"]
-atlas = ExtResource("10_0056r")
-region = Rect2(304, 176, 16, 16)
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("play_button", "settings_button", "exit_button", "settings_menu")]
 script = ExtResource("1_5kab6")
@@ -154,39 +141,3 @@ autowrap_mode = 0
 [node name="Settings" parent="CanvasLayer/Menu" instance=ExtResource("3_iyg2c")]
 visible = false
 layout_mode = 1
-
-[node name="Controls" type="VBoxContainer" parent="CanvasLayer"]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(5, 5)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Controls"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Controls/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = SubResource("AtlasTexture_0056r")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Controls/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = SubResource("AtlasTexture_gu2j1")
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Controls/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = SubResource("AtlasTexture_dji1l")
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Controls/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = SubResource("AtlasTexture_0056r")

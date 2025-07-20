@@ -24,4 +24,4 @@ func move_horizontally(direction: Vector2):
 	heroine.velocity.x = movement.x
 	heroine.velocity.z = movement.y
 	if movement != Vector2.ZERO:
-		heroine.model.look_at(heroine.position - Vector3(movement.x, 0, movement.y))
+		heroine.look_at(heroine.position - Vector3(movement.x, 0, movement.y))
