@@ -1,0 +1,1458 @@
+[gd_scene load_steps=25 format=3 uid="uid://brxsnokf23x7t"]
+
+[ext_resource type="PackedScene" uid="uid://drndpovrhsxfi" path="res://Scenes/Levels/City/Art/road-straight.glb" id="1_24wlg"]
+[ext_resource type="Script" uid="uid://cywdpxigohctm" path="res://Scenes/Levels/DancingScene/dancing_scene.gd" id="1_fjw84"]
+[ext_resource type="PackedScene" uid="uid://ybowu7jvgubj" path="res://Scenes/Levels/City/Art/road-crossroad.glb" id="2_mrudk"]
+[ext_resource type="PackedScene" uid="uid://byc5c8keo26ym" path="res://Scenes/Levels/City/Art/road-crossing.glb" id="3_3f5e1"]
+[ext_resource type="PackedScene" uid="uid://uxdv5ytix2or" path="res://Scenes/Levels/City/Art/tile-low.glb" id="4_pqdej"]
+[ext_resource type="PackedScene" uid="uid://dkofewcxelav1" path="res://Scenes/Levels/City/Art/road-intersection.glb" id="5_fjw84"]
+[ext_resource type="PackedScene" uid="uid://0q5a7s1jixae" path="res://Scenes/Levels/City/Art/road-curve-pavement.glb" id="6_an1qw"]
+[ext_resource type="PackedScene" uid="uid://cfliqordjl23h" path="res://Scenes/Levels/City/Art/small_buildingA.glb" id="7_5su53"]
+[ext_resource type="PackedScene" uid="uid://dv3v1hf20uodo" path="res://Scenes/Levels/City/Art/small_buildingB.glb" id="8_shcly"]
+[ext_resource type="PackedScene" uid="uid://d1wl7qbnktijo" path="res://Scenes/Levels/City/Art/small_buildingC.glb" id="9_n2blw"]
+[ext_resource type="PackedScene" uid="uid://yvmwm478vjyc" path="res://Scenes/Levels/City/Art/small_buildingE.glb" id="10_oeypc"]
+[ext_resource type="PackedScene" uid="uid://bdiqbejscgok3" path="res://Scenes/Levels/City/Art/small_buildingD.glb" id="11_s82y4"]
+[ext_resource type="PackedScene" uid="uid://bhdlahlvxtg2a" path="res://Scenes/Characters/Citizien/citizien.tscn" id="12_mrudk"]
+[ext_resource type="AnimationLibrary" uid="uid://cucd0wgg0ake5" path="res://Scenes/Levels/DancingScene/dancing.res" id="13_3f5e1"]
+[ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="14_pqdej"]
+[ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="16_an1qw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_24wlg"]
+sky_top_color = Color(0.0352941, 0, 0.25098, 1)
+sky_horizon_color = Color(0.0352941, 0, 0.25098, 1)
+ground_bottom_color = Color(0.0352941, 0, 0.25098, 1)
+ground_horizon_color = Color(0.0352941, 0, 0.25098, 1)
+sun_angle_max = 0.0
+
+[sub_resource type="Sky" id="Sky_de6xr"]
+sky_material = SubResource("ProceduralSkyMaterial_24wlg")
+
+[sub_resource type="Environment" id="Environment_mrudk"]
+background_mode = 2
+background_color = Color(0.0352941, 0, 0.25098, 1)
+sky = SubResource("Sky_de6xr")
+tonemap_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5su53"]
+viewport_path = NodePath("Heroine/SleepingParticles2/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an1qw"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("ViewportTexture_5su53")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_5su53"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_an1qw")
+
+[sub_resource type="Curve" id="Curve_cdv38"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0.00655022, 0.00684428), 0.0, 0.0, 0, 0, Vector2(0.995633, 1.48196), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an1qw"]
+
+[node name="DancingScene" type="Node3D" node_paths=PackedStringArray("heroine_animation_player", "heroine_animation_player_2", "heroine_sleep_vfx", "heroine_sleep_position", "heroine", "scrolling_screen")]
+script = ExtResource("1_fjw84")
+time_before_sleep = 4.0
+heroine_animation_player = NodePath("Heroine/AnimationPlayer")
+heroine_animation_player_2 = NodePath("Heroine/AnimationPlayer2")
+heroine_sleep_vfx = NodePath("Heroine/SleepingParticles2")
+heroine_sleep_position = NodePath("SleepPosition")
+heroine = NodePath("Heroine")
+scrolling_screen = NodePath("CanvasLayer/ScrollingScreen")
+scrolling_screen_time = 10.0
+scrolling_screen_wait = 3.0
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.935192, 0.0740335, 0.346317, 0.319828, 0.596489, 0.736146, -0.152075, 0.799199, -0.58151, 46.5644, 10.9313, 33.4084)
+light_color = Color(0.0588235, 0.509804, 0.54902, 1)
+shadow_enabled = true
+shadow_bias = 1.0
+shadow_normal_bias = 4.0
+shadow_reverse_cull_face = true
+shadow_opacity = 0.9
+directional_shadow_mode = 0
+directional_shadow_split_2 = 1.0
+directional_shadow_split_3 = 1.0
+directional_shadow_fade_start = 0.9
+directional_shadow_max_distance = 30.0
+directional_shadow_pancake_size = 0.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment"]
+transform = Transform3D(0.618587, 0, 0.785717, 0, 1, 0, -0.785717, 0, 0.618587, 52.2903, 2.70934, 52.1082)
+spot_range = 30.0
+spot_attenuation = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_mrudk")
+
+[node name="InvisibleWalls" type="CSGBox3D" parent="Environment"]
+visible = false
+use_collision = true
+flip_faces = true
+size = Vector3(164, 20, 164)
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="_Node3D_196179" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -30, 0, 0)
+
+[node name="_Node3D_196180" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 30, 0, 0)
+
+[node name="_Node3D_196182" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(2.92061e-06, 0, 15, 0, 15, 0, -15, 0, 2.92061e-06, 0, 0, 30)
+
+[node name="_Node3D_196183" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(2.92061e-06, 0, 15, 0, 15, 0, -15, 0, 2.92061e-06, 0, 0, 45)
+
+[node name="_Node3D_196184" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(2.92061e-06, 0, 15, 0, 15, 0, -15, 0, 2.92061e-06, 0, 0, -30)
+
+[node name="_Node3D_196185" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(2.92061e-06, 0, 15, 0, 15, 0, -15, 0, 2.92061e-06, 0, 0, -45)
+
+[node name="road-crossroad2" parent="Models" instance=ExtResource("2_mrudk")]
+transform = Transform3D(2.92061e-06, 0, 15, 0, 15, 0, -15, 0, 2.92061e-06, 0, 0, 0)
+
+[node name="road-crossing2" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -15, 0, 0)
+
+[node name="_Node3D_196186" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 15, 0, 0)
+
+[node name="_Node3D_196187" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 0, 0, 15)
+
+[node name="_Node3D_196188" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 0, 0, -15)
+
+[node name="tile-low2" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, 15)
+
+[node name="_Node3D_196193" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -30, 0, 15)
+
+[node name="_Node3D_196195" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, 30)
+
+[node name="_Node3D_196196" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, 45)
+
+[node name="_Node3D_196197" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, 45)
+
+[node name="_Node3D_196198" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, 30)
+
+[node name="_Node3D_196199" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, 15)
+
+[node name="_Node3D_196201" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 45, 0, 15)
+
+[node name="_Node3D_196202" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 45, 0, -15)
+
+[node name="_Node3D_196203" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 30, 0, -15)
+
+[node name="_Node3D_196204" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, -15)
+
+[node name="_Node3D_196205" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, -30)
+
+[node name="_Node3D_196206" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, -45)
+
+[node name="_Node3D_196207" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, -45)
+
+[node name="_Node3D_196208" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, -30)
+
+[node name="_Node3D_196209" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, -15)
+
+[node name="_Node3D_196210" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -30, 0, -15)
+
+[node name="_Node3D_196857" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 75, 0, 0)
+
+[node name="_Node3D_196858" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 75, 0, -15)
+
+[node name="_Node3D_196866" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -30, 0, 60)
+
+[node name="_Node3D_196878" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 30, 0, -60)
+
+[node name="_Node3D_196881" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 60, 0, -30)
+
+[node name="_Node3D_196882" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 60, 0, -15)
+
+[node name="_Node3D_196883" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 60, 0, 15)
+
+[node name="_Node3D_196884" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 60, 0, 30)
+
+[node name="_Node3D_196888" parent="Models" instance=ExtResource("1_24wlg")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 30, 0, 60)
+
+[node name="_Node3D_196894" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 30, 0, 30)
+
+[node name="_Node3D_196895" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 30, 0, 45)
+
+[node name="_Node3D_196897" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 45, 0, 30)
+
+[node name="_Node3D_196898" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 45, 0, -30)
+
+[node name="_Node3D_196900" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 30, 0, -45)
+
+[node name="_Node3D_196901" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 30, 0, -30)
+
+[node name="_Node3D_196902" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -30, 0, -30)
+
+[node name="_Node3D_196903" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -30, 0, -45)
+
+[node name="_Node3D_196918" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 75, 0, -60)
+
+[node name="_Node3D_196919" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 75, 0, -30)
+
+[node name="_Node3D_196920" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 75, 0, -45)
+
+[node name="_Node3D_196921" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 75, 0, 30)
+
+[node name="_Node3D_196922" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 75, 0, 45)
+
+[node name="_Node3D_196923" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 75, 0, 60)
+
+[node name="_Node3D_197459" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 45, 0, 0)
+
+[node name="_Node3D_197462" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -15, 0, 60)
+
+[node name="_Node3D_197464" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 15, 0, -60)
+
+[node name="road-intersection2" parent="Models" instance=ExtResource("5_fjw84")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 0, 0, 60)
+
+[node name="_Node3D_199068" parent="Models" instance=ExtResource("5_fjw84")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 60, 0, 0)
+
+[node name="_Node3D_27509" parent="Models" instance=ExtResource("6_an1qw")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 52.5, 0, -52.5)
+
+[node name="small_buildingA2" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -30, 0, 15)
+
+[node name="small_buildingC2" parent="Models" instance=ExtResource("9_n2blw")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -15, 0, 15)
+
+[node name="_Node3D_27531" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -30, 0, -15)
+
+[node name="_Node3D_27532" parent="Models" instance=ExtResource("9_n2blw")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -15, 0, -15)
+
+[node name="small_buildingE2" parent="Models" instance=ExtResource("10_oeypc")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 30, 0, -15)
+
+[node name="small_buildingD2" parent="Models" instance=ExtResource("11_s82y4")]
+transform = Transform3D(-10.6066, 0, -10.6066, 0, 15, 0, 10.6066, 0, -10.6066, 15, 0, 15)
+
+[node name="_Node3D_27536" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(2.92061e-06, 0, 15, 0, 15, 0, -15, 0, 2.92061e-06, -15, 0, 30)
+
+[node name="_Node3D_27537" parent="Models" instance=ExtResource("8_shcly")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, 30)
+
+[node name="_Node3D_27538" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, 45)
+
+[node name="_Node3D_27541" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -0.556721, 0, 73.9132)
+
+[node name="_Node3D_27539" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(-6.55671e-07, 0, 15, 0, 15, 0, -15, 0, -6.55671e-07, -15, 0, 45)
+
+[node name="_Node3D_27540" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(-6.55671e-07, 0, 15, 0, 15, 0, -15, 0, -6.55671e-07, -15, 0, 60.0327)
+
+[node name="_Node3D_27544" parent="Models" instance=ExtResource("7_5su53")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -30, 0, -45)
+
+[node name="_Node3D_27545" parent="Models" instance=ExtResource("8_shcly")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -15, 0, -45)
+
+[node name="_Node3D_27546" parent="Models" instance=ExtResource("8_shcly")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 15, 0, -45)
+
+[node name="_Node3D_27547" parent="Models" instance=ExtResource("11_s82y4")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 30, 0, -45)
+
+[node name="_Node3D_27548" parent="Models" instance=ExtResource("11_s82y4")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 46.5397, 0, -73.9655)
+
+[node name="_Node3D_196200" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 30, 0, 15)
+
+[node name="_Node3D_197463" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, -15, 0, -60)
+
+[node name="_Node3D_199067" parent="Models" instance=ExtResource("5_fjw84")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -60)
+
+[node name="_Node3D_27508" parent="Models" instance=ExtResource("6_an1qw")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 52.5, 0, 52.5)
+
+[node name="_Node3D_197461" parent="Models" instance=ExtResource("3_3f5e1")]
+transform = Transform3D(-15, 0, 2.26494e-06, 0, 15, 0, -2.26494e-06, 0, -15, 15, 0, 60)
+
+[node name="_Node3D_196859" parent="Models" instance=ExtResource("4_pqdej")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 75, 0, 15)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.646417, -0.406847, 0.645462, 2.83463e-08, 0.84597, 0.533231, -0.762984, -0.344689, 0.546849, 51.7318, 5.26338, 52.2598)
+size = 10.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 39.2902, 20.4318, 32.6913)
+light_color = Color(1, 0.8, 0, 1)
+light_bake_mode = 1
+distance_fade_enabled = true
+distance_fade_begin = 60.0
+distance_fade_length = 5.0
+spot_range = 40.0
+spot_attenuation = 0.0
+spot_angle = 80.0
+
+[node name="Citiziens" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.54272)
+
+[node name="Citizien17" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 42.2502, 0.149958, 31.4451)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien17/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien17" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien17" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien17" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien17" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien17"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien18" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 46.3782, 0.149958, 31.4451)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien18/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien18" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien18" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien18" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien18" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien18"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien19" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 42.2502, 0.149958, 35.9693)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien19/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien19" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien19" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien19" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien19" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien19"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien20" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 46.3782, 0.149958, 35.9693)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien20/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien20" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien20" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien20" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien20" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien20"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien21" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 42.2502, 0.149958, 40.6439)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien21/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien21" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien21" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien21" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien21" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien21"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien22" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 46.3782, 0.149958, 40.6439)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien22/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien22" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien22" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien22" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien22" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien22"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien23" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 42.2502, 0.149958, 26.551)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien23/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien23" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien23" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien23" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien23" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien23"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien24" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 46.3782, 0.149958, 26.551)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien24/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien24" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien24" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien24" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien24" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien24"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien26" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 37.9864, 0.149958, 26.551)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien26/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien26" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien26" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien26" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien26" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien26"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien27" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 33.8585, 0.149958, 30.3171)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien27/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien27" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien27" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien27" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien27" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien27"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien28" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 37.9864, 0.149958, 30.3171)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien28/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien28" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien28" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien28" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien28" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien28"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien29" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 33.8585, 0.149958, 35.5541)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien29/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien29" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien29" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien29" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien29" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien29"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien30" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 37.9864, 0.149958, 35.5541)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien30/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien30" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien30" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien30" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien30" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien30"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien31" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 33.8585, 0.149958, 40.7588)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien31/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien31" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien31" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien31" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien31" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien31"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="Citizien16" parent="Citiziens" instance=ExtResource("12_mrudk")]
+transform = Transform3D(0.399869, 0, 0.916572, 0, 1, 0, -0.916572, 0, 0.399869, 37.9864, 0.149958, 40.7588)
+script = null
+
+[node name="Skeleton3D" parent="Citiziens/Citizien16/characterSmall/Root" index="0"]
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+
+[node name="AnimationPlayer" parent="Citiziens/Citizien16" index="1"]
+process_mode = 4
+
+[node name="CollisionShape3D" parent="Citiziens/Citizien16" index="2"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Citiziens/Citizien16" index="3"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="MultiSoundEmitter" parent="Citiziens/Citizien16" index="4"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Citiziens/Citizien16"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="SleepPosition" type="Node3D" parent="."]
+transform = Transform3D(0.876029, 0, 0.482258, 0, 1, 0, -0.482258, 0, 0.876029, 49.1452, 1.21202, 49.4782)
+
+[node name="Heroine" parent="." instance=ExtResource("14_pqdej")]
+transform = Transform3D(0.400349, 0, 0.916363, 0, 1, 0, -0.916363, 0, 0.400349, 49.2284, 0.0657322, 49.5929)
+script = null
+
+[node name="SleepingParticles" parent="Heroine" index="0"]
+visible = false
+mesh = SubResource("QuadMesh_5su53")
+
+[node name="Skeleton3D" parent="Heroine/characterSmall/Root" index="0"]
+bones/0/rotation = Quaternion(-0.5, -0.5, 0.5, 0.5)
+bones/1/rotation = Quaternion(-0.507454, 0.508134, -0.491989, -0.492175)
+bones/2/rotation = Quaternion(0.0155854, -0.00204023, 0.994626, -0.102335)
+bones/3/rotation = Quaternion(0.946129, -0.0218711, 0.0755029, -0.314103)
+bones/7/position = Vector3(-0.00617958, -0.00586701, 0.0017015)
+bones/7/rotation = Quaternion(-0.707107, 5.55112e-17, 0.707107, 1.66533e-16)
+bones/9/position = Vector3(-0.0020752, -0.000304607, 0.00193205)
+bones/9/rotation = Quaternion(-0.5, -0.5, 0.5, 0.5)
+bones/10/rotation = Quaternion(-0.507767, 0.507971, -0.491669, -0.492341)
+bones/12/rotation = Quaternion(0.948112, 0.0114452, -0.044093, -0.314656)
+bones/16/position = Vector3(-0.00617958, -0.00586701, -0.00160237)
+bones/16/rotation = Quaternion(-0.707107, 5.55112e-17, 0.707107, 1.66533e-16)
+bones/18/position = Vector3(2.8697e-05, 4.45607e-05, 0.0123271)
+bones/18/rotation = Quaternion(0.0446981, 0.704618, -0.703596, -0.0804234)
+bones/19/rotation = Quaternion(5.28985e-05, -0.0277724, 0.999613, 0.00144519)
+bones/20/rotation = Quaternion(-0.0234721, 0.0181457, 0.0280614, 0.999166)
+bones/21/rotation = Quaternion(0.0623484, -0.0448529, -0.00280481, 0.997042)
+bones/22/rotation = Quaternion(0.0940942, -3.90998e-09, -2.64102e-10, 0.995563)
+bones/23/rotation = Quaternion(0.0469918, -0.000515311, 0.00282342, 0.998891)
+bones/24/rotation = Quaternion(-0.0802841, -0.00129258, 0.0833358, 0.993281)
+bones/26/rotation = Quaternion(0.533175, 0.480399, 0.547401, -0.430456)
+bones/27/rotation = Quaternion(0.513002, 0.583136, -0.397057, 0.489006)
+bones/28/rotation = Quaternion(0.0333805, 0.0167658, 0.000651418, 0.999302)
+bones/29/rotation = Quaternion(-0.0882392, 0.70638, 0.117279, 0.69245)
+bones/30/rotation = Quaternion(0.0687691, -0.0681829, -0.00844949, 0.995264)
+bones/31/rotation = Quaternion(0.0621571, 0.0606388, -0.00811748, 0.99619)
+bones/32/rotation = Quaternion(0.127505, -0.0353088, 0.00782501, 0.991178)
+bones/34/rotation = Quaternion(-0.0884595, 0.794225, 0.263876, 0.540139)
+bones/35/rotation = Quaternion(0.231566, -0.00415154, 0.0244041, 0.972504)
+bones/37/rotation = Quaternion(0.770846, -0.392563, 0.208388, 0.456361)
+bones/38/rotation = Quaternion(0.390434, 0.88755, -0.200672, -0.139811)
+bones/39/rotation = Quaternion(0.000479579, -0.140046, 0.117012, 0.983207)
+bones/40/rotation = Quaternion(0.416271, 0.0152644, -0.105252, 0.902999)
+bones/41/rotation = Quaternion(-0.0301062, -0.0867847, -0.00389501, 0.995765)
+bones/42/rotation = Quaternion(-0.0769906, 0.0733084, -0.00891821, 0.994293)
+bones/43/rotation = Quaternion(-0.102547, -0.0258824, 0.00450451, 0.994381)
+bones/45/rotation = Quaternion(-0.0873553, 0.917341, -0.170737, -0.34886)
+bones/46/rotation = Quaternion(-0.215583, -0.036039, 0.101133, 0.970565)
+bones/48/rotation = Quaternion(0.980545, 0.134594, -0.12483, 0.0695236)
+bones/49/rotation = Quaternion(0.26291, -0.0263962, 0.0262445, 0.964102)
+bones/49/scale = Vector3(1, 1, 1)
+bones/50/rotation = Quaternion(-0.550955, -0.213381, -0.0421608, 0.805692)
+bones/50/scale = Vector3(1, 1, 1)
+bones/53/rotation = Quaternion(0.984022, -0.0937399, 0.0798202, 0.128618)
+bones/54/rotation = Quaternion(0.235211, 0.0810682, 0.00295451, 0.968553)
+bones/55/rotation = Quaternion(-0.475346, 0.0241048, -0.0855291, 0.8753)
+bones/56/rotation = Quaternion(0.0221592, 0.954752, -0.295316, -0.0273092)
+
+[node name="HeadAttachment" parent="Heroine/characterSmall/Root/Skeleton3D" index="1"]
+transform = Transform3D(0.950992, -0.195184, -0.239843, -0.26189, -0.0959554, -0.960316, 0.164423, 0.976062, -0.142369, -0.00274239, -0.00174636, 0.0344085)
+
+[node name="TailAttachment" parent="Heroine/characterSmall/Root/Skeleton3D" index="2"]
+transform = Transform3D(0.982891, 0.0627318, -0.173201, -0.176327, 0.0482445, -0.983149, -0.0533189, 0.996864, 0.05848, -0.000137429, 6.44039e-05, 0.00911194)
+
+[node name="CollisionShape3D" parent="Heroine" index="3"]
+process_mode = 4
+visible = false
+
+[node name="LimboHSM" parent="Heroine" index="4"]
+process_mode = 4
+script = null
+
+[node name="VisionLight" parent="Heroine" index="5"]
+process_mode = 4
+visible = false
+
+[node name="HealthBar" parent="Heroine" index="6"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="HitSoundEmitter" parent="Heroine" index="7"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="SuccessfulHitSoundEmitter" parent="Heroine" index="8"]
+process_mode = 4
+visible = false
+script = null
+
+[node name="YawnEmitter" parent="Heroine" index="9"]
+process_mode = 4
+visible = false
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Heroine"]
+libraries = {
+&"dancing": ExtResource("13_3f5e1")
+}
+autoplay = "dancing/dancing_animation"
+
+[node name="SleepingParticles2" type="CPUParticles3D" parent="Heroine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28321, 0, 0.887337)
+emitting = false
+amount = 4
+lifetime = 1.5
+mesh = SubResource("QuadMesh_5su53")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_amount_curve = SubResource("Curve_cdv38")
+
+[node name="SubViewport" type="SubViewport" parent="Heroine/SleepingParticles2"]
+disable_3d = true
+transparent_bg = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Heroine/SleepingParticles2/SubViewport"]
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -163.5
+offset_right = 56.0
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_an1qw")
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/normal_font_size = 200
+text = "Z"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScrollingScreen" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -572.0
+offset_bottom = -508.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ScrollingScreen"]
+layout_mode = 2
+theme = ExtResource("16_an1qw")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 50
+text = "Game By: Giovanni Barbaro (Vanny96)"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/ScrollingScreen"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_an1qw")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/ScrollingScreen"]
+layout_mode = 2
+theme = ExtResource("16_an1qw")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 50
+text = "Soundtrack: Victor Natas"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/ScrollingScreen"]
+layout_mode = 2
+theme_override_constants/separation = 700
+theme_override_styles/separator = SubResource("StyleBoxEmpty_an1qw")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/ScrollingScreen"]
+layout_mode = 2
+theme = ExtResource("16_an1qw")
+theme_override_colors/font_outline_color = Color(0.0941176, 0.733333, 0.466667, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 100
+text = "Thanks for playing!"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[editable path="Models/_Node3D_196179"]
+[editable path="Citiziens/Citizien17"]
+[editable path="Citiziens/Citizien17/characterSmall"]
+[editable path="Citiziens/Citizien18"]
+[editable path="Citiziens/Citizien18/characterSmall"]
+[editable path="Citiziens/Citizien19"]
+[editable path="Citiziens/Citizien19/characterSmall"]
+[editable path="Citiziens/Citizien20"]
+[editable path="Citiziens/Citizien20/characterSmall"]
+[editable path="Citiziens/Citizien21"]
+[editable path="Citiziens/Citizien21/characterSmall"]
+[editable path="Citiziens/Citizien22"]
+[editable path="Citiziens/Citizien22/characterSmall"]
+[editable path="Citiziens/Citizien23"]
+[editable path="Citiziens/Citizien23/characterSmall"]
+[editable path="Citiziens/Citizien24"]
+[editable path="Citiziens/Citizien24/characterSmall"]
+[editable path="Citiziens/Citizien26"]
+[editable path="Citiziens/Citizien26/characterSmall"]
+[editable path="Citiziens/Citizien27"]
+[editable path="Citiziens/Citizien27/characterSmall"]
+[editable path="Citiziens/Citizien28"]
+[editable path="Citiziens/Citizien28/characterSmall"]
+[editable path="Citiziens/Citizien29"]
+[editable path="Citiziens/Citizien29/characterSmall"]
+[editable path="Citiziens/Citizien30"]
+[editable path="Citiziens/Citizien30/characterSmall"]
+[editable path="Citiziens/Citizien31"]
+[editable path="Citiziens/Citizien31/characterSmall"]
+[editable path="Citiziens/Citizien16"]
+[editable path="Citiziens/Citizien16/characterSmall"]
+[editable path="Heroine"]
+[editable path="Heroine/characterSmall"]
+[editable path="Heroine/characterSmall/Root/Skeleton3D/HeadAttachment/hairPigtail"]
+[editable path="Heroine/characterSmall/Root/Skeleton3D/TailAttachment/hairTail"]

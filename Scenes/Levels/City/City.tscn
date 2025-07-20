@@ -32,7 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://dubweksapt7rq" path="res://Scenes/Levels/City/Cutscenes/audio/line_4.mp3" id="28_co14g"]
 [ext_resource type="AudioStream" uid="uid://8llpyvj2xsu" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_1.mp3" id="29_ukdli"]
 [ext_resource type="AudioStream" uid="uid://i35kmf8677tp" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_2.mp3" id="30_co14g"]
-[ext_resource type="Script" uid="uid://dkb4i4d2k5xxr" path="res://Scenes/Levels/City/sleep_tutorial.gd" id="33_co14g"]
+[ext_resource type="Script" uid="uid://dkb4i4d2k5xxr" path="res://Scenes/Levels/City/Cutscenes/sleep_tutorial.gd" id="33_co14g"]
 [ext_resource type="Texture2D" uid="uid://b1pq3iekg3iyx" path="res://Scenes/Levels/City/Cutscenes/art/tilemap_white_packed.png" id="34_punoh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwrgy"]
@@ -42,13 +42,13 @@ ground_bottom_color = Color(0.0352941, 0, 0.25098, 1)
 ground_horizon_color = Color(0.0352941, 0, 0.25098, 1)
 sun_angle_max = 0.0
 
-[sub_resource type="Sky" id="Sky_de6xr"]
+[sub_resource type="Sky" id="Sky_punoh"]
 sky_material = SubResource("ProceduralSkyMaterial_pwrgy")
 
 [sub_resource type="Environment" id="Environment_gttvd"]
 background_mode = 2
 background_color = Color(0.0352941, 0, 0.25098, 1)
-sky = SubResource("Sky_de6xr")
+sky = SubResource("Sky_punoh")
 tonemap_mode = 2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iajwf"]

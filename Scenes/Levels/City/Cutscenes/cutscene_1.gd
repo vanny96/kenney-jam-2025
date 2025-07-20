@@ -8,6 +8,9 @@ extends Node
 @export var camera_position_2: Vector3
 @export var camera_pan_time: float
 
+@export var soundtrack_audio_level: float = -25
+@onready var soundtrack_initial_level: float = Soundtrack.volume_db
+
 @onready var line_1: RichTextLabel = $Subtitles/Subtitles/Line
 @onready var line_2: RichTextLabel = $Subtitles/Subtitles/Line2
 @onready var line_3: RichTextLabel = $Subtitles/Subtitles/Line3
@@ -16,11 +19,13 @@ extends Node
 func _ready() -> void:
 	var tween = create_tween()
 	tween.tween_callback(disable_entities)
+	tween.tween_property(Soundtrack, "volume_db", soundtrack_audio_level, 0.5)
 	tween.tween_subtween(play_heroine_initial())
 	tween.tween_subtween(move_camera_to(camera_position_2))
 	tween.tween_subtween(play_alien_scene())
 	tween.tween_subtween(move_camera_to(camera_position_1))
 	tween.tween_subtween(play_heroine_end())
+	tween.tween_property(Soundtrack, "volume_db", soundtrack_initial_level, 1)
 	tween.tween_callback(enable_entities)
 	tween.tween_callback(queue_free)
 	

@@ -2,7 +2,7 @@ extends Node2D
 
 @export var return_to_menu_button: Button 
 
-@onready var main_menu_path = "res://Scenes/Menus/MainMenu/MainMenu.tscn"
+const main_menu_path = "res://Scenes/Menus/MainMenu/MainMenu.tscn"
 
 func _ready() -> void:
 	MenuAudio.configure_button(return_to_menu_button)

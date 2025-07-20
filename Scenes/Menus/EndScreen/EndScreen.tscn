@@ -114,7 +114,7 @@ horizontal_alignment = 2
 
 [node name="Button" type="Button" parent="UI"]
 custom_minimum_size = Vector2(500, 0)
-anchors_preset = -1
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 50.0
