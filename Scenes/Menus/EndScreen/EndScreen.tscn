@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c82d8pyc7ecud"]
+[gd_scene load_steps=8 format=3 uid="uid://c82d8pyc7ecud"]
 
+[ext_resource type="Script" uid="uid://cwtwenp8px70p" path="res://Scenes/Menus/EndScreen/end_screen.gd" id="1_ms182"]
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="2_2i84g"]
 [ext_resource type="Script" uid="uid://biidh3aqh1ktv" path="res://Scenes/Menus/MainMenu/ships.gd" id="2_g428v"]
 [ext_resource type="Texture2D" uid="uid://ctd5wehoj24db" path="res://Scenes/Menus/Art/Sprites/ships/shipBlue_manned.png" id="3_ms182"]
@@ -7,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://1c0awl3enmvx" path="res://Scenes/Menus/Art/Sprites/ships/shipPink_manned.png" id="5_yofhs"]
 [ext_resource type="Texture2D" uid="uid://b6yh5hfk5coai" path="res://Scenes/Menus/Art/Sprites/ships/shipYellow_manned.png" id="6_olp61"]
 
-[node name="EndScreen" type="Node2D"]
+[node name="EndScreen" type="Node2D" node_paths=PackedStringArray("return_to_menu_button")]
+script = ExtResource("1_ms182")
+return_to_menu_button = NodePath("UI/Button")
 
 [node name="Ships" type="Node2D" parent="."]
 script = ExtResource("2_g428v")
@@ -68,9 +71,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0352941, 0, 0.25098, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
 clip_contents = false
 anchors_preset = -1
 anchor_left = 0.5
@@ -89,7 +92,7 @@ text = "Thanks for Playing!"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI"]
 clip_contents = false
 anchors_preset = -1
 anchor_left = 0.95
@@ -108,3 +111,16 @@ text = "Game by Vanny96"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="UI"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -95.0
+offset_right = 462.0
+offset_bottom = -59.0
+grow_vertical = 0
+theme = ExtResource("2_2i84g")
+theme_type_variation = &"AccentGreen"
+text = "Return to Menu"
