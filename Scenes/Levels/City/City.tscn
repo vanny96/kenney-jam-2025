@@ -1066,6 +1066,7 @@ bus = &"SFX"
 [node name="HeroinLine2" type="AudioStreamPlayer3D" parent="Cutscenes/Cutscene1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6432, 2.74904, -0.563442)
 stream = ExtResource("28_co14g")
+volume_db = -3.0
 pitch_scale = 1.2
 bus = &"SFX"
 

@@ -22,6 +22,7 @@ GlobalSignals="*res://Utils/GlobalSignals/GlobalSignals.tscn"
 SceneManager="*res://Utils/SceneManager/SceneManager.tscn"
 Debugger="*res://Utils/Debugger/Debugger.tscn"
 MenuAudio="*res://Scenes/Menus/MenuAudio/MenuAudio.tscn"
+Soundtrack="*res://Scenes/Soundtrack/Soundtrack.tscn"
 
 [display]
 
