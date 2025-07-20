@@ -57,9 +57,11 @@ func aliend_died():
 	
 func activate():
 	for alien in aliens:
-		alien.activate()
+		if alien:
+			alien.activate()
 	for citizien in citiziens:
-		citizien.activate()
+		if citizien:
+			citizien.activate()
 	enabled = false
 
 func completed():
