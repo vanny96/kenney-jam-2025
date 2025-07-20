@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhdlahlvxtg2a"]
+[gd_scene load_steps=13 format=3 uid="uid://bhdlahlvxtg2a"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_8pkuo"]
 [ext_resource type="Script" uid="uid://dxq7gkb7sx41j" path="res://Scenes/Characters/Citizien/citizien.gd" id="1_vsaji"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cie3jm81iyt31" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_1.mp3" id="7_li6bj"]
 [ext_resource type="AudioStream" uid="uid://dsy1rqy1hx5xw" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_2.mp3" id="8_tq811"]
 [ext_resource type="AudioStream" uid="uid://1koi47i1f0vf" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_3.mp3" id="9_qrut6"]
+[ext_resource type="AudioStream" uid="uid://dth3143ywyih1" path="res://Scenes/Characters/Citizien/Audio/death/death_1.mp3" id="10_li6bj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5h8d3"]
 albedo_texture = ExtResource("2_57pgm")
@@ -32,7 +33,6 @@ bones/2/rotation = Quaternion(0.0155854, -0.00204023, 0.994626, -0.102335)
 bones/3/rotation = Quaternion(0.946129, -0.0218711, 0.0755029, -0.314103)
 bones/7/position = Vector3(-0.00617958, -0.00586701, 0.0017015)
 bones/7/rotation = Quaternion(-0.707107, 5.55112e-17, 0.707107, 1.66533e-16)
-bones/9/position = Vector3(-0.0020752, -0.000304607, 0.00193205)
 bones/9/rotation = Quaternion(-0.5, -0.5, 0.5, 0.5)
 bones/10/rotation = Quaternion(-0.507767, 0.507971, -0.491669, -0.492341)
 bones/12/rotation = Quaternion(0.948112, 0.0114452, -0.044093, -0.314656)
@@ -95,5 +95,10 @@ max_health_field = "max_health"
 [node name="MultiSoundEmitter" parent="." instance=ExtResource("6_xinf8")]
 audios = Array[AudioStream]([ExtResource("7_li6bj"), ExtResource("8_tq811"), ExtResource("9_qrut6")])
 randomize = true
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_li6bj")
+pitch_scale = 1.8
+bus = &"SFX"
 
 [editable path="characterSmall"]

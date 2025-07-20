@@ -10,15 +10,22 @@ signal attacked_signal
 @onready var curr_health: int = max_health
 @onready var help_sound_emitter: MultiAudioEmitter = $MultiSoundEmitter
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var death_sound_emitter: AudioStreamPlayer3D = $DeathSound
+
 var help_scream_tween: Tween
 
 func _ready() -> void:
-	$AnimationPlayer.play("citizien/terrified")
+	animation_player.play("citizien/terrified")
 
 func attacked():
 	curr_health -= 1
 	attacked_signal.emit()
 	if not curr_health:
+		help_scream_tween.kill()
+		death_sound_emitter.play()
+		animation_player.play("citizien/death")
+		await animation_player.animation_finished 
 		queue_free()
 		
 func activate():

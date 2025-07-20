@@ -43,6 +43,7 @@ func enable_entities():
 	heroine.state_machine.dispatch(PlayerHSM.transition_energetic)
 	camera.follow_target = true
 	ui.visible = true
+	Soundtrack.volume_db = soundtrack_initial_level
 	
 func move_camera_to(position: Vector3):
 	var tween = create_tween()

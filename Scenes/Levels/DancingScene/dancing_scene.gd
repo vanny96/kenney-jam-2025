@@ -29,7 +29,7 @@ func heroine_animation():
 	
 func scroll_screen():
 	var screen_size = get_window().content_scale_size
-	scrolling_screen.position.y = screen_size.y
+	scrolling_screen.position.y = screen_size.y * 1.2
 	var tween = create_tween()
 	tween.tween_property(scrolling_screen, "position:y", (screen_size.y/-2), scrolling_screen_time)
 	tween.tween_interval(scrolling_screen_wait)
