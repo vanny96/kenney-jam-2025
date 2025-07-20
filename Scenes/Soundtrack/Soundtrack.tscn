@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://beeps5djay1cf" path="res://Scenes/Soundtrack/soundtrack.gd" id="2_65ycf"]
 
 [node name="Soundtrack" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_o2l3j")
 volume_db = -10.0
 bus = &"Music"
