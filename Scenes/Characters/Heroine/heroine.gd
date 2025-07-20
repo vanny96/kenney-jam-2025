@@ -28,6 +28,7 @@ func attacked():
 	attacked_signal.emit()
 	if not curr_health:
 		global_position = spawn_point.global_position
+		curr_health = max_health
 		GlobalSignals.player_died.emit()
 
 func drink_coffee():
