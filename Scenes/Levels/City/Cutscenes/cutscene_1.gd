@@ -24,6 +24,11 @@ func _ready() -> void:
 	tween.tween_callback(enable_entities)
 	tween.tween_callback(queue_free)
 	
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_ENTER):
+		enable_entities()
+		queue_free()
+	
 func disable_entities():
 	heroine.state_machine.dispatch(PlayerHSM.transition_disabled)
 	camera.follow_target = false

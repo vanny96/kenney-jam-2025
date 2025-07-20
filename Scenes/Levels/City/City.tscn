@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dde8ocp2xccu"]
+[gd_scene load_steps=41 format=3 uid="uid://dde8ocp2xccu"]
 
 [ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="1_5x6sf"]
 [ext_resource type="Script" uid="uid://dextliqgr422" path="res://Scenes/Levels/Sandbox/camera_3d.gd" id="1_gttvd"]
@@ -32,6 +32,8 @@
 [ext_resource type="AudioStream" uid="uid://dubweksapt7rq" path="res://Scenes/Levels/City/Cutscenes/audio/line_4.mp3" id="28_co14g"]
 [ext_resource type="AudioStream" uid="uid://8llpyvj2xsu" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_1.mp3" id="29_ukdli"]
 [ext_resource type="AudioStream" uid="uid://i35kmf8677tp" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_2.mp3" id="30_co14g"]
+[ext_resource type="Script" uid="uid://dkb4i4d2k5xxr" path="res://Scenes/Levels/City/sleep_tutorial.gd" id="33_co14g"]
+[ext_resource type="Texture2D" uid="uid://b1pq3iekg3iyx" path="res://Scenes/Levels/City/Cutscenes/art/tilemap_white_packed.png" id="34_punoh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwrgy"]
 sky_top_color = Color(0.0352941, 0, 0.25098, 1)
@@ -55,6 +57,10 @@ radius = 20.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d3if1"]
 load_path = "res://.godot/imported/burst.png-95a620d14d88df980d5ee998612bdb48.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tkcv"]
+atlas = ExtResource("34_punoh")
+region = Rect2(304, 160, 16, 16)
 
 [node name="City" type="Node3D"]
 
@@ -1136,6 +1142,45 @@ theme_override_font_sizes/normal_font_size = 50
 text = "I gotta save them!"
 fit_content = true
 autowrap_mode = 0
+
+[node name="SleepTutorial" type="Node" parent="Cutscenes" node_paths=PackedStringArray("heroine")]
+script = ExtResource("33_co14g")
+heroine = NodePath("../../Characters/Heroine")
+
+[node name="Tutorial" type="CanvasLayer" parent="Cutscenes/SleepTutorial"]
+visible = false
+
+[node name="CenterContainer" type="HBoxContainer" parent="Cutscenes/SleepTutorial/Tutorial"]
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.9
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = -212.0
+offset_top = -82.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="TextureRect" type="TextureRect" parent="Cutscenes/SleepTutorial/Tutorial/CenterContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_5tkcv")
+expand_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Cutscenes/SleepTutorial/Tutorial/CenterContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Cutscenes/SleepTutorial/Tutorial/CenterContainer/CenterContainer"]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("19_5cv8k")
+theme_override_constants/shadow_offset_y = 10
+theme_override_font_sizes/normal_font_size = 50
+text = "Nap!"
+fit_content = true
+autowrap_mode = 0
+justification_flags = 162
 
 [editable path="Models/_Node3D_196179"]
 [editable path="ActivationAreas/Areas/ActivationArea"]
