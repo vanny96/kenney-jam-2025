@@ -14,3 +14,10 @@ func _ready() -> void:
 	add_transition(ANYSTATE, walk, PlayerHSM.transition_run) 
 	add_transition(ANYSTATE, sleep, PlayerHSM.transition_sleep)
 	add_transition(sleep, idle, PlayerHSM.wake_up_event)
+	
+	add_event_handler(PlayerHSM.wake_up_event, yawn_if_sleeping)
+	
+func yawn_if_sleeping():
+	if get_active_state() == sleep:
+		yawn_audio.play()
+	return false

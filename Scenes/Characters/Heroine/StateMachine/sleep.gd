@@ -12,8 +12,7 @@ func _enter() -> void:
 	sleeping_vfs.color = Color.WHITE
 	GlobalSignals.sleeping_started.emit()
 	heroine.model.position.y = 0.5
-	passed_time = 0
-	
+	passed_time = 0	
 	
 func _update(delta: float) -> void:
 	passed_time += delta
