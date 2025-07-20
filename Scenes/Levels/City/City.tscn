@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dde8ocp2xccu"]
+[gd_scene load_steps=31 format=3 uid="uid://dde8ocp2xccu"]
 
 [ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="1_5x6sf"]
 [ext_resource type="Script" uid="uid://dextliqgr422" path="res://Scenes/Levels/Sandbox/camera_3d.gd" id="1_gttvd"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bantbtahvw1cq" path="res://Scenes/UI/shipGreen_manned.png" id="20_24yh5"]
 [ext_resource type="Texture2D" uid="uid://76fu7rtmucbg" path="res://Scenes/UI/player_fall.png" id="21_fhrle"]
 [ext_resource type="Script" uid="uid://omt4ws4ignv7" path="res://Scenes/Levels/City/game_manager.gd" id="23_u8i71"]
+[ext_resource type="Texture2D" uid="uid://bhaeow7705s5y" path="res://Scenes/UI/gear.png" id="23_wvwv2"]
 [ext_resource type="PackedScene" uid="uid://dd1y7jx28eabp" path="res://Scenes/Menus/PauseMenu/PauseMenu.tscn" id="24_d3if1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwrgy"]
@@ -903,12 +904,14 @@ transition_speed = 1.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "punches", "enemies", "citiziens")]
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "punches", "enemies", "citiziens", "pause_button", "pause_menu")]
 script = ExtResource("18_fhrle")
 player = NodePath("../Characters/Heroine")
 punches = NodePath("Punch/HBox/CenterContainer/Label")
 enemies = NodePath("Entities/Entities/Aliens/CenterContainer/Label")
 citiziens = NodePath("Entities/Entities/Humans/CenterContainer/Label")
+pause_button = NodePath("PauseButton")
+pause_menu = NodePath("../PauseLayer/PauseMenu")
 
 [node name="Punch" type="MarginContainer" parent="UI"]
 anchors_preset = 2
@@ -1013,6 +1016,15 @@ theme_override_font_sizes/normal_font_size = 100
 text = "2"
 fit_content = true
 autowrap_mode = 0
+
+[node name="PauseButton" type="TextureButton" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = ExtResource("23_wvwv2")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("23_u8i71")

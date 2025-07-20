@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brk0arxtuiaim"]
+[gd_scene load_steps=11 format=3 uid="uid://brk0arxtuiaim"]
 
 [ext_resource type="Script" uid="uid://c5okungnv126k" path="res://Scenes/Menus/MainMenu/main_menu.gd" id="1_5kab6"]
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="1_m6b4a"]
@@ -9,14 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://p3ise53njl1i" path="res://Scenes/Menus/Art/Sprites/ships/shipGreen_manned.png" id="5_0056r"]
 [ext_resource type="Texture2D" uid="uid://1c0awl3enmvx" path="res://Scenes/Menus/Art/Sprites/ships/shipPink_manned.png" id="6_gu2j1"]
 [ext_resource type="Texture2D" uid="uid://b6yh5hfk5coai" path="res://Scenes/Menus/Art/Sprites/ships/shipYellow_manned.png" id="7_dji1l"]
+[ext_resource type="PackedScene" uid="uid://cpeh65blbnfoi" path="res://Scenes/Menus/Controls/Controls.tscn" id="10_0056r"]
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("play_button", "settings_button", "exit_button", "settings_menu")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("play_button", "settings_button", "controls_button", "exit_button", "settings_menu", "controls_menu")]
 script = ExtResource("1_5kab6")
 first_level = ExtResource("3_mggrh")
 play_button = NodePath("CanvasLayer/Menu/Buttons/Play")
 settings_button = NodePath("CanvasLayer/Menu/Buttons/Settings")
+controls_button = NodePath("CanvasLayer/Menu/Buttons/Controls")
 exit_button = NodePath("CanvasLayer/Menu/Buttons/Exit")
 settings_menu = NodePath("CanvasLayer/Menu/Settings")
+controls_menu = NodePath("CanvasLayer/Menu/Controls")
 
 [node name="Ships" type="Node2D" parent="."]
 script = ExtResource("3_g6ism")
@@ -111,6 +114,10 @@ text = "Play"
 layout_mode = 2
 text = "Settings"
 
+[node name="Controls" type="Button" parent="CanvasLayer/Menu/Buttons"]
+layout_mode = 2
+text = "Controls"
+
 [node name="Exit" type="Button" parent="CanvasLayer/Menu/Buttons"]
 layout_mode = 2
 theme_type_variation = &"Accent"
@@ -139,5 +146,9 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Settings" parent="CanvasLayer/Menu" instance=ExtResource("3_iyg2c")]
+visible = false
+layout_mode = 1
+
+[node name="Controls" parent="CanvasLayer/Menu" instance=ExtResource("10_0056r")]
 visible = false
 layout_mode = 1

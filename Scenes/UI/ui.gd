@@ -6,8 +6,12 @@ extends CanvasLayer
 @export var enemies: RichTextLabel
 @export var citiziens: RichTextLabel
 
+@export var pause_button: TextureButton
+@export var pause_menu: PauseMenu
+
 func _process(delta: float) -> void:
 	update_labels()
+	pause_button.pressed.connect(pause_menu.enter_pause)
 	
 func update_labels():
 	if player:

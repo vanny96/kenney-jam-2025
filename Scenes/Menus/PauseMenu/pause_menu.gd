@@ -4,16 +4,19 @@ class_name PauseMenu
 @export var resume_button: Button
 @export var restart_button: Button
 @export var settings_button: Button
+@export var controls_button: Button 
 @export var exit_button: Button
 
 @onready var settings_menu: Control = $Settings
+@onready var controls_menu: Control = $Controls
 
 func _ready() -> void:
-	MenuAudio.configure_buttons([resume_button, settings_button, exit_button])
+	MenuAudio.configure_buttons([resume_button, settings_button, controls_button, exit_button])
 	
 	resume_button.pressed.connect(resume)
 	restart_button.pressed.connect(restart)
 	settings_button.pressed.connect(settings)
+	controls_button.pressed.connect(controls)
 	exit_button.pressed.connect(exit)
 	
 	if OS.has_feature("web"):
@@ -46,6 +49,9 @@ func resume():
 
 func settings():
 	settings_menu.visible = true
+
+func controls():
+	controls_menu.visible = true
 	
 func exit():
 	get_tree().quit()
