@@ -896,7 +896,10 @@ near = 0.001
 far = 300.0
 script = ExtResource("1_gttvd")
 target = NodePath("../Characters/Heroine")
-offset = Vector3(0, -9, -8)
+initial_offset = Vector3(0, -9, -8)
+sleeping_offset = Vector3(0, -2, -4)
+sleeping_rotation = Vector3(-15, 0, 0)
+transition_speed = 1.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
 

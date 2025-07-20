@@ -70,6 +70,7 @@ max_health = 10
 
 [node name="SleepingParticles" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28321, 0, 0.887333)
+emitting = false
 amount = 4
 lifetime = 1.5
 mesh = SubResource("QuadMesh_640je")
