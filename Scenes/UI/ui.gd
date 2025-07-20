@@ -9,9 +9,11 @@ extends CanvasLayer
 @export var pause_button: TextureButton
 @export var pause_menu: PauseMenu
 
+func _ready() -> void:
+	pause_button.pressed.connect(pause_menu.enter_pause)
+
 func _process(delta: float) -> void:
 	update_labels()
-	pause_button.pressed.connect(pause_menu.enter_pause)
 	
 func update_labels():
 	if player:
