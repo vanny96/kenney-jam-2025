@@ -17,6 +17,7 @@ signal attacked_signal
 
 @onready var model: Node3D = $characterSmall
 @onready var state_machine: LimboHSM = $LimboHSM
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

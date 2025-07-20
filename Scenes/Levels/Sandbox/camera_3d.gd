@@ -1,6 +1,7 @@
 extends Camera3D
 
 @export var target: Node3D
+@export var follow_target: bool = true
 
 @export var initial_offset: Vector3
 @onready var initial_rotation: Vector3 = rotation_degrees
@@ -21,7 +22,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if target:
+	if target and follow_target:
 		position = target.position - target_offset
 		rotation_degrees = target_rotation
 

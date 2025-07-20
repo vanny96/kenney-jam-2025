@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dde8ocp2xccu"]
+[gd_scene load_steps=38 format=3 uid="uid://dde8ocp2xccu"]
 
 [ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="1_5x6sf"]
 [ext_resource type="Script" uid="uid://dextliqgr422" path="res://Scenes/Levels/Sandbox/camera_3d.gd" id="1_gttvd"]
@@ -25,6 +25,13 @@
 [ext_resource type="Script" uid="uid://omt4ws4ignv7" path="res://Scenes/Levels/City/game_manager.gd" id="23_u8i71"]
 [ext_resource type="Texture2D" uid="uid://bhaeow7705s5y" path="res://Scenes/UI/gear.png" id="23_wvwv2"]
 [ext_resource type="PackedScene" uid="uid://dd1y7jx28eabp" path="res://Scenes/Menus/PauseMenu/PauseMenu.tscn" id="24_d3if1"]
+[ext_resource type="Script" uid="uid://b05l1tu7g3tt1" path="res://Scenes/Levels/City/Cutscenes/cutscene_1.gd" id="26_0g7oq"]
+[ext_resource type="AudioStream" uid="uid://cie3jm81iyt31" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_1.mp3" id="27_6ukli"]
+[ext_resource type="AudioStream" uid="uid://n34h4a0mf0o0" path="res://Scenes/Levels/City/Cutscenes/audio/line_1.mp3" id="27_ukdli"]
+[ext_resource type="AudioStream" uid="uid://1koi47i1f0vf" path="res://Scenes/Characters/Citizien/Audio/help_me/help_me_3.mp3" id="28_7qost"]
+[ext_resource type="AudioStream" uid="uid://dubweksapt7rq" path="res://Scenes/Levels/City/Cutscenes/audio/line_4.mp3" id="28_co14g"]
+[ext_resource type="AudioStream" uid="uid://8llpyvj2xsu" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_1.mp3" id="29_ukdli"]
+[ext_resource type="AudioStream" uid="uid://i35kmf8677tp" path="res://Scenes/Characters/Alien/Audio/hits/alien_hit_2.mp3" id="30_co14g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwrgy"]
 sky_top_color = Color(0.0352941, 0, 0.25098, 1)
@@ -904,6 +911,9 @@ transition_speed = 1.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
 
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("23_u8i71")
+
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "punches", "enemies", "citiziens", "pause_button", "pause_menu")]
 script = ExtResource("18_fhrle")
 player = NodePath("../Characters/Heroine")
@@ -1026,13 +1036,106 @@ offset_bottom = 40.0
 grow_horizontal = 0
 texture_normal = ExtResource("23_wvwv2")
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("23_u8i71")
-
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 5
 
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("24_d3if1")]
+
+[node name="Cutscenes" type="Node" parent="."]
+
+[node name="Cutscene1" type="Node" parent="Cutscenes" node_paths=PackedStringArray("heroine", "camera", "ui")]
+script = ExtResource("26_0g7oq")
+heroine = NodePath("../../Characters/Heroine")
+camera = NodePath("../../Camera3D")
+ui = NodePath("../../UI")
+camera_position_2 = Vector3(5.4, 9, 8)
+camera_pan_time = 1.5
+
+[node name="HeroinLine1" type="AudioStreamPlayer3D" parent="Cutscenes/Cutscene1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6432, 2.74904, -0.563442)
+stream = ExtResource("27_ukdli")
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="HeroinLine2" type="AudioStreamPlayer3D" parent="Cutscenes/Cutscene1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6432, 2.74904, -0.563442)
+stream = ExtResource("28_co14g")
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="HelpScream1" type="AudioStreamPlayer3D" parent="Cutscenes/Cutscene1"]
+stream = ExtResource("27_6ukli")
+pitch_scale = 1.8
+bus = &"SFX"
+
+[node name="HelpScream2" type="AudioStreamPlayer3D" parent="Cutscenes/Cutscene1"]
+stream = ExtResource("28_7qost")
+pitch_scale = 1.8
+bus = &"SFX"
+
+[node name="AlienNoises" type="AudioStreamPlayer3D" parent="Cutscenes/Cutscene1"]
+stream = ExtResource("29_ukdli")
+volume_db = -10.0
+pitch_scale = 1.8
+bus = &"SFX"
+
+[node name="AlienNoises2" type="AudioStreamPlayer3D" parent="Cutscenes/Cutscene1"]
+stream = ExtResource("30_co14g")
+volume_db = -10.0
+pitch_scale = 1.8
+bus = &"SFX"
+
+[node name="Subtitles" type="CanvasLayer" parent="Cutscenes/Cutscene1"]
+
+[node name="Subtitles" type="CenterContainer" parent="Cutscenes/Cutscene1/Subtitles"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.5
+offset_top = -82.0
+offset_right = 175.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("19_5cv8k")
+
+[node name="Line" type="RichTextLabel" parent="Cutscenes/Cutscene1/Subtitles/Subtitles"]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 50
+text = "Yawn... What did I miss?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Line2" type="RichTextLabel" parent="Cutscenes/Cutscene1/Subtitles/Subtitles"]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 50
+text = "Help me please!!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Line3" type="RichTextLabel" parent="Cutscenes/Cutscene1/Subtitles/Subtitles"]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 50
+text = "Please! Somebody!!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Line4" type="RichTextLabel" parent="Cutscenes/Cutscene1/Subtitles/Subtitles"]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 50
+text = "I gotta save them!"
+fit_content = true
+autowrap_mode = 0
 
 [editable path="Models/_Node3D_196179"]
 [editable path="ActivationAreas/Areas/ActivationArea"]
