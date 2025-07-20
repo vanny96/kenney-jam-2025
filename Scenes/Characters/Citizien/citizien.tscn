@@ -23,7 +23,7 @@ max_health = 8
 help_scream_frequency = 6.0
 
 [node name="characterSmall" parent="." instance=ExtResource("1_8pkuo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.741619, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119652, 0)
 
 [node name="Skeleton3D" parent="characterSmall/Root" index="0"]
 bones/0/rotation = Quaternion(-0.5, -0.5, 0.5, 0.5)

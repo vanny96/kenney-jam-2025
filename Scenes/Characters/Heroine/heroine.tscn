@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ddaal4qsp2hq6"]
+[gd_scene load_steps=34 format=3 uid="uid://ddaal4qsp2hq6"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_gakjb"]
 [ext_resource type="Script" uid="uid://dgle1hnxyrfw0" path="res://Scenes/Characters/Heroine/heroine.gd" id="1_sosi2"]
@@ -20,6 +20,11 @@
 [ext_resource type="AudioStream" uid="uid://cthvhlrfravad" path="res://Scenes/Characters/Heroine/Audio/hits/hit_3.mp3" id="17_tpmtx"]
 [ext_resource type="PackedScene" uid="uid://c3bjhqcaamq6s" path="res://Scenes/Characters/Heroine/Art/hairTail.fbx" id="19_tpmtx"]
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="20_cdv38"]
+[ext_resource type="AudioStream" uid="uid://j5lswf8se3ue" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_003.ogg" id="21_rip7p"]
+[ext_resource type="AudioStream" uid="uid://dvjkvmfbtvnc4" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_000.ogg" id="22_0igbq"]
+[ext_resource type="AudioStream" uid="uid://c0vf7ea1hgjj2" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_001.ogg" id="23_y6bd8"]
+[ext_resource type="AudioStream" uid="uid://c0gfk6u6ebcmo" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_002.ogg" id="24_ekty7"]
+[ext_resource type="AudioStream" uid="uid://dwww4rdkm6v0q" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_004.ogg" id="25_x5jt8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cdv38"]
 viewport_path = NodePath("SleepingParticles/SubViewport")
@@ -234,7 +239,7 @@ bones/56/rotation = Quaternion(0.0221592, 0.954752, -0.295316, -0.0273092)
 surface_material_override/0 = SubResource("StandardMaterial3D_l1h34")
 
 [node name="HeadAttachment" type="BoneAttachment3D" parent="characterSmall/Root/Skeleton3D" index="1"]
-transform = Transform3D(0.00376841, -0.962734, 0.270426, -0.536183, -0.230213, -0.812103, 0.844098, -0.141938, -0.517067, -0.0204957, -0.00749782, -0.000499569)
+transform = Transform3D(0.00376797, -0.962734, 0.270426, -0.536183, -0.230213, -0.812103, 0.844098, -0.141938, -0.517067, -0.0204957, -0.00749782, -0.000499573)
 bone_name = "Head_end"
 bone_idx = 25
 
@@ -242,7 +247,7 @@ bone_idx = 25
 transform = Transform3D(0.01, 4.72492e-10, -8.13041e-10, -3.51991e-10, 0.00999932, 0.000117164, 8.15934e-10, -0.000117165, 0.00999931, 8.73115e-11, -0.00126076, -0.00556413)
 
 [node name="TailAttachment" type="BoneAttachment3D" parent="characterSmall/Root/Skeleton3D" index="2"]
-transform = Transform3D(0.095802, -0.990473, 0.0989215, -0.489718, -0.133419, -0.861613, 0.866606, 0.0341004, -0.497832, 0.00311432, 0.000565749, 0.00145364)
+transform = Transform3D(0.0958019, -0.990473, 0.0989215, -0.489718, -0.133419, -0.861613, 0.866606, 0.0341004, -0.497832, 0.00311432, 0.000565749, 0.00145364)
 bone_name = "Hips"
 bone_idx = 19
 
@@ -285,11 +290,12 @@ script = ExtResource("7_xcws6")
 animation_player = NodePath("../../../AnimationPlayer")
 heroine = NodePath("../../..")
 
-[node name="Attack" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player", "audio_emitter", "collision_area")]
+[node name="Attack" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player", "audio_emitter", "succesful_attack_audio_emitter", "collision_area")]
 script = ExtResource("8_hh8c5")
 heroine = NodePath("../../..")
 animation_player = NodePath("../../../AnimationPlayer")
 audio_emitter = NodePath("../../../HitSoundEmitter")
+succesful_attack_audio_emitter = NodePath("../../../SuccessfulHitSoundEmitter")
 collision_area = NodePath("../../../characterSmall/AttackArea")
 
 [node name="Sleep" type="LimboState" parent="LimboHSM/Energetic" node_paths=PackedStringArray("heroine", "animation_player", "sleeping_vfs")]
@@ -332,6 +338,11 @@ max_health_field = "max_health"
 
 [node name="HitSoundEmitter" parent="." instance=ExtResource("14_yo34s")]
 audios = Array[AudioStream]([ExtResource("15_2yix8"), ExtResource("16_s5cfr"), ExtResource("17_tpmtx")])
+
+[node name="SuccessfulHitSoundEmitter" parent="." instance=ExtResource("14_yo34s")]
+stream = ExtResource("23_y6bd8")
+pitch_scale = 1.3
+audios = Array[AudioStream]([ExtResource("22_0igbq"), ExtResource("23_y6bd8"), ExtResource("24_ekty7"), ExtResource("21_rip7p"), ExtResource("25_x5jt8")])
 
 [editable path="characterSmall"]
 [editable path="characterSmall/Root/Skeleton3D/HeadAttachment/hairPigtail"]
