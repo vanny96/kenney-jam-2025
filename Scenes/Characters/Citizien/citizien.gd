@@ -22,7 +22,8 @@ func attacked():
 	curr_health -= 1
 	attacked_signal.emit()
 	if not curr_health:
-		help_scream_tween.kill()
+		if help_scream_tween:
+			help_scream_tween.kill()
 		death_sound_emitter.play()
 		animation_player.play("citizien/death")
 		await animation_player.animation_finished 
