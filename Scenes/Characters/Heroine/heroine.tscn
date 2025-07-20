@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ddaal4qsp2hq6"]
+[gd_scene load_steps=38 format=3 uid="uid://ddaal4qsp2hq6"]
 
 [ext_resource type="PackedScene" uid="uid://iyuj57fc5nk4" path="res://Art/Model/Characters/characterSmall.fbx" id="1_gakjb"]
 [ext_resource type="Script" uid="uid://dgle1hnxyrfw0" path="res://Scenes/Characters/Heroine/heroine.gd" id="1_sosi2"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://c0vf7ea1hgjj2" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_001.ogg" id="23_y6bd8"]
 [ext_resource type="AudioStream" uid="uid://c0gfk6u6ebcmo" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_002.ogg" id="24_ekty7"]
 [ext_resource type="AudioStream" uid="uid://dwww4rdkm6v0q" path="res://Scenes/Characters/Heroine/Audio/successful_hits/impactPunch_medium_004.ogg" id="25_x5jt8"]
+[ext_resource type="AudioStream" uid="uid://b0xcgfsx8tgdw" path="res://Scenes/Characters/Heroine/Audio/others/yawn.mp3" id="29_x5jt8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cdv38"]
 viewport_path = NodePath("SleepingParticles/SubViewport")
@@ -242,7 +243,7 @@ bones/56/rotation = Quaternion(0.0282603, 0.953941, -0.297574, -0.0254478)
 surface_material_override/0 = SubResource("StandardMaterial3D_l1h34")
 
 [node name="HeadAttachment" type="BoneAttachment3D" parent="characterSmall/Root/Skeleton3D" index="1"]
-transform = Transform3D(1, 5.40167e-08, -1.49012e-07, -1.3411e-07, -0.183114, -0.983092, -8.56817e-08, 0.983092, -0.183114, -8.74373e-05, -0.00448147, 0.0369215)
+transform = Transform3D(1, 5.21541e-08, -1.63913e-07, -1.41561e-07, -0.183114, -0.983092, -8.56817e-08, 0.983092, -0.183114, -8.74373e-05, -0.00448147, 0.0369215)
 bone_name = "Head_end"
 bone_idx = 25
 
@@ -250,7 +251,7 @@ bone_idx = 25
 transform = Transform3D(0.01, 4.72492e-10, -8.13041e-10, -3.51991e-10, 0.00999932, 0.000117164, 8.15934e-10, -0.000117165, 0.00999931, 8.73115e-11, -0.00126076, -0.00556413)
 
 [node name="TailAttachment" type="BoneAttachment3D" parent="characterSmall/Root/Skeleton3D" index="2"]
-transform = Transform3D(1, 1.19501e-07, 8.28004e-09, 1.42609e-09, 0.0555232, -0.998457, -1.21327e-07, 0.998458, 0.0555231, 4.14704e-06, -0.00104, 0.0116011)
+transform = Transform3D(1, 1.19734e-07, 8.25094e-09, 1.39698e-09, 0.0555232, -0.998457, -1.2156e-07, 0.998458, 0.0555231, 4.14704e-06, -0.00104, 0.0116011)
 bone_name = "Hips"
 bone_idx = 19
 
@@ -307,8 +308,9 @@ heroine = NodePath("../../..")
 animation_player = NodePath("../../../AnimationPlayer")
 sleeping_vfs = NodePath("../../../SleepingParticles")
 
-[node name="Sleepy" type="LimboHSM" parent="LimboHSM"]
+[node name="Sleepy" type="LimboHSM" parent="LimboHSM" node_paths=PackedStringArray("yawn_audio")]
 script = ExtResource("10_0v53g")
+yawn_audio = NodePath("../../YawnEmitter")
 
 [node name="Idle" type="LimboState" parent="LimboHSM/Sleepy" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("6_0rg73")
@@ -358,6 +360,11 @@ audios = Array[AudioStream]([ExtResource("15_2yix8"), ExtResource("16_s5cfr"), E
 stream = ExtResource("23_y6bd8")
 pitch_scale = 1.3
 audios = Array[AudioStream]([ExtResource("22_0igbq"), ExtResource("23_y6bd8"), ExtResource("24_ekty7"), ExtResource("21_rip7p"), ExtResource("25_x5jt8")])
+
+[node name="YawnEmitter" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("29_x5jt8")
+pitch_scale = 1.2
+bus = &"SFX"
 
 [editable path="characterSmall"]
 [editable path="characterSmall/Root/Skeleton3D/HeadAttachment/hairPigtail"]
