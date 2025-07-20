@@ -12,6 +12,9 @@ signal attacked_signal
 
 var help_scream_tween: Tween
 
+func _ready() -> void:
+	$AnimationPlayer.play("citizien/terrified")
+
 func attacked():
 	curr_health -= 1
 	attacked_signal.emit()
