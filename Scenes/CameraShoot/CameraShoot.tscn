@@ -1,12 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://dcjf4ywo8wl24"]
+[gd_scene load_steps=23 format=3 uid="uid://dcjf4ywo8wl24"]
 
 [ext_resource type="Script" uid="uid://dn48vafkjj1vt" path="res://Scenes/CameraShoot/camera_shoot.gd" id="1_vi47b"]
 [ext_resource type="PackedScene" uid="uid://ddaal4qsp2hq6" path="res://Scenes/Characters/Heroine/heroine.tscn" id="2_squo6"]
-[ext_resource type="Script" uid="uid://bp7gil4fg74cq" path="res://Scenes/CameraShoot/scene.gd" id="2_y52ve"]
+[ext_resource type="Script" path="res://Scenes/CameraShoot/scene.gd" id="2_y52ve"]
 [ext_resource type="Texture2D" uid="uid://ctnwa76p3xkjg" path="res://Scenes/Characters/Heroine/Art/fantasyFemaleB.png" id="3_y52ve"]
 [ext_resource type="Theme" uid="uid://5pklym2f8loh" path="res://Scenes/Menus/Art/menus.tres" id="5_a0sxp"]
 [ext_resource type="PackedScene" uid="uid://bhdlahlvxtg2a" path="res://Scenes/Characters/Citizien/citizien.tscn" id="5_bmi85"]
 [ext_resource type="PackedScene" uid="uid://gx2ujg10c2cq" path="res://Scenes/Characters/Alien/alien.tscn" id="5_ujpnv"]
+[ext_resource type="PackedScene" uid="uid://cfliqordjl23h" path="res://Scenes/Levels/City/Art/small_buildingA.glb" id="8_cnt30"]
+[ext_resource type="Script" uid="uid://biidh3aqh1ktv" path="res://Scenes/Menus/MainMenu/ships.gd" id="8_xpig0"]
+[ext_resource type="Texture2D" uid="uid://ctd5wehoj24db" path="res://Scenes/Menus/Art/Sprites/ships/shipBlue_manned.png" id="9_b3cuf"]
+[ext_resource type="PackedScene" uid="uid://drndpovrhsxfi" path="res://Scenes/Levels/City/Art/road-straight.glb" id="9_qplj7"]
+[ext_resource type="PackedScene" uid="uid://uxdv5ytix2or" path="res://Scenes/Levels/City/Art/tile-low.glb" id="10_d1mhf"]
+[ext_resource type="Texture2D" uid="uid://p3ise53njl1i" path="res://Scenes/Menus/Art/Sprites/ships/shipGreen_manned.png" id="10_fh3y8"]
+[ext_resource type="Texture2D" uid="uid://1c0awl3enmvx" path="res://Scenes/Menus/Art/Sprites/ships/shipPink_manned.png" id="11_ri781"]
+[ext_resource type="Texture2D" uid="uid://b6yh5hfk5coai" path="res://Scenes/Menus/Art/Sprites/ships/shipYellow_manned.png" id="12_eriwf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0as3k"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,14 +25,15 @@ sky_material = SubResource("ProceduralSkyMaterial_0as3k")
 
 [sub_resource type="Environment" id="Environment_b8dqe"]
 background_mode = 1
-background_color = Color(0, 0.454902, 0.854902, 1)
+background_color = Color(0.0352941, 0, 0.25098, 1)
 sky = SubResource("Sky_vi47b")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
 tonemap_mode = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_a0sxp"]
-viewport_path = NodePath("Scene/Heroine/SleepingParticles/SubViewport")
+viewport_path = NodePath("SleepingParticles/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujpnv"]
 resource_local_to_scene = true
@@ -44,15 +53,21 @@ albedo_texture = ExtResource("3_y52ve")
 
 [node name="CameraShoot" type="Node3D"]
 script = ExtResource("1_vi47b")
-image_path = "res://Scenes/Levels/CameraShoot/Output"
+image_path = "res://Scenes/CameraShoot/Output/"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999669, 0.0257232, 0, -0.0257232, 0.999669, -0.547217, 1.40577, 2.98611)
+transform = Transform3D(1, 0, 0, 0, 0.999669, 0.0257232, 0, -0.0257232, 0.999669, -0.547217, 2.034, 2.98611)
 
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.0588235, 0.509804, 0.54902, 1)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.968205, -0.216642, 0.125077, 2.87639e-08, 0.499998, 0.866026, -0.250158, -0.838492, 0.484101, 0, 0, 0)
+light_color = Color(0.0588235, 0.509804, 0.54902, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
@@ -62,7 +77,8 @@ environment = SubResource("Environment_b8dqe")
 script = ExtResource("2_y52ve")
 
 [node name="Heroine" parent="Scene" instance=ExtResource("2_squo6")]
-transform = Transform3D(0.902021, 0, -0.431692, 0, 1, 0, 0.431692, 0, 0.902021, 0, 0, 0)
+transform = Transform3D(0.902021, 0, -0.431692, 0, 1, 0, 0.431692, 0, 0.902021, 0, 0.585141, 0.152131)
+visible = false
 script = null
 
 [node name="SleepingParticles" parent="Scene/Heroine" index="0"]
@@ -71,6 +87,12 @@ mesh = SubResource("QuadMesh_bmi85")
 
 [node name="characterSmall" parent="Scene/Heroine/characterSmall/Root/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_cnt30")
+
+[node name="HeadAttachment" parent="Scene/Heroine/characterSmall/Root/Skeleton3D" index="1"]
+transform = Transform3D(0.00376797, -0.962734, 0.270426, -0.536183, -0.230213, -0.812103, 0.844098, -0.141938, -0.517067, -0.0204957, -0.00749782, -0.000499573)
+
+[node name="TailAttachment" parent="Scene/Heroine/characterSmall/Root/Skeleton3D" index="2"]
+transform = Transform3D(0.0958019, -0.990473, 0.0989215, -0.489718, -0.133419, -0.861613, 0.866606, 0.0341004, -0.497832, 0.00311432, 0.000565749, 0.00145364)
 
 [node name="CollisionShape3D" parent="Scene/Heroine" index="3"]
 process_mode = 4
@@ -92,48 +114,9 @@ process_mode = 4
 visible = false
 
 [node name="Citizien" parent="Scene" instance=ExtResource("5_bmi85")]
-transform = Transform3D(-0.378503, 0, 0.9256, 0, 1, 0, -0.9256, 0, -0.378503, -2.15675, -0.408523, -1.9196)
+transform = Transform3D(-0.378503, 0, 0.9256, 0, 1, 0, -0.9256, 0, -0.378503, -2.15675, -0.0650808, -1.9196)
+visible = false
 script = null
-
-[node name="Skeleton3D" parent="Scene/Citizien/characterSmall/Root" index="0"]
-bones/0/rotation = Quaternion(-0.5, -0.5, 0.5, 0.5)
-bones/1/rotation = Quaternion(-0.507454, 0.508134, -0.491989, -0.492175)
-bones/2/rotation = Quaternion(0.0155854, -0.00204023, 0.994626, -0.102335)
-bones/3/rotation = Quaternion(0.946129, -0.0218711, 0.0755029, -0.314103)
-bones/7/rotation = Quaternion(-0.707107, 5.55112e-17, 0.707107, 1.66533e-16)
-bones/9/rotation = Quaternion(-0.5, -0.5, 0.5, 0.5)
-bones/10/rotation = Quaternion(-0.507767, 0.507971, -0.491669, -0.492341)
-bones/12/rotation = Quaternion(0.948112, 0.0114452, -0.044093, -0.314656)
-bones/16/rotation = Quaternion(-0.707107, 5.55112e-17, 0.707107, 1.66533e-16)
-bones/18/position = Vector3(-0.000562492, 0.00055609, 0.0108523)
-bones/20/rotation = Quaternion(0.092887, 0.0266759, 0.0295261, 0.994881)
-bones/23/rotation = Quaternion(0.174253, 0.175937, -0.0591201, 0.967051)
-bones/24/rotation = Quaternion(-0.254215, 0.294544, -0.268063, 0.88134)
-bones/26/rotation = Quaternion(0.388694, 0.484531, 0.638433, -0.454478)
-bones/27/rotation = Quaternion(-0.321865, 0.296919, -0.0940537, 0.894089)
-bones/28/rotation = Quaternion(0.965742, 0.00434176, 0.0188472, 0.258783)
-bones/29/rotation = Quaternion(-0.1079, 0.448928, 0.0874355, 0.88271)
-bones/30/rotation = Quaternion(0.2055, 0.0337757, 0.0465174, 0.976967)
-bones/31/rotation = Quaternion(0.722235, 0.0368299, -0.0849713, 0.68542)
-bones/32/rotation = Quaternion(0.470231, -0.0395735, -0.0192855, 0.881445)
-bones/34/rotation = Quaternion(-0.00688108, 0.747905, 0.355693, 0.560423)
-bones/35/rotation = Quaternion(0.433211, 0.0507382, -0.00654987, 0.899839)
-bones/37/rotation = Quaternion(0.74986, -0.524132, 0.3336, 0.227393)
-bones/38/rotation = Quaternion(0.667807, 0.650803, -0.00686688, -0.361169)
-bones/39/rotation = Quaternion(0.003041, -0.0945201, 0.742096, 0.663589)
-bones/40/rotation = Quaternion(-0.0850096, 0.798631, 0.147529, 0.577232)
-bones/41/rotation = Quaternion(-0.234965, -0.160399, 0.0534905, 0.957185)
-bones/42/rotation = Quaternion(-0.72348, 0.0553401, -0.0736162, 0.684174)
-bones/43/rotation = Quaternion(-0.49641, -0.00894084, -0.0429205, 0.86698)
-bones/45/rotation = Quaternion(-0.0187751, 0.828233, -0.379568, -0.411833)
-bones/46/rotation = Quaternion(-0.415512, -0.0866699, 0.122741, 0.897091)
-bones/48/rotation = Quaternion(0.819273, 0.0477735, -0.0587641, 0.56838)
-bones/49/rotation = Quaternion(0.451451, -0.0308153, 0.00171347, 0.891762)
-bones/50/rotation = Quaternion(-0.533061, -0.177033, 0.000756597, 0.827348)
-bones/53/rotation = Quaternion(0.729845, -0.12655, 0.0251231, 0.671328)
-bones/54/rotation = Quaternion(0.547424, -0.069367, -0.00112781, 0.833975)
-bones/55/rotation = Quaternion(-0.575257, 0.0416261, -0.03735, 0.816059)
-bones/56/rotation = Quaternion(0.0221592, 0.954752, -0.295316, -0.0273092)
 
 [node name="HealthBar" parent="Scene/Citizien" index="3"]
 visible = false
@@ -143,50 +126,9 @@ script = null
 visible = false
 
 [node name="Alien" parent="Scene" instance=ExtResource("5_ujpnv")]
-transform = Transform3D(0.0636615, 0, -0.997972, 0, 1, 0, 0.997972, 0, 0.0636615, 0.75105, 0, -1.9196)
+transform = Transform3D(0.0636615, 0, -0.997972, 0, 1, 0, 0.997972, 0, 0.0636615, 0.75105, 0.343442, -1.9196)
+visible = false
 script = null
-
-[node name="Skeleton3D" parent="Scene/Alien/characterSmall/Root" index="0"]
-bones/0/rotation = Quaternion(-0.428388, -0.562568, 0.562569, 0.428388)
-bones/1/rotation = Quaternion(-0.507512, 0.508228, -0.491907, -0.492101)
-bones/2/rotation = Quaternion(0.0157359, -0.00207876, 0.994625, -0.102322)
-bones/3/rotation = Quaternion(0.946129, -0.0218708, 0.0755026, -0.314104)
-bones/7/position = Vector3(-0.00617958, -0.00586701, 0.0017015)
-bones/7/rotation = Quaternion(-0.707107, 9.41569e-08, 0.707107, 9.4157e-08)
-bones/9/rotation = Quaternion(-0.606062, -0.364264, 0.364264, 0.606062)
-bones/10/rotation = Quaternion(-0.507686, 0.507902, -0.491728, -0.492437)
-bones/12/rotation = Quaternion(0.948112, 0.0114449, -0.0440931, -0.314656)
-bones/16/position = Vector3(-0.00617958, -0.005867, -0.000291983)
-bones/16/rotation = Quaternion(-0.707107, 9.41569e-08, 0.707107, 9.4157e-08)
-bones/18/position = Vector3(-4.99155e-07, -0.00104, 0.0148206)
-bones/19/rotation = Quaternion(5.28985e-05, -0.0277724, 0.999613, 0.00144519)
-bones/20/rotation = Quaternion(-0.00430834, -0.162356, -0.00973981, 0.986675)
-bones/21/rotation = Quaternion(0.0623484, -0.0448529, -0.00280481, 0.997042)
-bones/22/rotation = Quaternion(0.0940942, 6.48254e-09, -1.16934e-09, 0.995563)
-bones/23/rotation = Quaternion(0.0766157, 1.04791e-08, 5.72117e-09, 0.997061)
-bones/24/rotation = Quaternion(-0.107027, 0.198692, -0.0572031, 0.97252)
-bones/26/rotation = Quaternion(0.597656, 0.395508, 0.565647, -0.407952)
-bones/27/rotation = Quaternion(-0.430053, 0.58381, -0.114559, 0.679041)
-bones/28/rotation = Quaternion(0.352829, -0.0668637, -0.171465, 0.91741)
-bones/31/rotation = Quaternion(0.771667, 0.0466405, 0.00196557, 0.634311)
-bones/32/rotation = Quaternion(0.410935, -0.0278593, 0.0125054, 0.911153)
-bones/34/rotation = Quaternion(-0.213061, 0.695039, 0.358431, 0.585707)
-bones/35/rotation = Quaternion(0.660648, -0.0754557, 0.119352, 0.737296)
-bones/37/rotation = Quaternion(0.678186, -0.48571, 0.463529, 0.298814)
-bones/38/rotation = Quaternion(0.143467, 0.937657, 0.315263, -0.0287429)
-bones/39/rotation = Quaternion(-0.0678256, -0.0210801, 0.351795, 0.933379)
-bones/40/rotation = Quaternion(-0.0108135, 0.109294, -0.0332856, 0.993393)
-bones/42/rotation = Quaternion(-0.862729, 0.0398914, 0.01577, 0.503845)
-bones/43/rotation = Quaternion(-0.410937, -0.0278582, -0.0125049, 0.911152)
-bones/45/rotation = Quaternion(-0.23102, 0.802493, -0.347127, -0.426776)
-bones/46/rotation = Quaternion(-0.595143, 0.0459218, 0.310654, 0.739723)
-bones/48/rotation = Quaternion(0.958125, 0.0627951, 0.0365861, 0.276975)
-bones/49/rotation = Quaternion(0.360246, 0.0302956, 0.134493, 0.922614)
-bones/50/rotation = Quaternion(-0.478976, -0.200865, -0.206275, 0.829268)
-bones/53/rotation = Quaternion(0.979992, -0.109964, 0.139739, -0.089422)
-bones/54/rotation = Quaternion(0.235678, 0.0112551, -0.100367, 0.966569)
-bones/55/rotation = Quaternion(-0.664654, 0.133975, 0.0408083, 0.733908)
-bones/56/rotation = Quaternion(0.0282604, 0.953941, -0.297574, -0.0254478)
 
 [node name="LimboHSM" parent="Scene/Alien" index="3"]
 process_mode = 4
@@ -204,6 +146,7 @@ process_mode = 4
 process_mode = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Scene"]
+visible = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Scene/CanvasLayer"]
 clip_contents = false
@@ -212,19 +155,124 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -328.0
-offset_top = -290.0
-offset_right = 328.0
-offset_bottom = -126.0
+offset_left = -491.5
+offset_top = -123.0
+offset_right = 491.5
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_a0sxp")
 theme_override_colors/font_outline_color = Color(0.0941176, 0.733333, 0.466667, 1)
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/normal_font_size = 150
-text = "Power Nap!"
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]Power Nap![/wave]"
 fit_content = true
 autowrap_mode = 0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Scene"]
+
+[node name="Ships" type="Node2D" parent="Scene/CanvasLayer2"]
+script = ExtResource("8_xpig0")
+move_speed = 200
+
+[node name="ShipBlueManned" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(1141, 265)
+texture = ExtResource("9_b3cuf")
+
+[node name="ShipBlueManned2" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(575, 400)
+texture = ExtResource("9_b3cuf")
+
+[node name="ShipBlueManned3" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(1859, 754)
+texture = ExtResource("9_b3cuf")
+
+[node name="ShipGreenManned" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(754, 644)
+texture = ExtResource("10_fh3y8")
+
+[node name="ShipGreenManned3" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(114, 508)
+texture = ExtResource("10_fh3y8")
+
+[node name="ShipGreenManned2" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(1087, 803)
+texture = ExtResource("10_fh3y8")
+
+[node name="ShipPinkManned" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(1553, 390)
+texture = ExtResource("11_ri781")
+
+[node name="ShipPinkManned2" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(418, 916)
+texture = ExtResource("11_ri781")
+
+[node name="ShipYellowManned" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(1516, 948)
+texture = ExtResource("12_eriwf")
+
+[node name="ShipYellowManned2" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(353, 189)
+texture = ExtResource("12_eriwf")
+
+[node name="ShipYellowManned3" type="Sprite2D" parent="Scene/CanvasLayer2/Ships"]
+position = Vector2(1852, 70)
+texture = ExtResource("12_eriwf")
+
+[node name="City" type="Node3D" parent="Scene"]
+visible = false
+
+[node name="small_buildingA2" parent="Scene/City" instance=ExtResource("8_cnt30")]
+transform = Transform3D(11.4383, 0, 9.70384, 0, 15, 0, -9.70384, 0, 11.4383, -1.78646, 0, -18.4981)
+
+[node name="small_buildingA" parent="Scene/City/small_buildingA2/tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575851, 0, -0.0910162)
+
+[node name="small_buildingA3" parent="Scene/City" instance=ExtResource("8_cnt30")]
+transform = Transform3D(11.4202, 0, -9.72519, 0, 15, 0, 9.72519, 0, 11.4202, 18.5974, 0, -9.02709)
+
+[node name="small_buildingA" parent="Scene/City/small_buildingA3/tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575851, 0, -0.0910162)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Scene/City"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.78912, 13.8325, -9.0895)
+light_color = Color(1, 0.8, 0, 1)
+light_energy = 1.5
+light_bake_mode = 1
+distance_fade_enabled = true
+distance_fade_begin = 60.0
+distance_fade_length = 5.0
+spot_range = 20.0
+spot_attenuation = 0.0
+spot_angle = 60.0
+
+[node name="road-straight2" parent="Scene/City" instance=ExtResource("9_qplj7")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 0, 0, 15)
+
+[node name="@Node3D@51878" parent="Scene/City" instance=ExtResource("9_qplj7")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 0, 0, 0)
+
+[node name="tile-low2" parent="Scene/City" instance=ExtResource("10_d1mhf")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, -15)
+
+[node name="@Node3D@51879" parent="Scene/City" instance=ExtResource("10_d1mhf")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, 0)
+
+[node name="@Node3D@51880" parent="Scene/City" instance=ExtResource("10_d1mhf")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, -15)
+
+[node name="@Node3D@51881" parent="Scene/City" instance=ExtResource("10_d1mhf")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, 0)
+
+[node name="@Node3D@51882" parent="Scene/City" instance=ExtResource("10_d1mhf")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, -15, 0, 15)
+
+[node name="@Node3D@51883" parent="Scene/City" instance=ExtResource("10_d1mhf")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 15, 0, 15)
+
+[node name="@Node3D@51887" parent="Scene/City" instance=ExtResource("9_qplj7")]
+transform = Transform3D(1.78873e-07, 0, -15, 0, 15, 0, 15, 0, 1.78873e-07, 0, 0, -15)
 
 [editable path="Scene/Heroine"]
 [editable path="Scene/Heroine/characterSmall"]
@@ -234,3 +282,5 @@ autowrap_mode = 0
 [editable path="Scene/Citizien/characterSmall"]
 [editable path="Scene/Alien"]
 [editable path="Scene/Alien/characterSmall"]
+[editable path="Scene/City/small_buildingA2"]
+[editable path="Scene/City/small_buildingA3"]
