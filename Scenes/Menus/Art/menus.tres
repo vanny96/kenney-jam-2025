@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=35 format=3 uid="uid://5pklym2f8loh"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://5pklym2f8loh"]
 
 [ext_resource type="FontFile" uid="uid://3wy8w30rx4ng" path="res://Scenes/Menus/Art/Fonts/KOMIKAX_.ttf" id="1_y4o5l"]
 [ext_resource type="Texture2D" uid="uid://bdfv848srhe77" path="res://Scenes/Menus/Art/Sprites/accent_button_red/button_square_depth_gloss.svg" id="2_cbumo"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dakv7805evm6h" path="res://Scenes/Menus/Art/Sprites/button/button_square_depth_flat.svg" id="7_y5gi8"]
 [ext_resource type="Texture2D" uid="uid://200tb2v6ayuu" path="res://Scenes/Menus/Art/Sprites/slider/icon_circle.svg" id="8_bc2jp"]
 [ext_resource type="Texture2D" uid="uid://c58hwjf71ebd8" path="res://Scenes/Menus/Art/Sprites/slider/icon_outline_circle.svg" id="9_y7ss5"]
-[ext_resource type="Texture2D" uid="uid://cnyatifw6wa4y" path="res://AllAssets/UI/Vector/Red/slide_horizontal_color.svg" id="10_eew57"]
 [ext_resource type="Texture2D" uid="uid://p5trmphkxkfj" path="res://Scenes/Menus/Art/Sprites/slider/slide_horizontal_color.svg" id="11_cbumo"]
 [ext_resource type="Texture2D" uid="uid://d1b3aqisqwwrk" path="res://Scenes/Menus/Art/Sprites/slider/slide_horizontal_grey.svg" id="11_rbo4i"]
 [ext_resource type="Texture2D" uid="uid://c03o1k80l7do5" path="res://Scenes/Menus/Art/Sprites/panel/button_square_border.svg" id="12_u5v1x"]
@@ -112,9 +111,9 @@ texture_margin_right = 5.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.804743, 0.804743, 0.804743, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bvxll"]
-texture = ExtResource("10_eew57")
-region_rect = Rect2(15, 0, 65, 16)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y4o5l"]
+texture = ExtResource("11_cbumo")
+region_rect = Rect2(32, 0, 128, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bvr87"]
 texture = ExtResource("11_cbumo")
@@ -202,7 +201,7 @@ Button/styles/normal = SubResource("StyleBoxTexture_de5kl")
 Button/styles/pressed = SubResource("StyleBoxTexture_amnh1")
 HSlider/icons/grabber = ExtResource("8_bc2jp")
 HSlider/icons/grabber_highlight = ExtResource("9_y7ss5")
-HSlider/styles/grabber_area = SubResource("StyleBoxTexture_bvxll")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_y4o5l")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_bvr87")
 HSlider/styles/slider = SubResource("StyleBoxTexture_nuy6a")
 Label/colors/font_color = Color(0, 0, 0, 1)
